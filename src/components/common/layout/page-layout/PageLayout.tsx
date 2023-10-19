@@ -11,7 +11,6 @@ const PageLayout: FC<PageLayoutProps> = ({ children }) => {
   return (
     <Box>
       <Header />
-      <h1>hjdhjkdh</h1>
       {children}
     </Box>
   );

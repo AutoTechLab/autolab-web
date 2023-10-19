@@ -1,9 +1,11 @@
-import PageLayout from '@/components/common/layout/page-layout/PageLayout';
+import { SWRConfig } from 'swr';
+
+const options = {};
 
 export default function Home() {
   return (
-    <PageLayout>
-      <h1>Autolab</h1>
-    </PageLayout>
+    <SWRConfig value={options}>
+      <h1>Autolab</h1>;
+    </SWRConfig>
   );
 }

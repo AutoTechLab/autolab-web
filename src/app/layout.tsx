@@ -1,6 +1,7 @@
 import { ReactNode } from 'react';
 import type { Metadata } from 'next';
 
+import PageLayout from '@/components/common/layout/page-layout/PageLayout';
 import prompt from '@/styles/fonts';
 
 import './globals.css';
@@ -13,7 +14,9 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="uk-UA">
-      <body className={prompt.className}>{children}</body>
+      <body className={prompt.className}>
+        <PageLayout>{children}</PageLayout>
+      </body>
     </html>
   );
 }

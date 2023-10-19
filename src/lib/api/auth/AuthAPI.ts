@@ -15,4 +15,4 @@ class AuthAPI {
   }
 }
 
-export default AuthAPI;
+export default new AuthAPI();

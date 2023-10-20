@@ -1,5 +1,3 @@
-'use client';
-
 import RegistrationPage from '@/components/pages/registration-page';
 
 const Register = () => {

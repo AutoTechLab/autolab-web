@@ -1,15 +1,5 @@
-import { SWRConfig } from 'swr';
-
-import useUser from '@/hooks/useUser';
-
-const Profile = () => {
-  const { user, isLoading, isError } = useUser();
-
-  return (
-    <SWRConfig>
-      <h1>{user}</h1>;
-    </SWRConfig>
-  );
+const Profile = async () => {
+  return <h1>Profile</h1>;
 };
 
 export default Profile;

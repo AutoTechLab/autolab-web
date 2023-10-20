@@ -1,6 +1,9 @@
-import { FC, FormEvent } from 'react';
+'use client';
+
+import { FC } from 'react';
 import { Box, Button, TextField } from '@mui/material';
 import { useFormik } from 'formik';
+import { signIn, useSession } from 'next-auth/react';
 
 import { initialValues } from './constants/initialValues';
 import { validationSchema } from './validation/validationSchema';
@@ -11,11 +14,22 @@ interface RegistrationPageProps {
 }
 
 const RegistrationPage: FC<RegistrationPageProps> = () => {
+  const { data: session } = useSession();
+  console.log(session);
   const formik = useFormik({
-    initialValues: initialValues,
-    validationSchema: validationSchema,
-    onSubmit: values => {
+    initialValues,
+    validationSchema,
+    onSubmit: async values => {
       console.log(values);
+      await signIn('registration', {
+        username: values.username,
+        email: values.email,
+        password: values.password,
+        firstname: values.firstname,
+        lastname: values.lastname,
+        middlename: values.middlename,
+        age: values.age,
+      });
     },
   });
 

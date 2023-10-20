@@ -15,9 +15,9 @@ const handler = NextAuth({
   },
   providers: [
     CredentialsProvider({
-      id: '',
       type: 'credentials',
-      name: 'Registration',
+      id: 'registration',
+      name: 'registration',
       credentials: {
         username: { label: 'Username', type: 'text', required: true },
         email: { label: 'Email', type: 'email', required: true },

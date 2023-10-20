@@ -2,10 +2,9 @@ import { ReactNode } from 'react';
 import type { Metadata } from 'next';
 import { getServerSession } from 'next-auth';
 
+import SessionProvider from '@/app/api/auth/[...nextauth]/components/SessionProvider';
 import PageLayout from '@/components/common/layout/page-layout/PageLayout';
 import prompt from '@/styles/fonts';
-
-import SessionProvider from './api/auth/[...nextAuth]/components/SessionProvider';
 
 import './globals.css';
 

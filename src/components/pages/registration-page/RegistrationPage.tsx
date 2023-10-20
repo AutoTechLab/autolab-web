@@ -18,7 +18,6 @@ const RegistrationPage: FC<RegistrationPageProps> = () => {
   console.log(session);
   const formik = useFormik({
     initialValues,
-    validationSchema,
     onSubmit: async values => {
       console.log(values);
       await signIn('registration', {

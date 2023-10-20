@@ -40,7 +40,7 @@ const handler = NextAuth({
 
         try {
           const response = await AuthAPI.register(userObject);
-          StorageUtil.setToken(response.accessToken);
+          //StorageUtil.setToken(response.accessToken);
         } catch (error) {
           console.error('API request error', error);
         }

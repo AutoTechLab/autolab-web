@@ -1,9 +1,12 @@
-export const initialValues = {
+import { RegisterBody } from '@/lib/api/auth/types/RegisterBody';
+
+export const initialValues: RegisterBody = {
   username: '',
   email: '',
+  phone: '',
   password: '',
   firstname: '',
   lastname: '',
   middlename: '',
-  age: 0,
+  birthDate: '',
 };

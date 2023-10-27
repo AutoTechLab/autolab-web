@@ -2,8 +2,9 @@ import { ReactNode } from 'react';
 import type { Metadata } from 'next';
 import { getServerSession } from 'next-auth';
 
-import SessionProvider from '@/app/api/auth/[...nextauth]/components/SessionProvider';
+import { authOptions } from '@/app/api/auth/[...nextauth]/route';
 import PageLayout from '@/components/common/layout/page-layout/PageLayout';
+import Providers from '@/components/common/layout/providers';
 import prompt from '@/styles/fonts';
 
 import './globals.css';
@@ -18,14 +19,13 @@ export default async function RootLayout({
 }: {
   children: ReactNode;
 }) {
-  const session = await getServerSession();
-
+  const session = await getServerSession(authOptions);
   return (
     <html lang="uk-UA">
       <body className={prompt.className}>
-        <PageLayout>
-          <SessionProvider session={session}>{children}</SessionProvider>
-        </PageLayout>
+        <Providers session={session}>
+          <PageLayout>{children}</PageLayout>
+        </Providers>
       </body>
     </html>
   );

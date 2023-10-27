@@ -1,5 +1,7 @@
+import ProfilePage from '@/components/pages/profile-page';
+
 const Profile = async () => {
-  return <h1>Profile</h1>;
+  return <ProfilePage prop={''} />;
 };
 
 export default Profile;

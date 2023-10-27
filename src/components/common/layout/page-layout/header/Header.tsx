@@ -4,11 +4,12 @@ import Link from 'next/link';
 
 import Logo from '@/components/common/icons/Logo';
 import Menu from '@/components/common/layout/page-layout/header/menu/Menu';
+import useUser from '@/hooks/useUser';
 
 import * as styles from './Header.styles';
 
 const Header = () => {
-  const user = null;
+  const { user } = useUser();
 
   return (
     <Box sx={styles.wrapper}>
@@ -29,7 +30,9 @@ const Header = () => {
           </Link>
         </Box>
       ) : (
-        <Box>User</Box>
+        <Link href="/profile">
+          <Typography variant="h6">{user?.username}</Typography>
+        </Link>
       )}
     </Box>
   );

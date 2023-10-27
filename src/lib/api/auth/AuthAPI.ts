@@ -5,12 +5,12 @@ import { instance } from '@/lib/api/instance';
 
 class AuthAPI {
   async register(body: RegisterBody) {
-    const { data } = await instance.post<Token>('user/register', body);
+    const { data } = await instance.post('/auth/register', body);
     return data;
   }
 
   async login(body: LoginBody) {
-    const { data } = await instance.post<Token>('user/login', body);
+    const { data } = await instance.post<Token>('/auth/login', body);
     return data;
   }
 }

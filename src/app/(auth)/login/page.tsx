@@ -1,7 +1,7 @@
-import RegistrationPage from '@/components/pages/registration-page';
+import LoginPage from '@/components/pages/login-page';
 
 const Login = () => {
-  return <div></div>;
+  return <LoginPage prop={''} />;
 };
 
 export default Login;

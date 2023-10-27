@@ -2,8 +2,10 @@
 
 import { FC } from 'react';
 import { Box, Button, TextField } from '@mui/material';
+import axios from 'axios';
 import { useFormik } from 'formik';
-import { signIn, useSession } from 'next-auth/react';
+
+import AuthAPI from '@/lib/api/auth/AuthAPI';
 
 import { initialValues } from './constants/initialValues';
 import { validationSchema } from './validation/validationSchema';
@@ -14,21 +16,18 @@ interface RegistrationPageProps {
 }
 
 const RegistrationPage: FC<RegistrationPageProps> = () => {
-  const { data: session } = useSession();
-  console.log(session);
   const formik = useFormik({
     initialValues,
-    onSubmit: async values => {
+    validationSchema,
+    async onSubmit(values) {
       console.log(values);
-      await signIn('registration', {
-        username: values.username,
-        email: values.email,
-        password: values.password,
-        firstname: values.firstname,
-        lastname: values.lastname,
-        middlename: values.middlename,
-        age: values.age,
-      });
+      try {
+        await AuthAPI.register(values);
+      } catch (e) {
+        if (axios.isAxiosError(e)) {
+          console.log(e.response?.data);
+        }
+      }
     },
   });
 
@@ -43,21 +42,31 @@ const RegistrationPage: FC<RegistrationPageProps> = () => {
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
           error={formik.touched.email && Boolean(formik.errors.email)}
-        />
-        <TextField
-          type="password"
-          name="password"
-          id="password"
-          value={formik.values.password}
-          onChange={formik.handleChange}
-          onBlur={formik.handleBlur}
-          error={formik.touched.email && Boolean(formik.errors.email)}
+          helperText={formik.errors.email}
         />
         <TextField
           type="email"
           name="email"
           id="email"
           value={formik.values.email}
+          onChange={formik.handleChange}
+          onBlur={formik.handleBlur}
+          error={formik.touched.email && Boolean(formik.errors.email)}
+        />
+        <TextField
+          type="text"
+          name="phone"
+          id="phone"
+          value={formik.values.phone}
+          onChange={formik.handleChange}
+          onBlur={formik.handleBlur}
+          error={formik.touched.email && Boolean(formik.errors.email)}
+        />
+        <TextField
+          type="password"
+          name="password"
+          id="password"
+          value={formik.values.password}
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
           error={formik.touched.email && Boolean(formik.errors.email)}
@@ -90,10 +99,10 @@ const RegistrationPage: FC<RegistrationPageProps> = () => {
           error={formik.touched.email && Boolean(formik.errors.email)}
         />
         <TextField
-          type="number"
-          name="age"
-          id="age"
-          value={formik.values.age}
+          type="text"
+          name="birthDate"
+          id="birthDate"
+          value={formik.values.birthDate}
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
           error={formik.touched.email && Boolean(formik.errors.email)}

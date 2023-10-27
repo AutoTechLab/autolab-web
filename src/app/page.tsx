@@ -1,3 +1,7 @@
 export default function Home() {
-  return <h1>Autolab</h1>;
+  return (
+    <div>
+      <h1>Autolab</h1>
+    </div>
+  );
 }

@@ -1,53 +1,61 @@
+import axios from 'axios';
+import type { AuthOptions } from 'next-auth';
 import NextAuth from 'next-auth';
 import CredentialsProvider from 'next-auth/providers/credentials';
 
 import AuthAPI from '@/lib/api/auth/AuthAPI';
-import { RegisterBody } from '@/lib/api/auth/types/RegisterBody';
-import StorageUtil from '@/lib/utils/storageUtil';
+import type { LoginBody } from '@/lib/api/auth/types/LoginBody';
 
-const handler = NextAuth({
+export const authOptions: AuthOptions = {
   session: {
     strategy: 'jwt',
   },
+  secret: process.env.NEXTAUTH_SECRET,
   pages: {
-    newUser: '/register',
     signIn: '/login',
+    newUser: '/profile',
   },
   providers: [
     CredentialsProvider({
       type: 'credentials',
-      id: 'registration',
-      name: 'registration',
+      id: 'login',
+      name: 'login',
       credentials: {
         username: { label: 'Username', type: 'text', required: true },
-        email: { label: 'Email', type: 'email', required: true },
         password: { label: 'Password', type: 'password', required: true },
-        firstname: { label: 'First name', type: 'text', required: true },
-        lastname: { label: 'Last name', type: 'text', required: true },
-        middlename: { label: 'Middle name', type: 'text', required: false },
-        age: { label: 'Age', type: 'number', required: true },
       },
       async authorize(credentials) {
-        const userObject: RegisterBody = {
+        const loginData: LoginBody = {
           username: credentials!.username!,
-          email: credentials!.email!,
           password: credentials!.password!,
-          firstname: credentials!.firstname!,
-          lastname: credentials!.lastname!,
-          middlename: credentials!.middlename || '',
-          age: +credentials!.age!,
         };
 
         try {
-          const response = await AuthAPI.register(userObject);
-          //StorageUtil.setToken(response.accessToken);
+          return await AuthAPI.login(loginData);
         } catch (error) {
-          console.error('API request error', error);
+          if (axios.isAxiosError(error)) {
+            return error.response?.data;
+          }
         }
-        return null;
       },
     }),
   ],
-});
+  callbacks: {
+    async jwt({ token, user }) {
+      if (user) token.accessToken = user.accessToken;
+      return token;
+    },
+
+    async session({ token, session }) {
+      if (token.accessToken) {
+        session.user.accessToken = token.accessToken;
+      }
+      console.log(session);
+      return session;
+    },
+  },
+};
+
+const handler = NextAuth(authOptions);
 
 export { handler as GET, handler as POST };

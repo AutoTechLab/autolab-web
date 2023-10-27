@@ -20,12 +20,11 @@ const RegistrationPage: FC<RegistrationPageProps> = () => {
     initialValues,
     validationSchema,
     async onSubmit(values) {
-      console.log(values);
       try {
         await AuthAPI.register(values);
       } catch (e) {
         if (axios.isAxiosError(e)) {
-          console.log(e.response?.data);
+          return e.response?.data;
         }
       }
     },

@@ -5,7 +5,6 @@ import UserAPI from '@/lib/api/user/UserAPI';
 
 const useUser = () => {
   const { data: session } = useSession();
-  console.log(session);
   const {
     data: user,
     error,

@@ -50,7 +50,6 @@ export const authOptions: AuthOptions = {
       if (token.accessToken) {
         session.user.accessToken = token.accessToken;
       }
-      console.log(session);
       return session;
     },
   },

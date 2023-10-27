@@ -11,7 +11,6 @@ interface ProfilePageProps {
 
 const ProfilePage: FC<ProfilePageProps> = ({ prop }) => {
   const { user, isLoading, isError } = useUser();
-  console.log(user);
   return <Box>{user?.username}</Box>;
 };
 

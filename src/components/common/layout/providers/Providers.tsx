@@ -1,16 +1,18 @@
 'use client';
 
 import { FC, ReactNode } from 'react';
-import { Session } from 'next-auth';
-import { SessionProvider } from 'next-auth/react';
+import { SWRConfig } from 'swr';
 
 interface ProvidersProps {
   children: ReactNode;
-  session: Session | null;
 }
 
-const Providers: FC<ProvidersProps> = ({ children, session }) => {
-  return <SessionProvider session={session}>{children}</SessionProvider>;
+const swrConfig = {
+  refreshInterval: 1000,
+};
+
+const Providers: FC<ProvidersProps> = ({ children }) => {
+  return <SWRConfig value={swrConfig}>{children}</SWRConfig>;
 };
 
 export default Providers;

@@ -1,30 +1,45 @@
 'use client';
 
-import { FC } from 'react';
+import { FC, useEffect } from 'react';
 import { Box, Button, TextField } from '@mui/material';
+import axios from 'axios';
 import { useFormik } from 'formik';
-import { signIn } from 'next-auth/react';
+import { useRouter } from 'next/navigation';
+
+import useUser from '@/hooks/useUser';
+import AuthAPI from '@/lib/api/auth/AuthAPI';
+import storageUtil from '@/lib/utils/storageUtil';
 
 import { initialValues } from './constants/initialValues';
 import { validationSchema } from './validation/validationSchema';
 import * as styles from './LoginPage.styles';
 
-interface RegistrationPageProps {
-  prop: string;
-}
-
-const LoginPage: FC<RegistrationPageProps> = () => {
+const LoginPage: FC = () => {
+  const router = useRouter();
+  const { user } = useUser();
   const formik = useFormik({
     initialValues,
     validationSchema,
     onSubmit: async (values) => {
-      const credentials = {
-        username: values.username,
-        password: values.password,
-      };
-      await signIn('login', credentials);
+      try {
+        const { accessToken } = await AuthAPI.login(values);
+        storageUtil.setToken(accessToken);
+        return;
+      } catch (e) {
+        if (axios.isAxiosError(e)) {
+          console.log(e.response?.data);
+        }
+      }
     },
   });
+
+  useEffect(() => {
+    setTimeout(() => {
+      if (user) {
+        router.replace('/profile');
+      }
+    }, 1000);
+  }, [user]);
 
   return (
     <Box sx={styles.wrapper}>

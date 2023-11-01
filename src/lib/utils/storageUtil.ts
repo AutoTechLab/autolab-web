@@ -21,6 +21,13 @@ class StorageUtil {
   getAccessToken() {
     return this.getToken()?.accessToken;
   }
+
+  deleteToken() {
+    if (!process.browser) {
+      return;
+    }
+    localStorage.removeItem('ACCESS_TOKEN');
+  }
 }
 
 export default new StorageUtil();

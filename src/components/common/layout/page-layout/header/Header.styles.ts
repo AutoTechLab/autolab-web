@@ -3,7 +3,7 @@ import { SxProps, Theme } from '@mui/system';
 export const wrapper: SxProps<Theme> = {
   p: '0px 100px',
   width: '100%',
-  height: '56px',
+  height: '64px',
   boxShadow: 'rgba(0, 0, 0, 0.24) 0px 3px 8px',
   display: 'flex',
   justifyContent: 'space-between',
@@ -28,27 +28,4 @@ export const textLogo: SxProps<Theme> = {
   fontWeight: 700,
   lineHeight: '140%',
   textTransform: 'uppercase',
-};
-
-export const auth: SxProps<Theme> = {
-  display: 'flex',
-  width: '280px',
-  gap: '8px',
-
-  a: {
-    p: '8px 24px',
-    fontSize: '14px',
-    borderRadius: '6px',
-    fontWeight: 600,
-  },
-};
-
-export const signin = {
-  color: '#000',
-};
-
-export const signup = {
-  backgroundColor: '#1B66AC',
-  color: '#FFF',
-  letterSpacing: '0.5px',
 };

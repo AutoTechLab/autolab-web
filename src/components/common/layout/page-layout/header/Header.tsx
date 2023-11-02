@@ -7,6 +7,7 @@ import { useRouter } from 'next/navigation';
 import { mutate } from 'swr';
 
 import Logo from '@/components/common/icons/Logo';
+import AuthButtons from '@/components/common/layout/page-layout/header/components/auth-buttons';
 import Menu from '@/components/common/layout/page-layout/header/menu/Menu';
 import useUser from '@/hooks/useUser';
 import storageUtil from '@/lib/utils/storageUtil';
@@ -25,6 +26,8 @@ const Header = () => {
     router.push('/');
   };
 
+  console.log(user, isError, isLoading);
+
   return (
     <Box sx={styles.wrapper}>
       <Link href="/">
@@ -34,27 +37,24 @@ const Header = () => {
         </Typography>
       </Link>
       <Menu />
-      {((!user && !isLoading) || isError) && (
-        <Box sx={styles.auth}>
-          <Link style={styles.signin} href="/login">
-            Увійти
-          </Link>
-          <Link style={styles.signup} href="/register">
-            Зареєструватись
-          </Link>
-        </Box>
+      {!user || isError ? (
+        <AuthButtons />
+      ) : (
+        <>
+          {isLoading ? (
+            <Typography>Завантаження...</Typography>
+          ) : (
+            <Box>
+              <Link href="/profile">
+                <Typography variant="h6">{user?.username}</Typography>
+              </Link>
+              <Button onClick={logout}>
+                <Typography>Вийти</Typography>
+              </Button>
+            </Box>
+          )}
+        </>
       )}
-      {user && !isError && (
-        <Box>
-          <Link href="/profile">
-            <Typography variant="h6">{user?.username}</Typography>
-          </Link>
-          <Button onClick={logout}>
-            <Typography>Вийти</Typography>
-          </Button>
-        </Box>
-      )}
-      {isLoading && <Typography>Завантаження...</Typography>}
     </Box>
   );
 };

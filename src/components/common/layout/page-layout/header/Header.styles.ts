@@ -21,11 +21,13 @@ export const wrapper: SxProps<Theme> = {
 };
 
 export const textLogo: SxProps<Theme> = {
-  fontFamily: 'Prompt',
+  color: '#5B5B5B',
+  fontFamily: 'Montserrat',
+  fontSize: '28px',
+  fontStyle: 'italic',
   fontWeight: 700,
-  fontSize: '32px',
-  fontStyle: 'normal',
-  lineHeight: 'normal',
+  lineHeight: '140%',
+  textTransform: 'uppercase',
 };
 
 export const auth: SxProps<Theme> = {

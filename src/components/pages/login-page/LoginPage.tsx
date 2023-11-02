@@ -34,11 +34,9 @@ const LoginPage: FC = () => {
   });
 
   useEffect(() => {
-    setTimeout(() => {
-      if (user) {
-        router.replace('/profile');
-      }
-    }, 1000);
+    if (user) {
+      router.replace('/profile');
+    }
   }, [user]);
 
   return (

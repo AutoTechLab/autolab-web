@@ -1,10 +1,25 @@
 import { SxProps, Theme } from '@mui/material/styles';
 
 export const list: SxProps<Theme> = {
-  p: 0,
-  display: 'flex',
-  flexDirection: 'column',
-  gap: '12px',
+  ul: {
+    p: 0,
+    display: 'flex',
+    flexDirection: 'column',
+    gap: '12px',
+  },
+  a: {
+    color: '#fff',
+    fontFamily: 'Montserrat',
+    fontSize: '14px',
+    fontWeight: 400,
+    lineHeight: '140%',
+    textDecoration: 'none',
+    '&:hover': {
+      color: '#fff',
+      textDecoration: 'underline',
+    },
+    m: 0,
+  },
 };
 
 export const button: SxProps<Theme> = {
@@ -13,15 +28,4 @@ export const button: SxProps<Theme> = {
     backgroundColor: 'transparent',
   },
 };
-export const text: SxProps<Theme> = {
-  color: '#fff',
-  fontFamily: 'Montserrat',
-  fontSize: '15px',
-  fontWeight: 400,
-  lineHeight: '140%',
-  '&:hover': {
-    color: '#fff',
-    textDecoration: 'underline',
-  },
-  m: 0,
-};
+export const text: SxProps<Theme> = {};

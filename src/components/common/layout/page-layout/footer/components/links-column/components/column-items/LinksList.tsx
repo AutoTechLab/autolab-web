@@ -1,5 +1,6 @@
 import { FC } from 'react';
-import { List, ListItemButton, ListItemText } from '@mui/material';
+import { Box } from '@mui/material';
+import Link from 'next/link';
 
 import { LinksItems } from '@/components/common/layout/page-layout/footer/types/Links';
 
@@ -11,16 +12,15 @@ interface ColumnItemsProps {
 
 const LinksList: FC<ColumnItemsProps> = ({ items }) => {
   return (
-    <List sx={styles.list}>
-      {items.map((item) => (
-        <ListItemButton sx={styles.button} key={item.title} href={item.href}>
-          <ListItemText
-            primaryTypographyProps={{ sx: styles.text }}
-            primary={item.title}
-          />
-        </ListItemButton>
-      ))}
-    </List>
+    <Box sx={styles.list}>
+      <ul>
+        {items.map((item) => (
+          <Link key={item.title} href={item.href}>
+            {item.title}
+          </Link>
+        ))}
+      </ul>
+    </Box>
   );
 };
 

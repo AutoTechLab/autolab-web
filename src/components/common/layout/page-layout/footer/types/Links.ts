@@ -1,7 +1,9 @@
 export interface Links {
   title: string;
-  items: {
-    title: string;
-    href: string;
-  }[];
+  items?: LinksItems[];
+}
+
+export interface LinksItems {
+  title: string;
+  href: string;
 }

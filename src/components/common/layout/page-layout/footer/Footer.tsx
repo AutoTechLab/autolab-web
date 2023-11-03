@@ -4,6 +4,7 @@ import { Box, Typography } from '@mui/material';
 import Logo from '@/components/common/icons/Logo';
 import FooterColumn from '@/components/common/layout/page-layout/footer/components/links-column';
 import {
+  info,
   links,
   support,
 } from '@/components/common/layout/page-layout/footer/constants';
@@ -19,6 +20,7 @@ const Footer: FC = () => {
       </Box>
       <Box sx={styles.columns}>
         <FooterColumn column={links} />
+        <FooterColumn column={info} />
         <FooterColumn column={support} />
       </Box>
     </Box>

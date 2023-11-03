@@ -22,7 +22,7 @@ export const links: Links = {
   ],
 };
 
-export const support: Links = {
+export const info: Links = {
   title: 'Підтримка',
   items: [
     {
@@ -34,4 +34,8 @@ export const support: Links = {
       href: '/about',
     },
   ],
+};
+
+export const support: Links = {
+  title: 'Підтримка',
 };

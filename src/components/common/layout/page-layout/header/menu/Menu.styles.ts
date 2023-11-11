@@ -1,8 +1,10 @@
 import { SxProps, Theme } from '@mui/system';
 
 export const menu: SxProps<Theme> = {
-  display: 'flex',
-  gap: '16px',
+  nav: {
+    display: 'flex',
+    gap: '16px',
+  },
 };
 
 export const item: SxProps<Theme> = {

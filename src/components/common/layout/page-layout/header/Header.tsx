@@ -1,10 +1,8 @@
 'use client';
 
-import { useState } from 'react';
-import { Box, Button, Typography } from '@mui/material';
+import { AppBar, Box, Button, Typography } from '@mui/material';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import { mutate } from 'swr';
 
 import Logo from '@/components/common/icons/Logo';
 import AuthButtons from '@/components/common/layout/page-layout/header/components/auth-buttons';
@@ -15,21 +13,19 @@ import storageUtil from '@/lib/utils/storageUtil';
 import * as styles from './Header.styles';
 
 const Header = () => {
-  const [render, setRender] = useState(false);
-  const { user, isError, isLoading } = useUser();
+  const { user, isError, isLoading, mutate } = useUser();
   const router = useRouter();
 
-  const logout = () => {
+  const logout = async () => {
     storageUtil.deleteToken();
-    setRender(!render);
-    mutate('/api/auth');
+    await mutate();
     router.push('/');
   };
 
   console.log(user, isError, isLoading);
 
   return (
-    <Box sx={styles.wrapper}>
+    <AppBar position="sticky" sx={styles.wrapper}>
       <Link href="/">
         <Logo />
         <Typography variant="h4" sx={styles.textLogo}>
@@ -55,7 +51,7 @@ const Header = () => {
           )}
         </>
       )}
-    </Box>
+    </AppBar>
   );
 };
 

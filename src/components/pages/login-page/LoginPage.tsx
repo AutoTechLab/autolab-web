@@ -60,6 +60,7 @@ const LoginPage: FC = () => {
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
           error={formik.touched.password && Boolean(formik.errors.password)}
+          helperText={formik.errors.password}
         />
         <Button color="primary" variant="contained" type="submit">
           Увійти

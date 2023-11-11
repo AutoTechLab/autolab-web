@@ -6,7 +6,6 @@ import FooterColumn from '@/components/common/layout/page-layout/footer/componen
 import {
   info,
   links,
-  support,
 } from '@/components/common/layout/page-layout/footer/constants';
 
 import * as styles from './Footer.styles';
@@ -21,7 +20,6 @@ const Footer: FC = () => {
       <Box sx={styles.columns}>
         <FooterColumn column={links} />
         <FooterColumn column={info} />
-        <FooterColumn column={support} />
       </Box>
     </Box>
   );

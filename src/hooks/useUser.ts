@@ -7,12 +7,14 @@ const useUser = () => {
     data: user,
     error,
     isLoading,
+    mutate,
   } = useSWR('/auth/user', (url) => UserAPI.getUser(url));
 
   return {
     user,
     isLoading,
     isError: error,
+    mutate,
   };
 };
 

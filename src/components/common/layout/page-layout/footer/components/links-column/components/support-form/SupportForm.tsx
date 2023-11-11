@@ -1,12 +1,8 @@
 import { FC } from 'react';
-import {
-  Box,
-  Button,
-  FormControl,
-  OutlinedInput,
-  TextField,
-} from '@mui/material';
+import { Box, Button } from '@mui/material';
 import { useFormik } from 'formik';
+
+import TextField from '@/components/common/ui/forms/text-field';
 
 import { initialValues } from './constants/initialValues';
 import * as styles from './SupportForm.styles';
@@ -32,21 +28,19 @@ const SupportForm: FC = () => {
           error={formik.touched.email && Boolean(formik.errors.email)}
           helperText={formik.errors.email}
         />
-        <FormControl margin="none">
-          <OutlinedInput
-            multiline
-            type="text"
-            name="message"
-            color="warning"
-            placeholder="Опишіть свою проблему"
-            value={formik.values.message}
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
-            error={formik.touched.message && Boolean(formik.errors.message)}
-          />
-        </FormControl>
+        <TextField
+          multiline
+          minRows={3}
+          type="text"
+          name="message"
+          placeholder="Опишіть свою проблему"
+          value={formik.values.message}
+          onChange={formik.handleChange}
+          onBlur={formik.handleBlur}
+          error={formik.touched.message && Boolean(formik.errors.message)}
+        />
         <Button color="primary" variant="contained" type="submit">
-          Увійти
+          Відправити
         </Button>
       </Box>
     </form>

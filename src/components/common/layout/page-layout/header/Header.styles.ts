@@ -5,9 +5,14 @@ export const wrapper: SxProps<Theme> = {
   width: '100%',
   height: '64px',
   boxShadow: 'rgba(0, 0, 0, 0.24) 0px 3px 8px',
-  display: 'flex',
-  justifyContent: 'space-between',
-  alignItems: 'center',
+  backgroundColor: '#fff',
+
+  '&.MuiPaper-root': {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
 
   a: {
     p: '6px 10px',

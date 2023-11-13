@@ -22,8 +22,6 @@ const Header = () => {
     router.push('/');
   };
 
-  console.log(user, isError, isLoading);
-
   return (
     <AppBar position="sticky" sx={styles.wrapper}>
       <Link href="/">

@@ -1,11 +1,11 @@
 import { SxProps, Theme } from '@mui/material/styles';
 
-export const wrapper: SxProps<Theme> = {
+export const wrapper = {
   display: 'flex',
   alignItems: 'flex-start',
   justifyContent: 'space-between',
 
-  p: '38px 100px',
+  padding: '38px 100px',
   width: '100%',
   height: '310px',
   backgroundColor: '#313131',

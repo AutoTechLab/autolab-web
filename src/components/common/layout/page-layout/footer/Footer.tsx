@@ -12,7 +12,7 @@ import * as styles from './Footer.styles';
 
 const Footer: FC = () => {
   return (
-    <Box sx={styles.wrapper}>
+    <Box sx={styles.wrapper} component="footer">
       <Box sx={styles.textLogo}>
         <Logo />
         <Typography sx={styles.text}>AUTOLAB</Typography>

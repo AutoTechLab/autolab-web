@@ -2,7 +2,6 @@
 
 import { AppBar, Avatar, Box, Typography } from '@mui/material';
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
 
 import Logo from '@/components/common/icons/Logo';
 import AuthButtons from '@/components/common/layout/page-layout/header/components/auth-buttons';
@@ -24,9 +23,7 @@ const Header = () => {
     <AppBar position="sticky" sx={styles.wrapper}>
       <Link href="/">
         <Logo />
-        <Typography variant="h4" sx={styles.textLogo}>
-          AUTOLAB
-        </Typography>
+        <Typography sx={styles.textLogo}>AUTOLAB</Typography>
       </Link>
       {user && !isError && <Menu />}
       {!user || isError ? (

@@ -3,11 +3,16 @@ import { SxProps, Theme } from '@mui/system';
 export const wrapper: SxProps<Theme> = {
   p: '0px 100px',
   width: '100%',
-  height: '56px',
+  height: '64px',
   boxShadow: 'rgba(0, 0, 0, 0.24) 0px 3px 8px',
-  display: 'flex',
-  justifyContent: 'space-between',
-  alignItems: 'center',
+  backgroundColor: '#fff',
+
+  '&.MuiPaper-root': {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
 
   a: {
     p: '6px 10px',
@@ -21,32 +26,34 @@ export const wrapper: SxProps<Theme> = {
 };
 
 export const textLogo: SxProps<Theme> = {
-  fontFamily: 'Prompt',
+  color: '#5B5B5B',
+  fontFamily: 'Montserrat',
+  fontSize: '28px',
+  fontStyle: 'italic',
   fontWeight: 700,
-  fontSize: '32px',
-  fontStyle: 'normal',
-  lineHeight: 'normal',
+  lineHeight: '140%',
+  textTransform: 'uppercase',
 };
 
-export const auth: SxProps<Theme> = {
-  display: 'flex',
-  width: '280px',
-  gap: '8px',
-
-  a: {
-    p: '8px 24px',
-    fontSize: '14px',
-    borderRadius: '6px',
-    fontWeight: 600,
-  },
+export const userInfo: SxProps<Theme> = {
+  mr: '10px',
+  textAlign: 'right',
 };
 
-export const signin = {
+export const name: SxProps<Theme> = {
   color: '#000',
+  fontFamily: 'Montserrat',
+  fontSize: '16px',
+  fontStyle: 'normal',
+  fontWeight: 500,
+  lineHeight: '140%',
 };
 
-export const signup = {
-  backgroundColor: '#1B66AC',
-  color: '#FFF',
-  letterSpacing: '0.5px',
+export const organisation: SxProps<Theme> = {
+  color: '#000',
+  fontFamily: 'Montserrat',
+  fontSize: '14px',
+  fontStyle: 'normal',
+  fontWeight: 400,
+  lineHeight: '150%',
 };

@@ -9,11 +9,13 @@ import * as styles from './Menu.styles';
 const Menu = () => {
   return (
     <Box sx={styles.menu}>
-      {menuItems.map(item => (
-        <Link key={item.title} href={item.url}>
-          <Box sx={styles.item}>{item.title}</Box>
-        </Link>
-      ))}
+      <nav>
+        {menuItems.map((item) => (
+          <Link key={item.title} href={item.url}>
+            <Box sx={styles.item}>{item.title}</Box>
+          </Link>
+        ))}
+      </nav>
     </Box>
   );
 };

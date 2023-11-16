@@ -34,11 +34,9 @@ const LoginPage: FC = () => {
   });
 
   useEffect(() => {
-    setTimeout(() => {
-      if (user) {
-        router.replace('/profile');
-      }
-    }, 1000);
+    if (user) {
+      router.replace('/profile');
+    }
   }, [user]);
 
   return (
@@ -62,6 +60,7 @@ const LoginPage: FC = () => {
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
           error={formik.touched.password && Boolean(formik.errors.password)}
+          helperText={formik.errors.password}
         />
         <Button color="primary" variant="contained" type="submit">
           Увійти

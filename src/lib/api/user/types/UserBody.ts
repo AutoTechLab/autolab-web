@@ -7,5 +7,5 @@ export interface UserBody {
   lastname: string;
   middlename: string;
   birthDate: string;
-  state: string;
+  avatar: string;
 }

@@ -1,16 +1,13 @@
 import { SxProps, Theme } from '@mui/material/styles';
 
-export const wrapper: SxProps<Theme> = {
-  width: '100%',
-  height: '645px',
-};
+export const wrapper: SxProps<Theme> = {};
 
 export const overview: SxProps<Theme> = {
+  height: '645px',
   backgroundImage: 'url("/images/main-image.jpg")',
   backgroundSize: 'cover',
   backgroundRepeat: 'no-repeat',
   p: '0 100px',
-  height: '100%',
   display: 'flex',
   flexDirection: 'column',
   justifyContent: 'center',
@@ -69,4 +66,10 @@ export const needs: SxProps<Theme> = {
   height: '578px',
 };
 
-export const question: SxProps<Theme> = {};
+export const question: SxProps<Theme> = {
+  fontFamily: 'Montserrat',
+  fontSize: '32px',
+  fontStyle: 'normal',
+  fontWeight: 600,
+  lineHeight: '140%',
+};

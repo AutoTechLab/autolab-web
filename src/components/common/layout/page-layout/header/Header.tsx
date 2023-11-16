@@ -1,6 +1,6 @@
 'use client';
 
-import { AppBar, Box, Button, Typography } from '@mui/material';
+import { AppBar, Avatar, Box, Typography } from '@mui/material';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 
@@ -8,19 +8,17 @@ import Logo from '@/components/common/icons/Logo';
 import AuthButtons from '@/components/common/layout/page-layout/header/components/auth-buttons';
 import Menu from '@/components/common/layout/page-layout/header/menu/Menu';
 import useUser from '@/hooks/useUser';
-import storageUtil from '@/lib/utils/storageUtil';
 
 import * as styles from './Header.styles';
 
 const Header = () => {
-  const { user, isError, isLoading, mutate } = useUser();
-  const router = useRouter();
+  const { user, isError, isLoading } = useUser();
 
-  const logout = async () => {
-    storageUtil.deleteToken();
-    await mutate();
-    router.push('/');
-  };
+  // const logout = async () => {
+  //   storageUtil.deleteToken();
+  //   await mutate();
+  //   router.push('/');
+  // };
 
   return (
     <AppBar position="sticky" sx={styles.wrapper}>
@@ -30,7 +28,7 @@ const Header = () => {
           AUTOLAB
         </Typography>
       </Link>
-      <Menu />
+      {user && !isError && <Menu />}
       {!user || isError ? (
         <AuthButtons />
       ) : (
@@ -38,14 +36,17 @@ const Header = () => {
           {isLoading ? (
             <Typography>Завантаження...</Typography>
           ) : (
-            <Box>
-              <Link href="/profile">
-                <Typography variant="h6">{user?.username}</Typography>
-              </Link>
-              <Button onClick={logout}>
-                <Typography>Вийти</Typography>
-              </Button>
-            </Box>
+            <Link href="/profile">
+              <Box sx={styles.userInfo}>
+                <Typography variant="h6" sx={styles.name}>
+                  {user.lastname} {user.firstname}
+                </Typography>
+                <Typography sx={styles.organisation}>Organistaion</Typography>
+              </Box>
+              <Avatar src="/images/avatar.jpg" sx={{ width: 40, height: 40 }}>
+                {user.lastname[0] + user.firstname[0]}
+              </Avatar>
+            </Link>
           )}
         </>
       )}

@@ -34,3 +34,26 @@ export const textLogo: SxProps<Theme> = {
   lineHeight: '140%',
   textTransform: 'uppercase',
 };
+
+export const userInfo: SxProps<Theme> = {
+  mr: '10px',
+  textAlign: 'right',
+};
+
+export const name: SxProps<Theme> = {
+  color: '#000',
+  fontFamily: 'Montserrat',
+  fontSize: '16px',
+  fontStyle: 'normal',
+  fontWeight: 500,
+  lineHeight: '140%',
+};
+
+export const organisation: SxProps<Theme> = {
+  color: '#000',
+  fontFamily: 'Montserrat',
+  fontSize: '14px',
+  fontStyle: 'normal',
+  fontWeight: 400,
+  lineHeight: '150%',
+};

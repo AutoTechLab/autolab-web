@@ -5,7 +5,8 @@ import PageLayout from '@/components/common/layout/page-layout/PageLayout';
 import Providers from '@/components/common/layout/providers';
 import montserrat from '@/styles/fonts';
 
-import './globals.css';
+import '../styles/global.css';
+import '../styles/reset.css';
 
 export const metadata: Metadata = {
   title: 'Autolab',

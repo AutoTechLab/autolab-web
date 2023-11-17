@@ -21,18 +21,13 @@ export const wrapper: SxProps<Theme> = {
     justifyContent: 'center',
     alignItems: 'center',
     textDecoration: 'none',
-    color: '#1B66AC',
   },
 };
 
 export const textLogo: SxProps<Theme> = {
-  color: '#5B5B5B',
-  fontFamily: 'Montserrat',
-  fontSize: '28px',
-  fontStyle: 'italic',
-  fontWeight: 700,
-  lineHeight: '140%',
-  textTransform: 'uppercase',
+  color: 'dark.600',
+  typography: 'logoSmall',
+  ml: '8px',
 };
 
 export const userInfo: SxProps<Theme> = {
@@ -41,19 +36,11 @@ export const userInfo: SxProps<Theme> = {
 };
 
 export const name: SxProps<Theme> = {
-  color: '#000',
-  fontFamily: 'Montserrat',
-  fontSize: '16px',
-  fontStyle: 'normal',
-  fontWeight: 500,
-  lineHeight: '140%',
+  color: 'black.main',
+  typography: 'body1Medium',
 };
 
 export const organisation: SxProps<Theme> = {
-  color: '#000',
-  fontFamily: 'Montserrat',
-  fontSize: '14px',
-  fontStyle: 'normal',
-  fontWeight: 400,
-  lineHeight: '150%',
+  color: 'black.main',
+  typography: 'body2',
 };

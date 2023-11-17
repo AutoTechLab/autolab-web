@@ -19,27 +19,22 @@ export const title: SxProps<Theme> = {
   alignItems: 'center',
   gap: '10px',
   mb: '24px',
+  svg: {
+    filter: 'drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))',
+  },
 };
 
 export const logo: SxProps<Theme> = {
   color: '#FFF',
-  fontFamily: 'Montserrat',
-  fontSize: '72px',
-  fontStyle: 'italic',
-  fontWeight: 700,
-  lineHeight: '140%',
-  textTransform: 'uppercase',
+  typography: 'logoLarge',
+  filter: 'drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))',
 };
 
 export const text: SxProps<Theme> = {
   width: '738px',
-  color: '#FFF',
-  fontFamily: 'Montserrat',
-  fontSize: '20px',
-  fontStyle: 'normal',
-  fontWeight: 500,
-  lineHeight: '150%',
-  mb: '40px',
+  color: 'white.main',
+  typography: 'h6Medium',
+  mb: '32px',
 };
 
 export const button: SxProps<Theme> = {
@@ -49,12 +44,7 @@ export const button: SxProps<Theme> = {
   background: '#FF4C00',
   boxShadow: 'none!important',
 
-  textAlign: 'center',
-  fontFamily: 'Montserrat',
-  fontSize: '24px',
-  fontStyle: 'normal',
-  fontWeight: 600,
-  lineHeight: '140%',
+  typography: 'h6Bold',
 };
 
 export const needs: SxProps<Theme> = {
@@ -67,9 +57,5 @@ export const needs: SxProps<Theme> = {
 };
 
 export const question: SxProps<Theme> = {
-  fontFamily: 'Montserrat',
-  fontSize: '32px',
-  fontStyle: 'normal',
-  fontWeight: 600,
-  lineHeight: '140%',
+  typography: 'h3Bold',
 };

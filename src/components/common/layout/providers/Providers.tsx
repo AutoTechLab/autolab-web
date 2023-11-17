@@ -1,7 +1,10 @@
 'use client';
 
 import { FC, ReactNode } from 'react';
+import { ThemeProvider } from '@mui/material';
 import { SWRConfig } from 'swr';
+
+import theme from '@/styles/theme';
 
 interface ProvidersProps {
   children: ReactNode;
@@ -12,7 +15,11 @@ const swrConfig = {
 };
 
 const Providers: FC<ProvidersProps> = ({ children }) => {
-  return <SWRConfig value={swrConfig}>{children}</SWRConfig>;
+  return (
+    <ThemeProvider theme={theme}>
+      <SWRConfig value={swrConfig}>{children}</SWRConfig>
+    </ThemeProvider>
+  );
 };
 
 export default Providers;

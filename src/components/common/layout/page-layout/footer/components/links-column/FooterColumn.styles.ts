@@ -5,10 +5,7 @@ export const wrapper: SxProps<Theme> = {
 };
 
 export const title: SxProps<Theme> = {
-  color: '#BCBCBC',
-  fontFamily: 'Montserrat',
-  fontSize: '16px',
-  fontWeight: 400,
-  lineHeight: '140%',
-  pb: '12px',
+  color: 'gray.400',
+  typography: 'body1',
+  mb: '16px',
 };

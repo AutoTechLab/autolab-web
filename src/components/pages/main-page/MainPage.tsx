@@ -1,7 +1,15 @@
 import { FC } from 'react';
-import { Box, Button, Typography } from '@mui/material';
+import { Box, Typography } from '@mui/material';
+import Link from 'next/link';
 
 import Logo from '@/components/common/icons/Logo';
+import Button from '@/components/common/ui/button';
+import {
+  ButtonColor,
+  ButtonIcon,
+  ButtonSize,
+  ButtonVariant,
+} from '@/components/common/ui/button/types';
 import { LogoVariant } from '@/types/logo';
 
 import * as styles from './MainPage.styles';
@@ -22,9 +30,16 @@ const MainPage: FC = () => {
           управління вашим автомобільним сервісним центром максимально
           ефективним і зручним.
         </Typography>
-        <Button variant="contained" sx={styles.button}>
-          Почати роботу
-        </Button>
+        <Link href="/register">
+          <Button
+            variant={ButtonVariant.CONTAINED}
+            icon={ButtonIcon.NONE}
+            color={ButtonColor.PRIMARY}
+            size={ButtonSize.LARGE}
+          >
+            Почати роботу
+          </Button>
+        </Link>
       </Box>
       <Box sx={styles.needs}>
         <Typography sx={styles.question}>Для чого це потрібно?</Typography>

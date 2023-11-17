@@ -37,16 +37,6 @@ export const text: SxProps<Theme> = {
   mb: '32px',
 };
 
-export const button: SxProps<Theme> = {
-  p: '16px 32px',
-  borderRadius: '8px',
-  textTransform: 'none',
-  background: '#FF4C00',
-  boxShadow: 'none!important',
-
-  typography: 'h6Bold',
-};
-
 export const needs: SxProps<Theme> = {
   display: 'flex',
   flexDirection: 'column',

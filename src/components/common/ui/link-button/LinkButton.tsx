@@ -1,6 +1,7 @@
 import { FC } from 'react';
 import { Button, ButtonProps } from '@mui/material';
 import { SxProps, Theme } from '@mui/material/styles';
+import Link from 'next/link';
 
 import mergeSx from '@/lib/utils/mergeSx';
 
@@ -11,6 +12,7 @@ interface LinkButtonProps extends ButtonProps {
   place: LinkButtonPlace;
   sx?: SxProps<Theme>;
   children: string;
+  href: string;
 }
 
 const LinkButton: FC<LinkButtonProps> = ({
@@ -23,17 +25,17 @@ const LinkButton: FC<LinkButtonProps> = ({
   return (
     <>
       {sx ? (
-        <Button
-          sx={mergeSx(styles.linkButton(place), sx)}
-          href={href}
-          {...rest}
-        >
-          {children}
-        </Button>
+        <Link href={href}>
+          <Button sx={mergeSx(styles.linkButton(place), sx)} {...rest}>
+            {children}
+          </Button>
+        </Link>
       ) : (
-        <Button sx={styles.linkButton(place)} href={href} {...rest}>
-          {children}
-        </Button>
+        <Link href={href}>
+          <Button sx={styles.linkButton(place)} {...rest}>
+            {children}
+          </Button>
+        </Link>
       )}
     </>
   );

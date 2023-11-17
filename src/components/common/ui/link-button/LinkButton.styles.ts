@@ -12,6 +12,7 @@ export const linkButton = (place: LinkButtonPlace): SxProps<Theme> => ({
     p: '12px 24px',
     '&:hover': {
       color: 'orange.400',
+      backgroundColor: 'transparent',
     },
     '&:active': {
       textDecoration: 'underline',

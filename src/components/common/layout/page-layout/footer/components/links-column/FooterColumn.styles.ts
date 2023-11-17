@@ -7,5 +7,6 @@ export const wrapper: SxProps<Theme> = {
 export const title: SxProps<Theme> = {
   color: 'gray.400',
   typography: 'body1',
-  mb: '16px',
+  ml: '16px',
+  mb: '8px',
 };

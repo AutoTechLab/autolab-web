@@ -82,8 +82,7 @@ export const button = (
     width: '20px',
     height: '20px',
   },
-  borderRadius: '6px' as string,
-
+  borderRadius: '6px',
   textTransform: 'none',
   display: 'flex',
   ...(variant === ButtonVariant.CONTAINED && {

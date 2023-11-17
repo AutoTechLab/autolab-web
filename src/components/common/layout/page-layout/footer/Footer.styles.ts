@@ -6,25 +6,19 @@ export const wrapper = {
   justifyContent: 'space-between',
 
   padding: '38px 100px',
-  width: '100%',
   height: '310px',
-  backgroundColor: '#313131',
+  backgroundColor: 'dark.300',
 };
 
 export const textLogo: SxProps<Theme> = {
   display: 'flex',
-  gap: '6px',
+  gap: '8px',
   alignItems: 'center',
 };
 
 export const text: SxProps<Theme> = {
-  color: '#fff',
-  fontFamily: 'Montserrat',
-  fontSize: '28px',
-  fontStyle: 'italic',
-  fontWeight: 700,
-  lineHeight: '140%',
-  textTransform: 'uppercase',
+  color: 'white.main',
+  typography: 'logoSmall',
 };
 
 export const columns: SxProps<Theme> = {

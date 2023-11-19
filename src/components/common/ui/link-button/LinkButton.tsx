@@ -25,7 +25,7 @@ const LinkButton: FC<LinkButtonProps> = ({
   return (
     <>
       {sx ? (
-        <Link href={href}>
+        <Link style={styles.link} href={href}>
           <Button sx={mergeSx(styles.linkButton(place), sx)} {...rest}>
             {children}
           </Button>

@@ -1,18 +1,6 @@
 import { SxProps, Theme } from '@mui/system';
 
-export const menu: SxProps<Theme> = {
-  nav: {
-    display: 'flex',
-    gap: '16px',
-  },
-};
-
-export const item: SxProps<Theme> = {
-  p: '12px, 24px',
-  color: '#000',
-  fontSize: '14px',
-  fontWeight: '600',
-  '&:hover': {
-    textDecoration: 'underline',
-  },
+export const nav: SxProps<Theme> = {
+  display: 'flex',
+  gap: '16px',
 };

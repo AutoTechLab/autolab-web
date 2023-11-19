@@ -9,18 +9,16 @@ import * as styles from './Menu.styles';
 
 const Menu = () => {
   return (
-    <Box sx={styles.menu}>
-      <nav>
-        {menuItems.map((item) => (
-          <LinkButton
-            place={LinkButtonPlace.HEADER}
-            key={item.url}
-            href={item.url}
-          >
-            {item.title}
-          </LinkButton>
-        ))}
-      </nav>
+    <Box sx={styles.nav} component="nav">
+      {menuItems.map((item) => (
+        <LinkButton
+          place={LinkButtonPlace.HEADER}
+          key={item.url}
+          href={item.url}
+        >
+          {item.title}
+        </LinkButton>
+      ))}
     </Box>
   );
 };

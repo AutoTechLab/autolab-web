@@ -2,6 +2,10 @@ import { SxProps, Theme } from '@mui/material/styles';
 
 import { LinkButtonPlace } from '@/components/common/ui/link-button/types';
 
+export const link = {
+  padding: 0,
+};
+
 export const linkButton = (place: LinkButtonPlace): SxProps<Theme> => ({
   typography: 'body1',
   borderRadius: '6px',

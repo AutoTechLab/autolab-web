@@ -29,18 +29,3 @@ export const textLogo: SxProps<Theme> = {
   typography: 'logoSmall',
   ml: '8px',
 };
-
-export const userInfo: SxProps<Theme> = {
-  mr: '10px',
-  textAlign: 'right',
-};
-
-export const name: SxProps<Theme> = {
-  color: 'black.main',
-  typography: 'body1Medium',
-};
-
-export const organisation: SxProps<Theme> = {
-  color: 'black.main',
-  typography: 'body2',
-};

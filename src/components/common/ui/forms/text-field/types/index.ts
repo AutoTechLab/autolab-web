@@ -1,9 +1,9 @@
-export enum InputSize {
-  SMALL = 'small',
-  MEDIUM = 'medium',
+export enum TextFieldColor {
+  BLACK = 'black',
+  WHITE = 'white',
 }
 
-export enum InputStyle {
-  DARK = 'dark',
-  LIGHT = 'light',
+export enum TextFieldVariant {
+  PRIMARY = 'primary',
+  ERROR = 'error',
 }

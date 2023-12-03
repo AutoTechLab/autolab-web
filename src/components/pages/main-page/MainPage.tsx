@@ -23,7 +23,7 @@ const MainPage: FC = () => {
     <Box sx={styles.wrapper} component="main">
       <Box sx={styles.overview}>
         <Box sx={styles.title}>
-          <Logo size={LogoVariant.MEDIUM} />
+          <Logo size={LogoVariant.LARGE} />
           <Typography variant="h1" sx={styles.logo}>
             AUTOLAB
           </Typography>

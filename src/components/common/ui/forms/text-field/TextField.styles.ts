@@ -3,6 +3,10 @@ import { SxProps, Theme } from '@mui/material/styles';
 import { TextFieldColor } from '@/components/common/ui/forms/text-field/types';
 
 export const textField = (color: TextFieldColor): SxProps<Theme> => ({
+  borderRadius: '10px',
+  '& .MuiInputBase-input': {
+    WebkitBoxShadow: '0 0 0 1000px transparent inset', // Убираем белый фон
+  },
   ...(color === TextFieldColor.WHITE && {
     '& .MuiInputBase-input': {
       borderRadius: '10px',
@@ -17,6 +21,7 @@ export const textField = (color: TextFieldColor): SxProps<Theme> => ({
       },
     },
     '& .MuiOutlinedInput-notchedOutline': {
+      backgroundColor: 'transparent',
       border: '2px solid',
       borderRadius: '10px',
       borderColor: 'gray.400',
@@ -62,6 +67,7 @@ export const textField = (color: TextFieldColor): SxProps<Theme> => ({
     },
   }),
   ...(color === TextFieldColor.BLACK && {
+    backgroundColor: 'transparent !important',
     '& .MuiInputBase-input': {
       borderRadius: '10px',
       p: '11px 16px',

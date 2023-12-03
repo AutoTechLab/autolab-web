@@ -1,17 +1,27 @@
 'use client';
 
 import { FC, useEffect } from 'react';
-import { Box, Button, TextField } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 import axios from 'axios';
 import { useFormik } from 'formik';
+import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 
+import Button from '@/components/common/ui/button';
+import {
+  ButtonColor,
+  ButtonIcon,
+  ButtonSize,
+  ButtonVariant,
+} from '@/components/common/ui/button/types';
+import TextField from '@/components/common/ui/forms/text-field';
+import { TextFieldColor } from '@/components/common/ui/forms/text-field/types';
+import SideSection from '@/components/pages/auth-pages/components/side-section';
 import useUser from '@/hooks/useUser';
 import AuthAPI from '@/lib/api/auth/AuthAPI';
 import storageUtil from '@/lib/utils/storageUtil';
 
 import { initialValues } from './constants/initialValues';
-import { validationSchema } from './validation/validationSchema';
 import * as styles from './LoginPage.styles';
 
 const LoginPage: FC = () => {
@@ -19,7 +29,6 @@ const LoginPage: FC = () => {
   const { user } = useUser();
   const formik = useFormik({
     initialValues,
-    validationSchema,
     onSubmit: async (values) => {
       try {
         const { accessToken } = await AuthAPI.login(values);
@@ -42,10 +51,19 @@ const LoginPage: FC = () => {
   return (
     <Box sx={styles.wrapper}>
       <form onSubmit={formik.handleSubmit}>
+        <Typography
+          sx={{ typography: 'h4Bold', color: 'white.main', mb: '24px' }}
+        >
+          Вхід
+        </Typography>
         <TextField
-          type="text"
           name="username"
           id="username"
+          label="Логін"
+          placeholder="Пошта / нікнейм / номер телефону"
+          color={TextFieldColor.BLACK}
+          inputProps={{ sx: styles.input }}
+          sx={styles.textField}
           value={formik.values.username}
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
@@ -53,19 +71,35 @@ const LoginPage: FC = () => {
           helperText={formik.errors.username}
         />
         <TextField
-          type="password"
+          password
           name="password"
           id="password"
+          label="Пароль"
+          placeholder="Пароль"
+          color={TextFieldColor.BLACK}
+          sx={styles.textField}
           value={formik.values.password}
+          inputProps={{ sx: styles.input }}
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
           error={formik.touched.password && Boolean(formik.errors.password)}
           helperText={formik.errors.password}
         />
-        <Button color="primary" variant="contained" type="submit">
+        <Link href={'/login/recover'}>Забув пароль?</Link>
+        <Button
+          color={ButtonColor.PRIMARY}
+          size={ButtonSize.MEDIUM}
+          variant={ButtonVariant.CONTAINED}
+          icon={ButtonIcon.NONE}
+          fullWidth
+          type="submit"
+        >
           Увійти
         </Button>
       </form>
+      <Box component="section">
+        <SideSection text="login" link="/register" />
+      </Box>
     </Box>
   );
 };

@@ -2,6 +2,7 @@ import { FC } from 'react';
 import { Box, Typography } from '@mui/material';
 import Link from 'next/link';
 
+import Gear from '@/components/common/icons/Gear';
 import Logo from '@/components/common/icons/Logo';
 import Button from '@/components/common/ui/button';
 import {
@@ -10,6 +11,7 @@ import {
   ButtonSize,
   ButtonVariant,
 } from '@/components/common/ui/button/types';
+import NeedBlock from '@/components/pages/main-page/components/need-block';
 import { LogoVariant } from '@/types/logo';
 
 import * as styles from './MainPage.styles';
@@ -43,6 +45,15 @@ const MainPage: FC = () => {
       </Box>
       <Box sx={styles.needs}>
         <Typography sx={styles.question}>Для чого це потрібно?</Typography>
+        <Box sx={styles.blocks}>
+          <NeedBlock
+            icon={<Gear />}
+            title="Автоматизація рутинних завдань"
+            text="Забудьте про паперову роботу та неефективне управління. Ми пропонуємо інструменти для автоматизації процесів, таких як історія техобслуговування, облік робочого часу та багато інших."
+          />
+          <NeedBlock icon={<h1>Text</h1>} title={' x'} text={'xx'} />
+          <NeedBlock icon={<h1>Text</h1>} title={' x'} text={'xx'} />
+        </Box>
       </Box>
     </Box>
   );

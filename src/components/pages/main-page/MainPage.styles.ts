@@ -49,3 +49,8 @@ export const needs: SxProps<Theme> = {
 export const question: SxProps<Theme> = {
   typography: 'h3Bold',
 };
+
+export const blocks: SxProps<Theme> = {
+  display: 'flex',
+  gap: '20px',
+};

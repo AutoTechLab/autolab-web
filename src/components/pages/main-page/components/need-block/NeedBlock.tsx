@@ -10,7 +10,7 @@ interface NeedBlockProps {
 const NeedBlock: FC<NeedBlockProps> = ({ icon, title, text }) => {
   return (
     <Box sx={styles.wrapper}>
-      {icon}
+      <Box sx={styles.iconBox}>{icon}</Box>
       <Typography sx={styles.title}>{title}</Typography>
       <Typography sx={styles.text}>{text}</Typography>
     </Box>

@@ -5,7 +5,7 @@ export const wrapper: SxProps<Theme> = {
   width: '387px',
   display: 'flex',
   flexDirection: 'column',
-  justifyContent: 'center',
+  justifyContent: 'flex-start',
   alignItems: 'center',
   textAlign: 'center',
   padding: '36px 40px',
@@ -21,4 +21,9 @@ export const title: SxProps<Theme> = {
 export const text: SxProps<Theme> = {
   typography: 'body1',
   color: 'dark.300',
+};
+
+export const iconBox: SxProps<Theme> = {
+  height: '60px',
+  width: '60px',
 };

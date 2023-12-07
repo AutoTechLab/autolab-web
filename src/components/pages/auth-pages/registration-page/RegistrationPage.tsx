@@ -1,21 +1,22 @@
 'use client';
 
-import { FC } from 'react';
-import { Box, Button, TextField } from '@mui/material';
+import { FC, useState } from 'react';
+import { Box, Button } from '@mui/material';
 import axios from 'axios';
 import { useFormik } from 'formik';
 
+import TextField from '@/components/common/ui/forms/text-field';
+import SideSection from '@/components/pages/auth-pages/components/side-section';
+import StepOne from '@/components/pages/auth-pages/registration-page/steps/StepOne';
+import StepTwo from '@/components/pages/auth-pages/registration-page/steps/StepTwo';
 import AuthAPI from '@/lib/api/auth/AuthAPI';
 
 import { initialValues } from './constants/initialValues';
 import { validationSchema } from './validation/validationSchema';
 import * as styles from './RegistrationPage.styles';
 
-interface RegistrationPageProps {
-  prop: string;
-}
-
-const RegistrationPage: FC<RegistrationPageProps> = () => {
+const RegistrationPage: FC = () => {
+  const [step, setStep] = useState(0);
   const formik = useFormik({
     initialValues,
     validationSchema,
@@ -30,42 +31,19 @@ const RegistrationPage: FC<RegistrationPageProps> = () => {
     },
   });
 
+  const steps = [];
+
   return (
     <Box sx={styles.wrapper}>
+      <Box component="section">
+        <SideSection text="register" link="/register" />
+      </Box>
       <form onSubmit={formik.handleSubmit}>
-        <TextField
-          type="text"
-          name="username"
-          id="username"
-          value={formik.values.username}
-          onChange={formik.handleChange}
-          onBlur={formik.handleBlur}
-          error={formik.touched.email && Boolean(formik.errors.email)}
-          helperText={formik.errors.email}
-        />
-        <TextField
-          type="email"
-          name="email"
-          id="email"
-          value={formik.values.email}
-          onChange={formik.handleChange}
-          onBlur={formik.handleBlur}
-          error={formik.touched.email && Boolean(formik.errors.email)}
-        />
         <TextField
           type="text"
           name="phone"
           id="phone"
           value={formik.values.phone}
-          onChange={formik.handleChange}
-          onBlur={formik.handleBlur}
-          error={formik.touched.email && Boolean(formik.errors.email)}
-        />
-        <TextField
-          type="password"
-          name="password"
-          id="password"
-          value={formik.values.password}
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
           error={formik.touched.email && Boolean(formik.errors.email)}

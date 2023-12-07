@@ -29,7 +29,10 @@ const SideSection: FC<SideSectionProps> = ({ text, link }) => {
         <Typography>AUTOLAB</Typography>
       </Box>
       <Typography sx={styles.question}>{question}</Typography>
-      <Link style={{ padding: 0, alignSelf: 'center' }} href={link}>
+      <Link
+        style={{ padding: 0, alignSelf: 'center', textDecoration: 'none' }}
+        href={link}
+      >
         <Button
           size={ButtonSize.MEDIUM}
           variant={ButtonVariant.OUTLINED}

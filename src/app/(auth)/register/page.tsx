@@ -1,7 +1,7 @@
-import RegistrationPage from '@/components/pages/registration-page';
+import RegistrationPage from '@/components/pages/auth-pages/registration-page';
 
 const Register = () => {
-  return <RegistrationPage prop={''} />;
+  return <RegistrationPage />;
 };
 
 export default Register;

@@ -13,7 +13,7 @@ const PageLayout: FC<PageLayoutProps> = ({ children }) => {
   const pathname = usePathname();
   return (
     <>
-      {pathname !== '/login' && pathname !== '/register' ? (
+      {!pathname.includes('/login') && !pathname.includes('/register') ? (
         <>
           <Header />
           {children}

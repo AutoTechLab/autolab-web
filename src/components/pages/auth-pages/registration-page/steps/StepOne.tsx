@@ -49,6 +49,7 @@ const StepOne: FC<StepOneProps> = ({ formik, handleChangeStep }) => {
         helperText={formik.errors.email as string}
       />
       <TextField
+        password
         type="password"
         name="password"
         label="Пароль"
@@ -61,6 +62,7 @@ const StepOne: FC<StepOneProps> = ({ formik, handleChangeStep }) => {
         helperText={formik.errors.password as string}
       />
       <TextField
+        password
         type="password"
         name="confirmPassword"
         label="Повторити пароль"

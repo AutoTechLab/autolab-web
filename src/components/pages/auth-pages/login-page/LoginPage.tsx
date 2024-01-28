@@ -58,7 +58,6 @@ const LoginPage: FC = () => {
         </Typography>
         <TextField
           name="username"
-          id="username"
           label="Логін"
           placeholder="Пошта / нікнейм / номер телефону"
           color={TextFieldColor.BLACK}
@@ -67,13 +66,10 @@ const LoginPage: FC = () => {
           value={formik.values.username}
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
-          error={formik.touched.username && Boolean(formik.errors.username)}
-          helperText={formik.errors.username}
         />
         <TextField
           password
           name="password"
-          id="password"
           label="Пароль"
           placeholder="Пароль"
           color={TextFieldColor.BLACK}
@@ -82,8 +78,6 @@ const LoginPage: FC = () => {
           inputProps={{ sx: styles.input }}
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
-          error={formik.touched.password && Boolean(formik.errors.password)}
-          helperText={formik.errors.password}
         />
         <Link href={'/login/recover'}>Забув пароль?</Link>
         <Button

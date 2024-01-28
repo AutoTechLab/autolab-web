@@ -1,11 +1,10 @@
 'use client';
 
 import { FC, useState } from 'react';
-import { Box, Button } from '@mui/material';
+import { Box } from '@mui/material';
 import axios from 'axios';
 import { useFormik } from 'formik';
 
-import TextField from '@/components/common/ui/forms/text-field';
 import SideSection from '@/components/pages/auth-pages/components/side-section';
 import StepOne from '@/components/pages/auth-pages/registration-page/steps/StepOne';
 import StepTwo from '@/components/pages/auth-pages/registration-page/steps/StepTwo';
@@ -17,6 +16,7 @@ import * as styles from './RegistrationPage.styles';
 
 const RegistrationPage: FC = () => {
   const [step, setStep] = useState(0);
+
   const formik = useFormik({
     initialValues,
     validationSchema,
@@ -31,63 +31,25 @@ const RegistrationPage: FC = () => {
     },
   });
 
-  const steps = [];
+  const handleChangeStep = () => {
+    if (step) {
+      setStep(0);
+    } else {
+      setStep(1);
+    }
+  };
+
+  const steps = [
+    <StepOne key={1} formik={formik} handleChangeStep={handleChangeStep} />,
+    <StepTwo key={2} formik={formik} handleChangeStep={handleChangeStep} />,
+  ];
 
   return (
     <Box sx={styles.wrapper}>
       <Box component="section">
-        <SideSection text="register" link="/register" />
+        <SideSection text="register" link="/login" />
       </Box>
-      <form onSubmit={formik.handleSubmit}>
-        <TextField
-          type="text"
-          name="phone"
-          id="phone"
-          value={formik.values.phone}
-          onChange={formik.handleChange}
-          onBlur={formik.handleBlur}
-          error={formik.touched.email && Boolean(formik.errors.email)}
-        />
-        <TextField
-          type="text"
-          name="firstname"
-          id="firstname"
-          value={formik.values.firstname}
-          onChange={formik.handleChange}
-          onBlur={formik.handleBlur}
-          error={formik.touched.email && Boolean(formik.errors.email)}
-        />
-        <TextField
-          type="text"
-          name="lastname"
-          id="lastname"
-          value={formik.values.lastname}
-          onChange={formik.handleChange}
-          onBlur={formik.handleBlur}
-          error={formik.touched.email && Boolean(formik.errors.email)}
-        />
-        <TextField
-          type="text"
-          name="middlename"
-          id="middlename"
-          value={formik.values.middlename}
-          onChange={formik.handleChange}
-          onBlur={formik.handleBlur}
-          error={formik.touched.email && Boolean(formik.errors.email)}
-        />
-        <TextField
-          type="text"
-          name="birthDate"
-          id="birthDate"
-          value={formik.values.birthDate}
-          onChange={formik.handleChange}
-          onBlur={formik.handleBlur}
-          error={formik.touched.email && Boolean(formik.errors.email)}
-        />
-        <Button color="primary" variant="contained" type="submit">
-          Зареєструватись
-        </Button>
-      </form>
+      <form onSubmit={formik.handleSubmit}>{steps[step]}</form>
     </Box>
   );
 };

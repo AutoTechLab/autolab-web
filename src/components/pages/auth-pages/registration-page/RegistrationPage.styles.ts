@@ -36,3 +36,35 @@ export const wrapper: SxProps<Theme> = {
     },
   },
 };
+
+export const stepWrapper: SxProps<Theme> = {
+  width: '100%',
+  height: '100%',
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'center',
+  alignItems: 'center',
+  pr: '70px',
+};
+
+export const textField: SxProps<Theme> = {
+  width: '420px',
+  height: '69px',
+  borderRadius: '10px',
+  mb: '4px',
+};
+
+export const title: SxProps<Theme> = {
+  typography: 'h4Bold',
+  color: 'white.main',
+};
+
+export const subtitle: SxProps<Theme> = {
+  typography: 'h6',
+  color: 'white.main',
+  mb: '20px',
+};
+
+export const button: SxProps<Theme> = {
+  mt: '24px',
+};

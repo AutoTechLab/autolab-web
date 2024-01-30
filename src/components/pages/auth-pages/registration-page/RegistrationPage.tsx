@@ -4,6 +4,7 @@ import { FC, useState } from 'react';
 import { Box } from '@mui/material';
 import axios from 'axios';
 import { useFormik } from 'formik';
+import { useRouter } from 'next/navigation';
 
 import SideSection from '@/components/pages/auth-pages/components/side-section';
 import StepOne from '@/components/pages/auth-pages/registration-page/steps/StepOne';
@@ -16,13 +17,16 @@ import * as styles from './RegistrationPage.styles';
 
 const RegistrationPage: FC = () => {
   const [step, setStep] = useState(0);
+  const router = useRouter();
 
   const formik = useFormik({
     initialValues,
     validationSchema,
     async onSubmit(values) {
       try {
-        await AuthAPI.register(values);
+        const { agreement, confirmPassword, ...rest } = values;
+        await AuthAPI.register(rest);
+        router.push('/register/confirm');
       } catch (e) {
         if (axios.isAxiosError(e)) {
           return e.response?.data;

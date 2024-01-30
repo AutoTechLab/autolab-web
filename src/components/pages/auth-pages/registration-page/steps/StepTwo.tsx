@@ -22,7 +22,6 @@ interface StepTwoProps {
 }
 
 const StepTwo: FC<StepTwoProps> = ({ formik, handleChangeStep }) => {
-  console.log(formik.values);
   return (
     <Box sx={styles.stepWrapper}>
       <IconButton sx={{ alignSelf: 'flex-start' }} onClick={handleChangeStep}>

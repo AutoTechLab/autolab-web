@@ -1,8 +1,11 @@
-import { FC } from 'react';
+import React, { FC } from 'react';
 import { Box, Typography } from '@mui/material';
 import Link from 'next/link';
 
+import Gear from '@/components/common/icons/Gear';
 import Logo from '@/components/common/icons/Logo';
+import Notebook from '@/components/common/icons/Notebook';
+import Statistics from '@/components/common/icons/Statistics';
 import Button from '@/components/common/ui/button';
 import {
   ButtonColor,
@@ -10,6 +13,7 @@ import {
   ButtonSize,
   ButtonVariant,
 } from '@/components/common/ui/button/types';
+import NeedBlock from '@/components/pages/main-page/components/need-block';
 import { LogoVariant } from '@/types/logo';
 
 import * as styles from './MainPage.styles';
@@ -43,6 +47,23 @@ const MainPage: FC = () => {
       </Box>
       <Box sx={styles.needs}>
         <Typography sx={styles.question}>Для чого це потрібно?</Typography>
+        <Box sx={styles.blocks}>
+          <NeedBlock
+            icon={<Gear />}
+            title="Автоматизація рутинних завдань"
+            text="Забудьте про паперову роботу та неефективне управління. Ми пропонуємо інструменти для автоматизації процесів, таких як історія техобслуговування, облік робочого часу та багато інших."
+          />
+          <NeedBlock
+            icon={<Statistics />}
+            title="Ефективні підрахунки та аналітика"
+            text="Ведіть обліки ваших прибутків. Аналізуйте витрати, викиди, найбільші та найменші прибутковість послуги, і приймайте стратегічні рішення на основі цих даних."
+          />
+          <NeedBlock
+            icon={<Notebook />}
+            title="Керування клієнтським сервісом"
+            text="Покращуйте обслуговування клієнтів завдяки системі керування роботою, історією та інструментам для збільшення задоволеності клієнтів."
+          />
+        </Box>
       </Box>
     </Box>
   );

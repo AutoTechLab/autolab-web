@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="uk-UA">
-      <body className={montserrat.className}>
+      <body className={montserrat.className} style={{ height: '100vh' }}>
         <Providers>
           <PageLayout>{children}</PageLayout>
         </Providers>

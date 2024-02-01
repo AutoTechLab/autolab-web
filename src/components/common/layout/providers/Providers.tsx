@@ -4,6 +4,7 @@ import { FC, ReactNode } from 'react';
 import { ThemeProvider } from '@mui/material/styles';
 import { SWRConfig } from 'swr';
 
+import ToastContextProvider from '@/hooks/use-toast/use-toast-context/useToastContext';
 import theme from '@/styles/theme';
 
 interface ProvidersProps {
@@ -17,7 +18,9 @@ const swrConfig = {
 const Providers: FC<ProvidersProps> = ({ children }) => {
   return (
     <ThemeProvider theme={theme}>
-      <SWRConfig value={swrConfig}>{children}</SWRConfig>
+      <ToastContextProvider>
+        <SWRConfig value={swrConfig}>{children}</SWRConfig>
+      </ToastContextProvider>
     </ThemeProvider>
   );
 };

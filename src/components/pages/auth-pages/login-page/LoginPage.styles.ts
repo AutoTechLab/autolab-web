@@ -55,3 +55,9 @@ export const input: SxProps<Theme> = {
     WebkitBoxShadow: `0 0 0 1000px ${theme.palette.dark[400]} inset`,
   },
 };
+
+export const signInText: SxProps<Theme> = {
+  typography: 'h4Bold',
+  color: 'white.main',
+  mb: '24px',
+};

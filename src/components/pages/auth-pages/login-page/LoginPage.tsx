@@ -17,8 +17,10 @@ import {
 import TextField from '@/components/common/ui/forms/text-field';
 import { TextFieldColor } from '@/components/common/ui/forms/text-field/types';
 import SideSection from '@/components/pages/auth-pages/components/side-section';
+import useToast from '@/hooks/use-toast';
 import useUser from '@/hooks/useUser';
 import AuthAPI from '@/lib/api/auth/AuthAPI';
+import { exceptionMapper } from '@/lib/utils/exception-mapper';
 import storageUtil from '@/lib/utils/storageUtil';
 
 import { initialValues } from './constants/initialValues';
@@ -27,6 +29,7 @@ import * as styles from './LoginPage.styles';
 const LoginPage: FC = () => {
   const router = useRouter();
   const { user } = useUser();
+  const toast = useToast();
   const formik = useFormik({
     initialValues,
     onSubmit: async (values) => {
@@ -36,7 +39,9 @@ const LoginPage: FC = () => {
         return;
       } catch (e) {
         if (axios.isAxiosError(e)) {
-          console.log(e.response?.data);
+          const { error } = e.response?.data;
+          const mapper = exceptionMapper[error];
+          toast.error(mapper.title, mapper.description, 3000, 'filled');
         }
       }
     },
@@ -51,11 +56,7 @@ const LoginPage: FC = () => {
   return (
     <Box sx={styles.wrapper}>
       <form onSubmit={formik.handleSubmit}>
-        <Typography
-          sx={{ typography: 'h4Bold', color: 'white.main', mb: '24px' }}
-        >
-          Вхід
-        </Typography>
+        <Typography sx={styles.signInText}>Вхід</Typography>
         <TextField
           name="username"
           label="Логін"

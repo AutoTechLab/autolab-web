@@ -9,7 +9,9 @@ import { useRouter } from 'next/navigation';
 import SideSection from '@/components/pages/auth-pages/components/side-section';
 import StepOne from '@/components/pages/auth-pages/registration-page/steps/StepOne';
 import StepTwo from '@/components/pages/auth-pages/registration-page/steps/StepTwo';
+import useToast from '@/hooks/use-toast';
 import AuthAPI from '@/lib/api/auth/AuthAPI';
+import { exceptionMapper } from '@/lib/utils/exception-mapper';
 
 import { initialValues } from './constants/initialValues';
 import { validationSchema } from './validation/validationSchema';
@@ -18,6 +20,7 @@ import * as styles from './RegistrationPage.styles';
 const RegistrationPage: FC = () => {
   const [step, setStep] = useState(0);
   const router = useRouter();
+  const toast = useToast();
 
   const formik = useFormik({
     initialValues,
@@ -29,7 +32,9 @@ const RegistrationPage: FC = () => {
         router.push('/register/confirm');
       } catch (e) {
         if (axios.isAxiosError(e)) {
-          return e.response?.data;
+          const { error } = e.response?.data;
+          const mapper = exceptionMapper[error];
+          toast.error(mapper.title, mapper.description, 3000, 'filled');
         }
       }
     },

@@ -73,7 +73,7 @@ const LoginPage: FC = () => {
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
         />
-        <Link href={'/login/recover'}>Забув пароль?</Link>
+        <Link href="/login/recover">Забув пароль?</Link>
         <Button
           color={ButtonColor.PRIMARY}
           size={ButtonSize.MEDIUM}

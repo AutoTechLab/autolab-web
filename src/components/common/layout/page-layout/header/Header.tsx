@@ -14,14 +14,6 @@ import * as styles from './Header.styles';
 const Header = () => {
   const { user, isLoading, isError } = useUser();
 
-  // const logout = async () => {
-  //   storageUtil.deleteToken();
-  //   await mutate();
-  //   router.push('/');
-  // };
-
-  console.log(isLoading, isError);
-
   return (
     <AppBar position="sticky" sx={styles.wrapper}>
       <Link href="/">
@@ -29,8 +21,11 @@ const Header = () => {
         <Typography sx={styles.textLogo}>AUTOLAB</Typography>
       </Link>
       {user && !isError && <Menu />}
-      {!user && isError && <AuthButtons />}
-      {(isLoading || user) && <UserInfo user={user} isLoading={isLoading} />}
+      {!user && !isLoading ? (
+        <AuthButtons />
+      ) : (
+        <UserInfo user={user} isLoading={isLoading} />
+      )}
     </AppBar>
   );
 };

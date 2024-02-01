@@ -16,7 +16,7 @@ interface UserInfoProps {
 const UserInfo: FC<UserInfoProps> = ({ user, isLoading }) => {
   return (
     <>
-      {isLoading ? (
+      {isLoading && !user ? (
         <Box sx={{ display: 'flex', alignItems: 'center' }}>
           <Box sx={styles.userInfo}>
             <Skeleton variant="text" sx={styles.name} />
@@ -25,21 +25,19 @@ const UserInfo: FC<UserInfoProps> = ({ user, isLoading }) => {
           <Skeleton variant="circular" sx={{ width: '40px', height: '40px' }} />
         </Box>
       ) : (
-        <>
-          {user && (
-            <Link style={styles.link} href="/profile">
-              <Box sx={styles.userInfo}>
-                <Typography variant="h6" sx={styles.name}>
-                  {user.lastname} {user.firstname}
-                </Typography>
-                <Typography sx={styles.organisation}>Organisation</Typography>
-              </Box>
-              <Avatar src="/images/avatar.jpg" sx={{ width: 40, height: 40 }}>
-                {user.lastname[0] + user.firstname[0]}
-              </Avatar>
-            </Link>
-          )}
-        </>
+        user && (
+          <Link style={styles.link} href="/profile">
+            <Box sx={styles.userInfo}>
+              <Typography variant="h6" sx={styles.name}>
+                {user.lastname} {user.firstname}
+              </Typography>
+              <Typography sx={styles.organisation}>Organisation</Typography>
+            </Box>
+            <Avatar src="/images/avatar.jpg" sx={{ width: 40, height: 40 }}>
+              {user.lastname[0] + user.firstname[0]}
+            </Avatar>
+          </Link>
+        )
       )}
     </>
   );

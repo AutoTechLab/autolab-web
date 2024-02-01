@@ -14,6 +14,7 @@ export const label = (variant: 'black' | 'white'): SxProps<Theme> => ({
 export const checkbox: SxProps<Theme> = {
   width: '20px',
   height: '20px',
+  ml: '5px',
   '&.MuiCheckbox-colorPrimary': {
     '& .MuiSvgIcon-root': {
       fill: theme.palette.green[500],

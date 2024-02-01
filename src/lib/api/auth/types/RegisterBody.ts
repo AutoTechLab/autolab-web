@@ -8,3 +8,8 @@ export interface RegisterBody {
   middlename: string;
   birthDate: string;
 }
+
+export interface RegisterInitialValues extends RegisterBody {
+  confirmPassword: string;
+  agreement: boolean;
+}

@@ -13,11 +13,11 @@ const ProfilePage: FC = () => {
 
   useEffect(() => {
     setTimeout(() => {
-      if (!user) {
+      if (!isLoading && !user) {
         router.replace('/login');
       }
-    }, 1000);
-  }, [user, isError]);
+    }, 3000);
+  }, [user, isLoading, isError, router]);
 
   return (
     <Box>

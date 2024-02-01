@@ -1,6 +1,6 @@
 'use client';
 
-import { FC, useEffect } from 'react';
+import { FC } from 'react';
 import { Box, Typography } from '@mui/material';
 import axios from 'axios';
 import { useFormik } from 'formik';
@@ -18,7 +18,6 @@ import TextField from '@/components/common/ui/forms/text-field';
 import { TextFieldColor } from '@/components/common/ui/forms/text-field/types';
 import SideSection from '@/components/pages/auth-pages/components/side-section';
 import useToast from '@/hooks/use-toast';
-import useUser from '@/hooks/useUser';
 import AuthAPI from '@/lib/api/auth/AuthAPI';
 import { exceptionMapper } from '@/lib/utils/exception-mapper';
 import storageUtil from '@/lib/utils/storageUtil';
@@ -28,7 +27,6 @@ import * as styles from './LoginPage.styles';
 
 const LoginPage: FC = () => {
   const router = useRouter();
-  const { user } = useUser();
   const toast = useToast();
   const formik = useFormik({
     initialValues,
@@ -36,6 +34,7 @@ const LoginPage: FC = () => {
       try {
         const { accessToken } = await AuthAPI.login(values);
         storageUtil.setToken(accessToken);
+        router.replace('/profile');
         return;
       } catch (e) {
         if (axios.isAxiosError(e)) {
@@ -46,12 +45,6 @@ const LoginPage: FC = () => {
       }
     },
   });
-
-  useEffect(() => {
-    if (user) {
-      router.replace('/profile');
-    }
-  }, [user]);
 
   return (
     <Box sx={styles.wrapper}>

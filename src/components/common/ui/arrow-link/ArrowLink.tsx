@@ -25,8 +25,8 @@ const ArrowLink: FC<ArrowLinkProps> = ({
   sx = {},
 }) => {
   return (
-    <Link href={href} target={target}>
-      <Box sx={mergeSx(styles.wrapper, sx)}>
+    <Box sx={mergeSx(styles.wrapper, sx)}>
+      <Link href={href} target={target}>
         {arrow === ArrowVariant.LEFT && (
           <ChevronLeftIcon height={24} width={24} />
         )}
@@ -34,8 +34,8 @@ const ArrowLink: FC<ArrowLinkProps> = ({
         {arrow === ArrowVariant.RIGHT && (
           <ChevronRightIcon height={24} width={24} />
         )}
-      </Box>
-    </Link>
+      </Link>
+    </Box>
   );
 };
 

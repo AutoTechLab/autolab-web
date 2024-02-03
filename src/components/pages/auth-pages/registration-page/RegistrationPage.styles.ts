@@ -68,3 +68,7 @@ export const subtitle: SxProps<Theme> = {
 export const button: SxProps<Theme> = {
   mt: '24px',
 };
+
+export const arrowLink: SxProps<Theme> = {
+  marginTop: '16px',
+};

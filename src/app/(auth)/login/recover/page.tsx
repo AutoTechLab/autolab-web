@@ -1,7 +1,7 @@
-import { Box } from '@mui/material';
+import PasswordRecoverPage from '@/components/pages/auth-pages/password-recover-page';
 
 const Recover = () => {
-  return <Box>123</Box>;
+  return <PasswordRecoverPage />;
 };
 
 export default Recover;

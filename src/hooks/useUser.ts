@@ -8,7 +8,9 @@ const useUser = () => {
     error,
     isLoading,
     mutate,
-  } = useSWR('/auth/user', (url) => UserAPI.getUser(url));
+  } = useSWR('/auth/user', (url) => UserAPI.getUser(url), {
+    revalidateOnFocus: false,
+  });
 
   return {
     user,

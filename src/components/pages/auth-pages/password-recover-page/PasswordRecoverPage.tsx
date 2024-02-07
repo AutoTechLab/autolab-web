@@ -1,8 +1,5 @@
 import { FC } from 'react';
-import {
-  EnvelopeIcon,
-  ExclamationCircleIcon,
-} from '@heroicons/react/24/outline';
+import { HandRaisedIcon } from '@heroicons/react/24/outline';
 import { Box, Stack, Typography } from '@mui/material';
 import Link from 'next/link';
 
@@ -15,10 +12,12 @@ import {
   ButtonSize,
   ButtonVariant,
 } from '@/components/common/ui/button/types';
+import TextField from '@/components/common/ui/forms/text-field';
+import { TextFieldColor } from '@/components/common/ui/forms/text-field/types';
 
-import * as styles from './EmailConfirmPage.styles';
+import * as styles from './PasswordRecoverPage.styles';
 
-const EmailConfirmPage: FC = () => {
+const PasswordRecoverPage: FC = () => {
   return (
     <Box sx={styles.wrapper}>
       <Link href="/">
@@ -28,19 +27,21 @@ const EmailConfirmPage: FC = () => {
         </Stack>
       </Link>
       <Stack sx={styles.info}>
-        <EnvelopeIcon width={40} height={40} />
+        <HandRaisedIcon width={40} height={40} />
         <Typography typography="h3Medium" sx={styles.check}>
-          Перевір пошту
+          Забув пароль?
         </Typography>
         <Typography sx={styles.explanation}>
-          Було надіслано листа для підтвердження на адресу exapmle@gmail.com
+          На вказану пошту буде надіслано лист для зміни паролю
         </Typography>
-        <Box sx={styles.alert}>
-          <ExclamationCircleIcon width={24} height={24} />
-          <Typography typography="h6">
-            Лист підтверження діє 1 годину
-          </Typography>
-        </Box>
+        <TextField
+          sx={styles.textField}
+          fullWidth
+          label="Пошта"
+          placeholder="Введіть пошту"
+          color={TextFieldColor.BLACK}
+          type="email"
+        />
         <Button
           color={ButtonColor.PRIMARY}
           size={ButtonSize.MEDIUM}
@@ -60,4 +61,4 @@ const EmailConfirmPage: FC = () => {
   );
 };
 
-export default EmailConfirmPage;
+export default PasswordRecoverPage;

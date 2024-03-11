@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, useEffect } from 'react';
 import { Box, Typography } from '@mui/material';
 
 import Logo from '@/components/common/icons/Logo';
@@ -9,15 +9,22 @@ import {
   ButtonSize,
   ButtonVariant,
 } from '@/components/common/ui/button/types';
+import AuthAPI from '@/lib/api/auth/AuthAPI';
 import { LogoVariant } from '@/types/logo';
 
 import * as styles from './ConfirmationFinishPage.styles';
 
 interface ConfirmationFinishPageProps {
-  id: string;
+  token: string;
 }
 
-const ConfirmationFinishPage: FC<ConfirmationFinishPageProps> = ({ id }) => {
+const ConfirmationFinishPage: FC<ConfirmationFinishPageProps> = ({ token }) => {
+  useEffect(() => {
+    try {
+      AuthAPI.confirmEmail(token);
+    } catch (e) {}
+  }, []);
+
   return (
     <Box sx={styles.wrapper}>
       <Logo size={LogoVariant.LARGE} />
@@ -28,7 +35,7 @@ const ConfirmationFinishPage: FC<ConfirmationFinishPageProps> = ({ id }) => {
         Акаунт успішно створено!
       </Typography>
       <Typography sx={styles.info} typography="h5">
-        Тепер ти можеш розпочати разом з AutoLab ефективне управління своєю СТО!
+        Тепер ти можеш розпочати разом з AutoLab ефективне управління вашим СТО!
       </Typography>
       <Button
         href="/profile"

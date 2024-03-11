@@ -13,6 +13,15 @@ class AuthAPI {
     const { data } = await instance.post<Token>('/auth/login', body);
     return data;
   }
+
+  async confirmEmail(token: string) {
+    const { data } = await instance.post(`/auth/approve/${token}`);
+    return data;
+  }
+
+  async resendEmail(email: string) {
+    await instance.post(`/auth/repeat/email`, email);
+  }
 }
 
 export default new AuthAPI();

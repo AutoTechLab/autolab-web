@@ -4,12 +4,12 @@ import ConfirmationFinishPage from '@/components/pages/auth-pages/confirmation-f
 
 interface ConfirmIdProps {
   params: {
-    id: string;
+    token: string;
   };
 }
 
 const ConfirmId: FC<ConfirmIdProps> = ({ params }) => {
-  return <ConfirmationFinishPage id={params.id} />;
+  return <ConfirmationFinishPage token={params.token} />;
 };
 
 export default ConfirmId;

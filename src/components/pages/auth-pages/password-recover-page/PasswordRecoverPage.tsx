@@ -1,4 +1,6 @@
-import { FC } from 'react';
+'use client';
+
+import { FC, useState } from 'react';
 import { HandRaisedIcon } from '@heroicons/react/24/outline';
 import { Box, Stack, Typography } from '@mui/material';
 import Link from 'next/link';
@@ -18,6 +20,16 @@ import { TextFieldColor } from '@/components/common/ui/forms/text-field/types';
 import * as styles from './PasswordRecoverPage.styles';
 
 const PasswordRecoverPage: FC = () => {
+  const [email, setEmail] = useState('');
+
+  const handleClick = () => {
+    try {
+      // TODO: send email to server
+    } catch (e) {
+      console.error(e);
+    }
+  };
+
   return (
     <Box sx={styles.wrapper}>
       <Link href="/">
@@ -37,10 +49,12 @@ const PasswordRecoverPage: FC = () => {
         <TextField
           sx={styles.textField}
           fullWidth
+          value={email}
           label="Пошта"
           placeholder="Введіть пошту"
           color={TextFieldColor.BLACK}
           type="email"
+          onChange={(e) => setEmail(e.target.value)}
         />
         <Button
           color={ButtonColor.PRIMARY}
@@ -48,6 +62,7 @@ const PasswordRecoverPage: FC = () => {
           variant={ButtonVariant.CONTAINED}
           icon={ButtonIcon.NONE}
           fullWidth
+          onClick={() => handleClick()}
         >
           Надіслати повторно
         </Button>

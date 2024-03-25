@@ -1,3 +1,5 @@
+'use client';
+
 import { FC } from 'react';
 import {
   EnvelopeIcon,
@@ -5,6 +7,7 @@ import {
 } from '@heroicons/react/24/outline';
 import { Box, Stack, Typography } from '@mui/material';
 import Link from 'next/link';
+import { useSearchParams } from 'next/navigation';
 
 import Logo from '@/components/common/icons/Logo';
 import ArrowLink from '@/components/common/ui/arrow-link';
@@ -15,10 +18,28 @@ import {
   ButtonSize,
   ButtonVariant,
 } from '@/components/common/ui/button/types';
+import useToast from '@/hooks/use-toast/useToast';
+import AuthAPI from '@/lib/api/auth/AuthAPI';
 
 import * as styles from './EmailConfirmPage.styles';
 
 const EmailConfirmPage: FC = () => {
+  const toast = useToast();
+  const searchParams = useSearchParams();
+  const email = searchParams.get('email') || '';
+  const resendEmail = () => {
+    try {
+      if (email) {
+        AuthAPI.resendEmail(email);
+        toast.success('Лист надіслано', 'Перевірте пошту', 3000, 'filled');
+      } else {
+        toast.error('Помилка', 'Пошту не вказано', 3000, 'filled');
+      }
+    } catch (e) {
+      toast.error('Помилка', 'Щось пішло не так', 3000, 'filled');
+    }
+  };
+
   return (
     <Box sx={styles.wrapper}>
       <Link href="/">
@@ -47,6 +68,7 @@ const EmailConfirmPage: FC = () => {
           variant={ButtonVariant.CONTAINED}
           icon={ButtonIcon.NONE}
           fullWidth
+          onClick={resendEmail}
         >
           Надіслати повторно
         </Button>

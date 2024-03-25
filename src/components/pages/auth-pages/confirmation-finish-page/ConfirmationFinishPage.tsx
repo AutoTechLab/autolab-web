@@ -1,3 +1,4 @@
+'use client';
 import { FC, useEffect } from 'react';
 import { Box, Typography } from '@mui/material';
 
@@ -9,7 +10,9 @@ import {
   ButtonSize,
   ButtonVariant,
 } from '@/components/common/ui/button/types';
+import useToast from '@/hooks/use-toast/useToast';
 import AuthAPI from '@/lib/api/auth/AuthAPI';
+import storageUtil from '@/lib/utils/storageUtil';
 import { LogoVariant } from '@/types/logo';
 
 import * as styles from './ConfirmationFinishPage.styles';
@@ -19,10 +22,19 @@ interface ConfirmationFinishPageProps {
 }
 
 const ConfirmationFinishPage: FC<ConfirmationFinishPageProps> = ({ token }) => {
-  useEffect(() => {
+  const toast = useToast();
+
+  const approveEmail = async () => {
     try {
-      AuthAPI.confirmEmail(token);
-    } catch (e) {}
+      const { accessToken } = await AuthAPI.approveEmail(token);
+      storageUtil.setToken(accessToken);
+    } catch (e) {
+      toast.error('Помилка', 'Лист підтвердження недійсний', 3000, 'filled');
+    }
+  };
+
+  useEffect(() => {
+    approveEmail();
   }, []);
 
   return (

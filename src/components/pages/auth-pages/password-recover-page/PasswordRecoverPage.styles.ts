@@ -27,25 +27,15 @@ export const info: SxProps<Theme> = {
 export const check: SxProps<Theme> = {
   margin: '32px 0 16px 0',
 };
+
 export const explanation: SxProps<Theme> = {
   typography: 'h6',
   color: 'gray.600',
   marginBottom: '16px',
 };
 
-export const alert: SxProps<Theme> = {
-  width: '420px',
-  backgroundColor: 'rgba(127, 214, 60, 0.20)',
-  p: '10px 20px',
-  display: 'inline-flex',
-  flexDirection: 'row',
-  alignItems: 'center',
-  justifyContent: 'flex-start',
-  borderRadius: '6px',
-  gap: '16px',
-  border: '2px solid',
-  borderColor: 'green.400',
-  mb: '32px',
+export const textField: SxProps<Theme> = {
+  mb: '48px',
 };
 
 export const arrowLink: SxProps<Theme> = {

@@ -23,7 +23,11 @@ import AuthAPI from '@/lib/api/auth/AuthAPI';
 
 import * as styles from './EmailConfirmPage.styles';
 
-const EmailConfirmPage: FC = () => {
+interface EmailConfirmPageProps {
+  text: string;
+}
+
+const EmailConfirmPage: FC<EmailConfirmPageProps> = ({ text }) => {
   const toast = useToast();
   const searchParams = useSearchParams();
   const email = searchParams.get('email') || '';
@@ -53,9 +57,7 @@ const EmailConfirmPage: FC = () => {
         <Typography typography="h3Medium" sx={styles.check}>
           Перевір пошту
         </Typography>
-        <Typography sx={styles.explanation}>
-          Було надіслано листа для підтвердження на адресу exapmle@gmail.com
-        </Typography>
+        <Typography sx={styles.explanation}>{text}</Typography>
         <Box sx={styles.alert}>
           <ExclamationCircleIcon width={24} height={24} />
           <Typography typography="h6">

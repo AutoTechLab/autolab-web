@@ -3,7 +3,9 @@
 import { FC, useState } from 'react';
 import { HandRaisedIcon } from '@heroicons/react/24/outline';
 import { Box, Stack, Typography } from '@mui/material';
+import axios, { AxiosError } from 'axios';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 
 import Logo from '@/components/common/icons/Logo';
 import ArrowLink from '@/components/common/ui/arrow-link';
@@ -16,17 +18,28 @@ import {
 } from '@/components/common/ui/button/types';
 import TextField from '@/components/common/ui/forms/text-field';
 import { TextFieldColor } from '@/components/common/ui/forms/text-field/types';
+import useToast from '@/hooks/use-toast';
+import AuthAPI from '@/lib/api/auth/AuthAPI';
 
 import * as styles from './PasswordRecoverPage.styles';
 
 const PasswordRecoverPage: FC = () => {
   const [email, setEmail] = useState('');
+  const toast = useToast();
+  const router = useRouter();
 
   const handleClick = () => {
     try {
-      // TODO: send email to server
-    } catch (e) {
-      console.error(e);
+      AuthAPI.requestResetPassword(email);
+      router.push('/login/recover/check');
+    } catch (e: unknown) {
+      if (axios.isAxiosError(e)) {
+        toast.error(
+          'Помилка при відправці листа',
+          'Такої пошти не існує',
+          3000,
+        );
+      }
     }
   };
 
@@ -64,7 +77,7 @@ const PasswordRecoverPage: FC = () => {
           fullWidth
           onClick={() => handleClick()}
         >
-          Надіслати повторно
+          Надіслати
         </Button>
         <ArrowLink
           sx={styles.arrowLink}

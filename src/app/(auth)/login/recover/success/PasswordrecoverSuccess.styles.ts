@@ -25,14 +25,13 @@ export const info: SxProps<Theme> = {
 };
 
 export const check: SxProps<Theme> = {
-  margin: '32px 0 16px 0',
+  margin: '28px 0 40px 0',
 };
 
 export const explanation: SxProps<Theme> = {
   typography: 'h6',
   color: 'gray.600',
   marginBottom: '16px',
-  textAlign: 'center',
 };
 
 export const textField: SxProps<Theme> = {

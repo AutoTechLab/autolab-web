@@ -31,6 +31,7 @@ export const explanation: SxProps<Theme> = {
   typography: 'h6',
   color: 'gray.600',
   marginBottom: '16px',
+  textAlign: 'center',
 };
 
 export const alert: SxProps<Theme> = {

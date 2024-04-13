@@ -2,7 +2,7 @@ import useSWR from 'swr';
 
 import UserAPI from '@/lib/api/user/UserAPI';
 
-const useUser = () => {
+const useAuth = () => {
   const {
     data: user,
     error,
@@ -20,4 +20,4 @@ const useUser = () => {
   };
 };
 
-export default useUser;
+export default useAuth;

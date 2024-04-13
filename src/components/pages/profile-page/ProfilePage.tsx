@@ -12,11 +12,15 @@ import {
   ButtonSize,
   ButtonVariant,
 } from '@/components/common/ui/button/types';
-import useUser from '@/hooks/useUser';
+import {
+  AuthContextBody,
+  useAuthContext,
+} from '@/hooks/use-auth/auth-context/AuthContext';
+import useAuth from '@/hooks/use-auth/useAuth';
 import storageUtil from '@/lib/utils/storageUtil';
 
 const ProfilePage: FC = () => {
-  const { user, isLoading, isError, mutate } = useUser();
+  const { user, isLoading, isError, mutate } = useAuthContext();
   const router = useRouter();
 
   useEffect(() => {

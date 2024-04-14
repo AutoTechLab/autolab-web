@@ -1,6 +1,8 @@
 import { FC } from 'react';
 import { Avatar, Box, Typography } from '@mui/material';
 
+import Tag from '@/components/common/ui/tag/Tag';
+
 import * as styles from './OrganisationCard.styles';
 
 interface OrganisationCardProps {
@@ -19,7 +21,10 @@ const OrganisationCard: FC<OrganisationCardProps> = ({
       <Box sx={styles.info}>
         <Avatar src={avatar} sx={styles.avatar} />
         <Box>
-          <Typography typography="h6Bold">{name}</Typography>
+          <Typography typography="h6Bold" sx={{ mb: '8px' }}>
+            {name}
+          </Typography>
+          <Tag text={position} color="orange" />
         </Box>
       </Box>
     </Box>

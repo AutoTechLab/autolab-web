@@ -7,6 +7,7 @@ import { useFormik } from 'formik';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 
+import ArrowLink from '@/components/common/ui/arrow-link';
 import Button from '@/components/common/ui/button';
 import {
   ButtonColor,
@@ -73,7 +74,7 @@ const LoginPage: FC = () => {
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
         />
-        <Link href={'/login/recover'}>Забув пароль?</Link>
+        <Link href="/login/recover">Забув пароль?</Link>
         <Button
           color={ButtonColor.PRIMARY}
           size={ButtonSize.MEDIUM}
@@ -84,6 +85,11 @@ const LoginPage: FC = () => {
         >
           Увійти
         </Button>
+        <ArrowLink
+          sx={styles.arrowLink}
+          text="Повернутись на головну"
+          href="/"
+        />
       </form>
       <Box component="section">
         <SideSection text="login" link="/register" />

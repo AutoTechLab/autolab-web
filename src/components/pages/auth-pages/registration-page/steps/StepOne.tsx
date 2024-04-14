@@ -2,6 +2,7 @@ import { FC } from 'react';
 import { Box, Typography } from '@mui/material';
 import { useFormik } from 'formik';
 
+import ArrowLink from '@/components/common/ui/arrow-link';
 import Button from '@/components/common/ui/button';
 import {
   ButtonColor,
@@ -88,6 +89,7 @@ const StepOne: FC<StepOneProps> = ({ formik, handleChangeStep }) => {
       >
         Далі
       </Button>
+      <ArrowLink sx={styles.arrowLink} text="Повернутись на головну" href="/" />
     </Box>
   );
 };

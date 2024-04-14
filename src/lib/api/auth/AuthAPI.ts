@@ -13,6 +13,27 @@ class AuthAPI {
     const { data } = await instance.post<Token>('/auth/login', body);
     return data;
   }
+
+  async approveEmail(token: string) {
+    const { data } = await instance.post<Token>(`/auth/approve/${token}`);
+    return data;
+  }
+
+  async resendEmail(email: string) {
+    await instance.post(`/auth/repeat/email?email=${email}`);
+  }
+
+  async requestResetPassword(email: string) {
+    await instance.post(`/auth/password/reset/email?email=${email}`);
+  }
+
+  async resetPassword(token: string, password: string) {
+    const { data } = await instance.post<Token>(
+      `/auth/password/reset/${token}`,
+      { password },
+    );
+    return data;
+  }
 }
 
 export default new AuthAPI();

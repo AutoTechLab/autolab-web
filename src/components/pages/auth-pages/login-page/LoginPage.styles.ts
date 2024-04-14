@@ -61,3 +61,7 @@ export const signInText: SxProps<Theme> = {
   color: 'white.main',
   mb: '24px',
 };
+
+export const arrowLink: SxProps<Theme> = {
+  marginTop: '16px',
+};

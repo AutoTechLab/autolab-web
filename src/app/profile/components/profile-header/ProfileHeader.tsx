@@ -1,8 +1,7 @@
 'use client';
 
 import React, { FC } from 'react';
-import { Box, Typography } from '@mui/material';
-import { router } from 'next/client';
+import { Box, Skeleton, Typography } from '@mui/material';
 import { useRouter } from 'next/navigation';
 
 import LogoutButton from '@/components/common/ui/logout-button/LogoutButton';
@@ -13,7 +12,7 @@ import * as styles from './ProfileHeader.styles';
 
 const ProfileHeader: FC = () => {
   const router = useRouter();
-  const { mutate } = useAuthContext();
+  const { isLoading, mutate } = useAuthContext();
   const logout = async () => {
     StorageUtil.deleteToken();
     await mutate();
@@ -23,7 +22,16 @@ const ProfileHeader: FC = () => {
   return (
     <Box sx={styles.wrapper}>
       <Typography typography="h4Bold">Профіль</Typography>
-      <LogoutButton onClick={() => logout()}>Вихід</LogoutButton>
+      {isLoading ? (
+        <Skeleton
+          variant="rounded"
+          sx={{ borderRadius: '6px' }}
+          width="116px"
+          height="40px"
+        />
+      ) : (
+        <LogoutButton onClick={() => logout()}>Вихід</LogoutButton>
+      )}
     </Box>
   );
 };

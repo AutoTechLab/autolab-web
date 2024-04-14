@@ -5,5 +5,3 @@ export const wrapper: SxProps<Theme> = {
 };
 
 export const info: SxProps<Theme> = {};
-
-export const header: SxProps<Theme> = { mb: '16px' };

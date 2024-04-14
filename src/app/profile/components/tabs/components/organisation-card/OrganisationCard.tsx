@@ -1,8 +1,9 @@
 import { FC } from 'react';
-import { TrashIcon } from '@heroicons/react/24/outline';
-import { Avatar, Box, IconButton, Typography } from '@mui/material';
+import { Avatar, Box, Typography } from '@mui/material';
 
 import Tag from '@/components/common/ui/tag';
+import TrashButton from '@/components/common/ui/trash-button';
+import useToast from '@/hooks/use-toast';
 
 import * as styles from './OrganisationCard.styles';
 
@@ -17,6 +18,10 @@ const OrganisationCard: FC<OrganisationCardProps> = ({
   name,
   position,
 }) => {
+  const toast = useToast();
+  const handleDelete = () => {
+    toast.success('Deleted', '', 3000);
+  };
   return (
     <Box sx={styles.wrapper}>
       <Box sx={styles.info}>
@@ -28,9 +33,7 @@ const OrganisationCard: FC<OrganisationCardProps> = ({
           <Tag text={position} color="orange" />
         </Box>
       </Box>
-      <IconButton sx={styles.deleteButton}>
-        <TrashIcon />
-      </IconButton>
+      <TrashButton onClick={handleDelete} />
     </Box>
   );
 };

@@ -3,12 +3,6 @@ import { Box } from '@mui/material';
 
 import Alert from '@/components/common/ui/alert';
 import Button from '@/components/common/ui/button';
-import {
-  ButtonColor,
-  ButtonIcon,
-  ButtonSize,
-  ButtonVariant,
-} from '@/components/common/ui/button/types';
 import useToast from '@/hooks/use-toast';
 
 const Page = () => {
@@ -36,15 +30,7 @@ const Page = () => {
         <Alert title={'test'} severity="info" variant="outlined" />
         <Alert title={'test'} severity="success" variant="outlined" />
       </Box>
-      <Button
-        size={ButtonSize.MEDIUM}
-        variant={ButtonVariant.CONTAINED}
-        color={ButtonColor.PRIMARY}
-        icon={ButtonIcon.NONE}
-        onClick={handleClick}
-      >
-        123
-      </Button>
+      <Button onClick={handleClick}>123</Button>
     </Box>
   );
 };

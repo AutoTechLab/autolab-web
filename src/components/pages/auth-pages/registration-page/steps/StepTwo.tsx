@@ -4,12 +4,6 @@ import { Box, IconButton, Stack, Typography } from '@mui/material';
 import { useFormik } from 'formik';
 
 import Button from '@/components/common/ui/button';
-import {
-  ButtonColor,
-  ButtonIcon,
-  ButtonSize,
-  ButtonVariant,
-} from '@/components/common/ui/button/types';
 import Checkbox from '@/components/common/ui/forms/checkbox';
 import Input from '@/components/common/ui/input/Input';
 import { RegisterInitialValues } from '@/lib/api/auth/types/RegisterBody';
@@ -104,10 +98,6 @@ const StepTwo: FC<StepTwoProps> = ({ formik, handleChangeStep }) => {
         name="agreement"
       />
       <Button
-        color={ButtonColor.PRIMARY}
-        size={ButtonSize.MEDIUM}
-        variant={ButtonVariant.CONTAINED}
-        icon={ButtonIcon.NONE}
         sx={styles.button}
         type="submit"
         disabled={!formik.isValid}

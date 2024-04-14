@@ -1,319 +1,117 @@
-import { FC } from 'react';
+import React from 'react';
 import { Box } from '@mui/material';
 
 import Button from '@/components/common/ui/button';
-import {
-  ButtonColor,
-  ButtonIcon,
-  ButtonSize,
-  ButtonVariant,
-} from '@/components/common/ui/button/types';
 
-const ButtonPage: FC = () => {
+const ButtonPage = () => {
   return (
     <Box>
+      {/* Contained Buttons */}
       <Box>
+        {/* Large size */}
         <Box
           sx={{
             display: 'flex',
             justifyContent: 'center',
-            m: '50px',
+            margin: '50px',
             gap: '20px',
           }}
         >
-          <Button
-            size={ButtonSize.LARGE}
-            variant={ButtonVariant.CONTAINED}
-            icon={ButtonIcon.LEFT}
-            color={ButtonColor.PRIMARY}
-            disabled={true}
-          >
+          <Button size="large" icon="left" disabled={true}>
             Button
           </Button>
-          <Button
-            size={ButtonSize.LARGE}
-            variant={ButtonVariant.CONTAINED}
-            icon={ButtonIcon.RIGHT}
-            color={ButtonColor.PRIMARY}
-          >
+          <Button size="large" icon="right">
             Button
           </Button>
-          <Button
-            size={ButtonSize.LARGE}
-            variant={ButtonVariant.CONTAINED}
-            color={ButtonColor.PRIMARY}
-            icon={ButtonIcon.NONE}
-          >
-            Button
-          </Button>
+          <Button size="large">Button</Button>
         </Box>
+        {/* Medium size */}
         <Box
           sx={{
             display: 'flex',
             justifyContent: 'center',
-            m: '50px',
+            margin: '50px',
             gap: '20px',
           }}
         >
-          <Button
-            size={ButtonSize.MEDIUM}
-            variant={ButtonVariant.CONTAINED}
-            icon={ButtonIcon.LEFT}
-            color={ButtonColor.PRIMARY}
-          >
-            Button
-          </Button>
-          <Button
-            size={ButtonSize.MEDIUM}
-            variant={ButtonVariant.CONTAINED}
-            icon={ButtonIcon.RIGHT}
-            color={ButtonColor.PRIMARY}
-          >
-            Button
-          </Button>
-          <Button
-            size={ButtonSize.MEDIUM}
-            variant={ButtonVariant.CONTAINED}
-            color={ButtonColor.PRIMARY}
-            icon={ButtonIcon.NONE}
-          >
-            Button
-          </Button>
+          <Button icon="left">Button</Button>
+          <Button icon="right">Button</Button>
+          <Button>Button</Button>
         </Box>
+        {/* Small size */}
         <Box
           sx={{
             display: 'flex',
             justifyContent: 'center',
-            m: '50px',
+            margin: '50px',
             gap: '20px',
           }}
         >
-          <Button
-            size={ButtonSize.SMALL}
-            variant={ButtonVariant.CONTAINED}
-            icon={ButtonIcon.LEFT}
-            color={ButtonColor.PRIMARY}
-          >
+          <Button size="small" icon="left">
             Button
           </Button>
-          <Button
-            size={ButtonSize.SMALL}
-            variant={ButtonVariant.CONTAINED}
-            icon={ButtonIcon.RIGHT}
-            color={ButtonColor.PRIMARY}
-          >
+          <Button size="small" icon="right">
             Button
           </Button>
-          <Button
-            size={ButtonSize.SMALL}
-            variant={ButtonVariant.CONTAINED}
-            color={ButtonColor.PRIMARY}
-            icon={ButtonIcon.NONE}
-          >
-            Button
-          </Button>
+          <Button size="small">Button</Button>
         </Box>
       </Box>
+      {/* Outlined Buttons */}
       <Box>
+        {/* Large size */}
         <Box
           sx={{
             display: 'flex',
             justifyContent: 'center',
-            m: '50px',
+            margin: '50px',
             gap: '20px',
           }}
         >
-          <Button
-            size={ButtonSize.LARGE}
-            variant={ButtonVariant.OUTLINED}
-            icon={ButtonIcon.LEFT}
-            color={ButtonColor.PRIMARY}
-            disabled={true}
-          >
+          <Button size="large" variant="outlined" icon="left" disabled={true}>
             Button
           </Button>
-          <Button
-            size={ButtonSize.LARGE}
-            variant={ButtonVariant.OUTLINED}
-            icon={ButtonIcon.RIGHT}
-            color={ButtonColor.PRIMARY}
-          >
+          <Button size="large" variant="outlined" icon="right" color="primary">
             Button
           </Button>
-          <Button
-            size={ButtonSize.LARGE}
-            variant={ButtonVariant.OUTLINED}
-            color={ButtonColor.PRIMARY}
-            icon={ButtonIcon.NONE}
-          >
+          <Button size="large" variant="outlined" color="primary" icon="none">
             Button
           </Button>
         </Box>
+        {/* Medium size */}
         <Box
           sx={{
             display: 'flex',
             justifyContent: 'center',
-            m: '50px',
+            margin: '50px',
             gap: '20px',
           }}
         >
-          <Button
-            size={ButtonSize.MEDIUM}
-            variant={ButtonVariant.OUTLINED}
-            icon={ButtonIcon.LEFT}
-            color={ButtonColor.PRIMARY}
-          >
+          <Button size="medium" variant="outlined" icon="left" color="primary">
             Button
           </Button>
-          <Button
-            size={ButtonSize.MEDIUM}
-            variant={ButtonVariant.OUTLINED}
-            icon={ButtonIcon.RIGHT}
-            color={ButtonColor.PRIMARY}
-          >
+          <Button size="medium" variant="outlined" icon="right" color="primary">
             Button
           </Button>
-          <Button
-            size={ButtonSize.MEDIUM}
-            variant={ButtonVariant.OUTLINED}
-            color={ButtonColor.PRIMARY}
-            icon={ButtonIcon.NONE}
-          >
+          <Button size="medium" variant="outlined" color="primary">
             Button
           </Button>
         </Box>
+        {/* Small size */}
         <Box
           sx={{
             display: 'flex',
             justifyContent: 'center',
-            m: '50px',
+            margin: '50px',
             gap: '20px',
           }}
         >
-          <Button
-            size={ButtonSize.SMALL}
-            variant={ButtonVariant.OUTLINED}
-            icon={ButtonIcon.LEFT}
-            color={ButtonColor.PRIMARY}
-          >
+          <Button size="small" variant="outlined" icon="left" color="primary">
             Button
           </Button>
-          <Button
-            size={ButtonSize.SMALL}
-            variant={ButtonVariant.OUTLINED}
-            icon={ButtonIcon.RIGHT}
-            color={ButtonColor.PRIMARY}
-          >
+          <Button size="small" variant="outlined" icon="right" color="primary">
             Button
           </Button>
-          <Button
-            size={ButtonSize.SMALL}
-            variant={ButtonVariant.OUTLINED}
-            color={ButtonColor.PRIMARY}
-            icon={ButtonIcon.NONE}
-          >
-            Button
-          </Button>
-        </Box>
-      </Box>
-      <Box sx={{ backgroundColor: 'gray.100' }}>
-        <Box
-          sx={{
-            display: 'flex',
-            justifyContent: 'center',
-            m: '50px',
-            gap: '20px',
-          }}
-        >
-          <Button
-            size={ButtonSize.LARGE}
-            variant={ButtonVariant.OUTLINED}
-            icon={ButtonIcon.LEFT}
-            color={ButtonColor.SECONDARY}
-            disabled={true}
-          >
-            Button
-          </Button>
-          <Button
-            size={ButtonSize.LARGE}
-            variant={ButtonVariant.OUTLINED}
-            icon={ButtonIcon.RIGHT}
-            color={ButtonColor.SECONDARY}
-          >
-            Button
-          </Button>
-          <Button
-            size={ButtonSize.LARGE}
-            variant={ButtonVariant.OUTLINED}
-            color={ButtonColor.SECONDARY}
-            icon={ButtonIcon.NONE}
-          >
-            Button
-          </Button>
-        </Box>
-        <Box
-          sx={{
-            display: 'flex',
-            justifyContent: 'center',
-            m: '50px',
-            gap: '20px',
-          }}
-        >
-          <Button
-            size={ButtonSize.MEDIUM}
-            variant={ButtonVariant.OUTLINED}
-            icon={ButtonIcon.LEFT}
-            color={ButtonColor.SECONDARY}
-          >
-            Button
-          </Button>
-          <Button
-            size={ButtonSize.MEDIUM}
-            variant={ButtonVariant.OUTLINED}
-            icon={ButtonIcon.RIGHT}
-            color={ButtonColor.SECONDARY}
-          >
-            Button
-          </Button>
-          <Button
-            size={ButtonSize.MEDIUM}
-            variant={ButtonVariant.OUTLINED}
-            color={ButtonColor.SECONDARY}
-            icon={ButtonIcon.NONE}
-          >
-            Button
-          </Button>
-        </Box>
-        <Box
-          sx={{
-            display: 'flex',
-            justifyContent: 'center',
-            m: '50px',
-            gap: '20px',
-          }}
-        >
-          <Button
-            size={ButtonSize.SMALL}
-            variant={ButtonVariant.OUTLINED}
-            icon={ButtonIcon.LEFT}
-            color={ButtonColor.SECONDARY}
-          >
-            Button
-          </Button>
-          <Button
-            size={ButtonSize.SMALL}
-            variant={ButtonVariant.OUTLINED}
-            icon={ButtonIcon.RIGHT}
-            color={ButtonColor.SECONDARY}
-          >
-            Button
-          </Button>
-          <Button
-            size={ButtonSize.SMALL}
-            variant={ButtonVariant.OUTLINED}
-            color={ButtonColor.SECONDARY}
-            icon={ButtonIcon.NONE}
-          >
+          <Button size="small" variant="outlined" color="primary">
             Button
           </Button>
         </Box>

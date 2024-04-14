@@ -9,21 +9,13 @@ import {
 import { Avatar, Box, Typography } from '@mui/material';
 
 import Button from '@/components/common/ui/button';
-import {
-  ButtonColor,
-  ButtonIcon,
-  ButtonSize,
-  ButtonVariant,
-} from '@/components/common/ui/button/types';
 import { useAuthContext } from '@/hooks/use-auth/auth-context/AuthContext';
 import getDate from '@/lib/utils/getDate';
 import getYears from '@/lib/utils/getYears';
 
 import * as styles from './ProfileCard.styles';
 
-interface ProfileCardProps {}
-
-const ProfileCard: FC<ProfileCardProps> = () => {
+const ProfileCard: FC = () => {
   const { user } = useAuthContext();
   const birthday = getDate(user?.birthDate as string);
   const years = getYears(user?.birthDate as string);
@@ -54,15 +46,7 @@ const ProfileCard: FC<ProfileCardProps> = () => {
           </Box>
         </Box>
       </Box>
-      <Button
-        sx={{ alignSelf: 'flex-end' }}
-        size={ButtonSize.MEDIUM}
-        variant={ButtonVariant.CONTAINED}
-        color={ButtonColor.PRIMARY}
-        icon={ButtonIcon.NONE}
-      >
-        Редагувати
-      </Button>
+      <Button sx={{ alignSelf: 'flex-end' }}>Редагувати</Button>
     </Box>
   );
 };

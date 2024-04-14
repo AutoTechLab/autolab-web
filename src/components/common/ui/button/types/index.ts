@@ -1,21 +1,7 @@
-export enum ButtonSize {
-  SMALL = 'small',
-  MEDIUM = 'medium',
-  LARGE = 'large',
-}
+export type ButtonSize = 'small' | 'medium' | 'large';
 
-export enum ButtonIcon {
-  NONE = 'none',
-  LEFT = 'left',
-  RIGHT = 'right',
-}
+export type ButtonIcon = 'none' | 'left' | 'right';
 
-export enum ButtonVariant {
-  CONTAINED = 'contained',
-  OUTLINED = 'outlined',
-}
+export type ButtonVariant = 'contained' | 'outlined';
 
-export enum ButtonColor {
-  PRIMARY = 'primary',
-  SECONDARY = 'secondary',
-}
+export type ButtonColor = 'primary' | 'secondary';

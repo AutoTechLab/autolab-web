@@ -4,12 +4,6 @@ import { Box, Typography } from '@mui/material';
 
 import Logo from '@/components/common/icons/Logo';
 import Button from '@/components/common/ui/button';
-import {
-  ButtonColor,
-  ButtonIcon,
-  ButtonSize,
-  ButtonVariant,
-} from '@/components/common/ui/button/types';
 import useToast from '@/hooks/use-toast/useToast';
 import AuthAPI from '@/lib/api/auth/AuthAPI';
 import storageUtil from '@/lib/utils/storageUtil';
@@ -49,14 +43,7 @@ const ConfirmationFinishPage: FC<ConfirmationFinishPageProps> = ({ token }) => {
       <Typography sx={styles.info} typography="h5">
         Тепер ти можеш розпочати разом з AutoLab ефективне управління вашим СТО!
       </Typography>
-      <Button
-        href="/profile"
-        sx={styles.button}
-        size={ButtonSize.MEDIUM}
-        variant={ButtonVariant.CONTAINED}
-        icon={ButtonIcon.NONE}
-        color={ButtonColor.PRIMARY}
-      >
+      <Button href="/profile" sx={styles.button}>
         Перейти до профілю
       </Button>
     </Box>

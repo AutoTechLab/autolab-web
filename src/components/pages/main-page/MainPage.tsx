@@ -7,12 +7,6 @@ import Logo from '@/components/common/icons/Logo';
 import Notebook from '@/components/common/icons/Notebook';
 import Statistics from '@/components/common/icons/Statistics';
 import Button from '@/components/common/ui/button';
-import {
-  ButtonColor,
-  ButtonIcon,
-  ButtonSize,
-  ButtonVariant,
-} from '@/components/common/ui/button/types';
 import NeedBlock from '@/components/pages/main-page/components/need-block';
 import { LogoVariant } from '@/types/logo';
 
@@ -35,14 +29,7 @@ const MainPage: FC = () => {
           ефективним і зручним.
         </Typography>
         <Link href="/register">
-          <Button
-            variant={ButtonVariant.CONTAINED}
-            icon={ButtonIcon.NONE}
-            color={ButtonColor.PRIMARY}
-            size={ButtonSize.LARGE}
-          >
-            Почати роботу
-          </Button>
+          <Button size="large">Почати роботу</Button>
         </Link>
       </Box>
       <Box sx={styles.needs}>

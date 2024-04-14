@@ -28,7 +28,7 @@ const LoginPage: FC = () => {
       try {
         const { accessToken } = await AuthAPI.login(values);
         storageUtil.setToken(accessToken);
-        router.replace('/profile');
+        router.replace('/profile?tab=organisations');
         return;
       } catch (e) {
         if (axios.isAxiosError(e)) {

@@ -43,7 +43,7 @@ const ConfirmationFinishPage: FC<ConfirmationFinishPageProps> = ({ token }) => {
       <Typography sx={styles.info} typography="h5">
         Тепер ти можеш розпочати разом з AutoLab ефективне управління вашим СТО!
       </Typography>
-      <Button href="/profile" sx={styles.button}>
+      <Button href="/profile?tab=organisations" sx={styles.button}>
         Перейти до профілю
       </Button>
     </Box>

@@ -21,7 +21,7 @@ const Page = () => {
         <Typography typography="h3Medium" sx={styles.check}>
           Пароль успішно змінено
         </Typography>
-        <Button href="/profile" fullWidth>
+        <Button href="/profile?tab=organisations" fullWidth>
           Перейти до профілю
         </Button>
       </Stack>

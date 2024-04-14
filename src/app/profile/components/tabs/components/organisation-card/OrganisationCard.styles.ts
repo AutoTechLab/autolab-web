@@ -25,3 +25,18 @@ export const avatar: SxProps<Theme> = {
   width: '64px',
   height: '64px',
 };
+
+export const deleteButton: SxProps<Theme> = {
+  width: '44px',
+  height: '44px',
+  alignSelf: 'center',
+  backgroundColor: 'grey.600',
+  '&:hover': {
+    backgroundColor: 'grey.500',
+  },
+  svg: {
+    width: '24px',
+    height: '24px',
+    stroke: 'white',
+  },
+};

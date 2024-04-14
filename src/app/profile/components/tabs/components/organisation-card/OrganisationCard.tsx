@@ -1,7 +1,8 @@
 import { FC } from 'react';
-import { Avatar, Box, Typography } from '@mui/material';
+import { TrashIcon } from '@heroicons/react/24/outline';
+import { Avatar, Box, IconButton, Typography } from '@mui/material';
 
-import Tag from '@/components/common/ui/tag/Tag';
+import Tag from '@/components/common/ui/tag';
 
 import * as styles from './OrganisationCard.styles';
 
@@ -27,6 +28,9 @@ const OrganisationCard: FC<OrganisationCardProps> = ({
           <Tag text={position} color="orange" />
         </Box>
       </Box>
+      <IconButton sx={styles.deleteButton}>
+        <TrashIcon />
+      </IconButton>
     </Box>
   );
 };

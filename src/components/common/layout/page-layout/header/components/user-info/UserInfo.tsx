@@ -26,7 +26,7 @@ const UserInfo: FC<UserInfoProps> = ({ user, isLoading }) => {
         </Box>
       ) : (
         user && (
-          <Link style={styles.link} href="/profile">
+          <Link style={styles.link} href="/profile?tab=organisations">
             <Box sx={styles.userInfo}>
               <Typography variant="h6" sx={styles.name}>
                 {user.lastname} {user.firstname}

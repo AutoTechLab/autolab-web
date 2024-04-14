@@ -4,7 +4,7 @@ import { Box, Typography } from '@mui/material';
 import ProfileCard from '@/app/profile/components/profile-card/ProfileCard';
 
 import Tabs from './components/tabs';
-import * as styles from './ProfilePage.styles.';
+import * as styles from './ProfilePage.styles';
 
 const Profile = () => {
   return (

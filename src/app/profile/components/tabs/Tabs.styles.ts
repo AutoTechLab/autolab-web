@@ -6,6 +6,7 @@ export const wrapper: SxProps<Theme> = {
 
 export const divider: SxProps<Theme> = {
   mt: '8px',
+  mb: '12px',
   height: '2px',
   backgroundColor: 'orange.500',
 };
@@ -21,3 +22,9 @@ export const tab = (isCurTab: boolean): SxProps<Theme> => ({
     },
   }),
 });
+
+export const organisations: SxProps<Theme> = {
+  display: 'flex',
+  flexDirection: 'column',
+  gap: '10px',
+};

@@ -2,8 +2,9 @@ import { FC } from 'react';
 import { Avatar, Box, Typography } from '@mui/material';
 
 import Tag from '@/components/common/ui/tag';
-import TrashButton from '@/components/common/ui/trash-button';
 import useToast from '@/hooks/use-toast';
+
+import RoundButtonIcon from '../../../../../../components/common/ui/round-button-icon';
 
 import * as styles from './OrganisationCard.styles';
 
@@ -33,7 +34,7 @@ const OrganisationCard: FC<OrganisationCardProps> = ({
           <Tag text={position} color="orange" />
         </Box>
       </Box>
-      <TrashButton onClick={handleDelete} />
+      <RoundButtonIcon onClick={handleDelete} />
     </Box>
   );
 };

@@ -6,6 +6,7 @@ export const wrapper: SxProps<Theme> = {
   height: '64px',
   boxShadow: 'rgba(0, 0, 0, 0.24) 0px 3px 8px',
   backgroundColor: '#fff',
+  zIndex: 11,
 
   '&.MuiPaper-root': {
     display: 'flex',

@@ -34,6 +34,10 @@ class AuthAPI {
     );
     return data;
   }
+
+  async changePassword(oldPassword: string, newPassword: string) {
+    await instance.patch('/auth/change/password', { oldPassword, newPassword });
+  }
 }
 
 export default new AuthAPI();

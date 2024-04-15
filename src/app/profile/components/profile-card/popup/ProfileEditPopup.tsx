@@ -1,4 +1,4 @@
-import { FC, useState } from 'react';
+import { FC, useRef, useState } from 'react';
 import { PencilSquareIcon, XMarkIcon } from '@heroicons/react/24/outline';
 import {
   Avatar,
@@ -15,6 +15,8 @@ import {
 } from '@/app/profile/components/profile-card/popup/constants';
 import RoundButtonIcon from '@/components/common/ui/round-button-icon';
 import SectionButton from '@/components/common/ui/section-button/SectionButton';
+import { useAuthContext } from '@/hooks/use-auth/auth-context/AuthContext';
+import { UserBody } from '@/lib/api/user/types/UserBody';
 
 import * as styles from './ProfileEditPopup.styles';
 
@@ -26,6 +28,22 @@ interface ProfileEditPopupProps {
 const ProfileEditPopup: FC<ProfileEditPopupProps> = ({ open, handleClick }) => {
   const [activeSection, setActiveSection] =
     useState<EditTabName>('personalData');
+  const { user } = useAuthContext();
+  const [avatar, setAvatar] = useState<string>(
+    !!user?.avatar ? '/images/avatar.jpg' : (user as UserBody).avatar,
+  );
+  const fileInputRef = useRef<HTMLInputElement>(null);
+
+  const handleChangeAvatar = async () => {
+    fileInputRef.current?.click();
+  };
+
+  const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    if (file) {
+      setAvatar(URL.createObjectURL(file));
+    }
+  };
 
   return (
     <Modal
@@ -39,10 +57,18 @@ const ProfileEditPopup: FC<ProfileEditPopupProps> = ({ open, handleClick }) => {
       <Box sx={styles.window}>
         <Box sx={styles.leftSection}>
           <Box sx={styles.avatarWrapper}>
-            <Avatar src="/images/avatar.jpg" />
+            <Avatar src={avatar} />
+            <input
+              type="file"
+              ref={fileInputRef}
+              accept=".jpeg, .jpg, .png, .webp"
+              style={{ display: 'none' }}
+              onChange={handleFileChange}
+            />
             <RoundButtonIcon
               sx={styles.buttonIcon}
               icon={<PencilSquareIcon />}
+              onClick={handleChangeAvatar}
             />
           </Box>
           <Stack gap="10px">

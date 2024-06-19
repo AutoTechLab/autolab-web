@@ -2,7 +2,6 @@ import { SxProps, Theme } from '@mui/material/styles';
 
 export const wrapper: SxProps<Theme> = {
   p: '28px',
-  maxWidth: '100%',
   height: '243px',
   display: 'flex',
   justifyContent: 'space-between',

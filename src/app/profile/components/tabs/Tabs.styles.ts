@@ -26,5 +26,19 @@ export const tab = (isCurTab: boolean): SxProps<Theme> => ({
 export const organisations: SxProps<Theme> = {
   display: 'flex',
   flexDirection: 'column',
+  alignItems: 'center',
   gap: '10px',
+};
+
+export const noOrganisations: SxProps<Theme> = {
+  my: '60px',
+  maxWidth: '700px',
+  gap: '16px',
+  textAlign: 'center',
+  p: '24px 36px',
+
+  borderRadius: '6px',
+  border: '1.5px solid',
+  borderColor: 'gray.700',
+  boxShadow: '4px 4px 6px 0px rgba(0, 0, 0, 0.25)',
 };

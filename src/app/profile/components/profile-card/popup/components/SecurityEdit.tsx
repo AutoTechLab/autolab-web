@@ -2,8 +2,7 @@ import { ChangeEvent, FC, useState } from 'react';
 import { Stack } from '@mui/material';
 
 import Button from '@/components/common/ui/button';
-import TextField from '@/components/common/ui/forms/text-field';
-import { TextFieldColor } from '@/components/common/ui/forms/text-field/types';
+import Input from '@/components/common/ui/input/Input';
 import { useAuthContext } from '@/hooks/use-auth/auth-context/AuthContext';
 import useToast from '@/hooks/use-toast';
 import AuthAPI from '@/lib/api/auth/AuthAPI';
@@ -36,30 +35,30 @@ const SecurityEdit: FC = () => {
   };
 
   return (
-    <Stack flexDirection="column" gap="35px">
-      <TextField
+    <Stack flexDirection="column" gap="16px">
+      <Input
         label="Нікнейм"
-        color={TextFieldColor.BLACK}
+        variant="white"
         value={data?.username}
         name="username"
         onChange={handleChange}
       />
-      <TextField
+      <Input
         label="Пошта"
-        color={TextFieldColor.BLACK}
+        variant="white"
         value={data?.email}
         name="email"
         onChange={handleChange}
       />
-      <TextField
+      <Input
         label="Поточний пароль"
-        color={TextFieldColor.BLACK}
+        variant="white"
         name="oldPassword"
         onChange={handlePasswordChange}
       />
-      <TextField
+      <Input
         label="Новий пароль"
-        color={TextFieldColor.BLACK}
+        variant="white"
         name="newPassword"
         onChange={handlePasswordChange}
       />

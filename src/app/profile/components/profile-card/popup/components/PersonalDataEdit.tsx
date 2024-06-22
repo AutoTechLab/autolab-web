@@ -2,8 +2,7 @@ import { ChangeEvent, FC, useState } from 'react';
 import { Stack } from '@mui/material';
 
 import Button from '@/components/common/ui/button';
-import TextField from '@/components/common/ui/forms/text-field';
-import { TextFieldColor } from '@/components/common/ui/forms/text-field/types';
+import Input from '@/components/common/ui/input/Input';
 import { useAuthContext } from '@/hooks/use-auth/auth-context/AuthContext';
 import useToast from '@/hooks/use-toast';
 import { UserBody } from '@/lib/api/user/types/UserBody';
@@ -28,38 +27,38 @@ const PersonalDataEdit: FC = () => {
   };
 
   return (
-    <Stack flexDirection="column" gap="35px">
-      <TextField
+    <Stack flexDirection="column" gap="16px">
+      <Input
         label="Ім'я"
-        color={TextFieldColor.BLACK}
+        variant="white"
         value={data?.firstname}
         name="firstname"
         onChange={onChange}
       />
-      <TextField
+      <Input
         label="Прізвище"
-        color={TextFieldColor.BLACK}
+        variant="white"
         value={data?.lastname}
         name="lastname"
         onChange={onChange}
       />
-      <TextField
+      <Input
         label="По батькові"
-        color={TextFieldColor.BLACK}
+        variant="white"
         value={data?.middlename}
         name="middlename"
         onChange={onChange}
       />
-      <TextField
+      <Input
         label="Дата народження"
-        color={TextFieldColor.BLACK}
+        variant="white"
         value={getDate(data?.birthDate as string)}
         name="birthDate"
         onChange={onChange}
       />
-      <TextField
+      <Input
         label="Телефон"
-        color={TextFieldColor.BLACK}
+        variant="white"
         value={data?.phone}
         name="phone"
         onChange={onChange}

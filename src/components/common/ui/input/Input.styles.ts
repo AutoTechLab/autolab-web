@@ -70,7 +70,7 @@ export const formControl = (variant: InputVariant): SxProps<Theme> => ({
       },
     },
 
-    '.MuiFormLabel-root-MuiInputLabel-root.Mui-focused': {
+    '&.MuiFormLabel-root-MuiInputLabel-root.Mui-focused': {
       color: 'dark.600',
     },
   }),
@@ -142,26 +142,49 @@ export const formControl = (variant: InputVariant): SxProps<Theme> => ({
         color: 'white',
       },
     },
-
-    '.MuiFormLabel-root-MuiInputLabel-root.Mui-focused': {
-      color: 'dark.600',
-    },
   }),
+
+  '&.MuiFormLabel-root-MuiInputLabel-root.Mui-focused': {
+    color: 'dark.600',
+  },
 });
 
-export const input: SxProps<Theme> = {
+export const input = (variant: InputVariant): SxProps<Theme> => ({
   p: '10px 14px',
   borderRadius: '10px',
-
+  color: 'white',
   '.MuiInputBase-input': {
     p: 0,
-  },
-};
 
-export const label: SxProps<Theme> = {
+    '&:-webkit-autofill': {
+      WebkitTextFillColor: variant === 'white' ? 'gray.300' : 'white',
+      transition: 'background-color 5000s ease-in-out 0s',
+    },
+    '&:-webkit-autofill:hover': {
+      WebkitTextFillColor: variant === 'white' ? 'gray.300' : 'white',
+      transition: 'background-color 5000s ease-in-out 0s',
+    },
+    '&:-webkit-autofill:focus': {
+      WebkitTextFillColor: variant === 'white' ? 'gray.300' : 'white',
+      transition: 'background-color 5000s ease-in-out 0s',
+    },
+    '&:-webkit-autofill:active': {
+      WebkitTextFillColor: variant === 'white' ? 'gray.300' : 'white',
+      transition: 'background-color 5000s ease-in-out 0s',
+    },
+  },
+});
+
+export const label = (variant: InputVariant): SxProps<Theme> => ({
   typography: 'body1',
   ml: '-10px',
-};
+  ...(variant === 'white' && {
+    color: 'gray.400',
+  }),
+  ...(variant === 'black' && {
+    color: 'gray.300',
+  }),
+});
 
 export const helperText = (
   variant: InputVariant,

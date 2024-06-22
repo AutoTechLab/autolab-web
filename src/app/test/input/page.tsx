@@ -22,6 +22,12 @@ const Inputs = () => {
           label="1231321"
           helperText="This is an error"
         />
+        <Input
+          password
+          placeholder="placeholder"
+          label="1231321"
+          helperText="This is an error"
+        />
       </div>
 
       <div style={{ backgroundColor: 'grey' }}>
@@ -44,6 +50,13 @@ const Inputs = () => {
         />
         <Input
           variant="black"
+          placeholder="placeholder"
+          label="1231321"
+          helperText="This is an error"
+        />
+        <Input
+          variant="black"
+          password
           placeholder="placeholder"
           label="1231321"
           helperText="This is an error"

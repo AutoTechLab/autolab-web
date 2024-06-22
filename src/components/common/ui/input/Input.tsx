@@ -1,6 +1,11 @@
-import { FC } from 'react';
+'use client';
+
+import React, { FC, useState } from 'react';
+import { EyeIcon, EyeSlashIcon } from '@heroicons/react/24/outline';
 import {
   FormControl,
+  IconButton,
+  InputAdornment,
   InputLabel,
   InputProps as InputPropsMUI,
   Typography,
@@ -8,6 +13,7 @@ import {
 import { Input as InputMUI } from '@mui/material';
 
 import { InputVariant } from '@/components/common/ui/input/types';
+import theme from '@/styles/theme';
 
 import * as styles from './Input.styles';
 
@@ -17,6 +23,7 @@ interface InputProps extends InputPropsMUI {
   label?: string;
   disabled?: boolean;
   error?: boolean;
+  password?: boolean;
 }
 
 const Input: FC<InputProps> = ({
@@ -25,8 +32,35 @@ const Input: FC<InputProps> = ({
   label,
   disabled = false,
   error = false,
+  password = false,
   ...props
 }) => {
+  const [showPassword, setShowPassword] = useState(!password);
+
+  const handleTogglePasswordVisibility = () => {
+    setShowPassword((prevShowPassword) => !prevShowPassword);
+  };
+
+  const endAdornment = password ? (
+    <InputAdornment position="end">
+      <IconButton
+        edge="end"
+        onClick={handleTogglePasswordVisibility}
+        aria-label="toggle password visibility"
+      >
+        {showPassword ? (
+          <EyeIcon width={24} height={24} color={theme.palette.gray[300]} />
+        ) : (
+          <EyeSlashIcon
+            width={24}
+            height={24}
+            color={theme.palette.gray[300]}
+          />
+        )}
+      </IconButton>
+    </InputAdornment>
+  ) : undefined;
+
   return (
     <FormControl
       disabled={disabled}
@@ -34,11 +68,19 @@ const Input: FC<InputProps> = ({
       sx={styles.formControl(variant)}
     >
       {label && (
-        <InputLabel sx={styles.label} shrink>
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-expect-error
+        <InputLabel color="dark" sx={styles.label(variant)} shrink>
           {label}
         </InputLabel>
       )}
-      <InputMUI sx={styles.input} disableUnderline {...props} />
+      <InputMUI
+        type={showPassword ? 'text' : 'password'}
+        sx={styles.input(variant)}
+        disableUnderline
+        endAdornment={endAdornment}
+        {...props}
+      />
       {helperText && (
         <Typography sx={styles.helperText(variant, error)} typography="body3">
           {helperText}

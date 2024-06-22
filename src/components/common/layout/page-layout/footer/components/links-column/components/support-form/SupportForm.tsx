@@ -2,7 +2,7 @@ import { FC } from 'react';
 import { Box, Button } from '@mui/material';
 import { useFormik } from 'formik';
 
-import TextField from '@/components/common/ui/forms/text-field';
+import Input from '@/components/common/ui/input/Input';
 
 import { initialValues } from './constants/initialValues';
 import * as styles from './SupportForm.styles';
@@ -18,8 +18,7 @@ const SupportForm: FC = () => {
   return (
     <form onSubmit={formik.handleSubmit}>
       <Box sx={styles.form}>
-        <TextField
-          type="text"
+        <Input
           name="email"
           placeholder="you@domain.com"
           value={formik.values.email}
@@ -28,10 +27,9 @@ const SupportForm: FC = () => {
           error={formik.touched.email && Boolean(formik.errors.email)}
           helperText={formik.errors.email}
         />
-        <TextField
+        <Input
           multiline
           minRows={3}
-          type="text"
           name="message"
           placeholder="Опишіть свою проблему"
           value={formik.values.message}

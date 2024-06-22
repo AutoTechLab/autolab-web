@@ -76,15 +76,7 @@ const StepOne: FC<StepOneProps> = ({ formik, handleChangeStep }) => {
           helperText={formik.errors.confirmPassword as string}
         />
       </Stack>
-      <Button
-        color={ButtonColor.PRIMARY}
-        size={ButtonSize.MEDIUM}
-        variant={ButtonVariant.CONTAINED}
-        icon={ButtonIcon.NONE}
-        sx={styles.button}
-        onClick={handleChangeStep}
-        fullWidth
-      >
+      <Button sx={styles.button} onClick={handleChangeStep} fullWidth>
         Далі
       </Button>
       <ArrowLink sx={styles.arrowLink} text="Повернутись на головну" href="/" />

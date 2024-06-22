@@ -15,8 +15,7 @@ import {
   ButtonSize,
   ButtonVariant,
 } from '@/components/common/ui/button/types';
-import TextField from '@/components/common/ui/forms/text-field';
-import { TextFieldColor } from '@/components/common/ui/forms/text-field/types';
+import Input from '@/components/common/ui/input/Input';
 import { initialValues } from '@/components/pages/auth-pages/password-change-page/constants';
 import { validationSchema } from '@/components/pages/auth-pages/password-change-page/validation';
 import useToast from '@/hooks/use-toast';
@@ -60,7 +59,7 @@ const PasswordChangePage: FC = () => {
           Введи новий пароль
         </Typography>
         <form onSubmit={formik.handleSubmit}>
-          <TextField
+          <Input
             password
             fullWidth
             type="password"
@@ -68,14 +67,14 @@ const PasswordChangePage: FC = () => {
             label="Пароль"
             placeholder="Пароль"
             sx={styles.textField}
-            color={TextFieldColor.BLACK}
+            variant="black"
             value={formik.values.password}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
             error={formik.touched.password && Boolean(formik.errors.password)}
             helperText={formik.errors.password as string}
           />
-          <TextField
+          <Input
             password
             fullWidth
             type="password"
@@ -83,7 +82,7 @@ const PasswordChangePage: FC = () => {
             label="Повторити пароль"
             placeholder="Пароль"
             sx={styles.textField}
-            color={TextFieldColor.BLACK}
+            variant="black"
             value={formik.values.confirmPassword}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}

@@ -50,7 +50,7 @@ const LoginPage: FC = () => {
     <Box sx={styles.wrapper}>
       <form onSubmit={formik.handleSubmit}>
         <Typography sx={styles.signInText}>Вхід</Typography>
-        <Stack flexDirection="column" gap="24px">
+        <Stack flexDirection="column" gap="24px" mb="18px">
           <Input
             name="username"
             label="Логін"

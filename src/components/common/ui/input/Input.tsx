@@ -27,6 +27,7 @@ interface InputProps extends InputPropsMUI {
   error?: boolean;
   password?: boolean;
   sx?: SxProps<Theme>;
+  fullWidth?: boolean;
 }
 
 const Input: FC<InputProps> = ({
@@ -37,6 +38,7 @@ const Input: FC<InputProps> = ({
   error = false,
   password = false,
   sx = {},
+  fullWidth = false,
   ...props
 }) => {
   const [showPassword, setShowPassword] = useState(!password);
@@ -62,9 +64,10 @@ const Input: FC<InputProps> = ({
 
   return (
     <FormControl
+      fullWidth={fullWidth}
       disabled={disabled}
       error={error}
-      sx={styles.formControl(variant)}
+      sx={mergeSx(styles.formControl(variant), sx)}
     >
       {label && (
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
@@ -75,7 +78,7 @@ const Input: FC<InputProps> = ({
       )}
       <InputMUI
         endAdornment={endAdornment}
-        sx={mergeSx(styles.input(variant), sx)}
+        sx={styles.input(variant)}
         disableUnderline
         type={showPassword ? 'text' : 'password'}
         {...props}

@@ -45,25 +45,20 @@ const Input: FC<InputProps> = ({
     setShowPassword((prevShowPassword) => !prevShowPassword);
   };
 
+  const eyeColor =
+    variant === 'white' ? theme.palette.gray[300] : theme.palette.gray[400];
+
   const endAdornment = password ? (
     <InputAdornment position="end">
-      <IconButton
-        edge="end"
-        onClick={handleTogglePasswordVisibility}
-        aria-label="toggle password visibility"
-      >
+      <IconButton edge="end" onClick={handleTogglePasswordVisibility}>
         {showPassword ? (
-          <EyeIcon width={24} height={24} color={theme.palette.gray[300]} />
+          <EyeIcon width={24} height={24} color={eyeColor} />
         ) : (
-          <EyeSlashIcon
-            width={24}
-            height={24}
-            color={theme.palette.gray[300]}
-          />
+          <EyeSlashIcon width={24} height={24} color={eyeColor} />
         )}
       </IconButton>
     </InputAdornment>
-  ) : undefined;
+  ) : null;
 
   return (
     <FormControl
@@ -79,10 +74,10 @@ const Input: FC<InputProps> = ({
         </InputLabel>
       )}
       <InputMUI
-        type={showPassword ? 'text' : 'password'}
+        endAdornment={endAdornment}
         sx={mergeSx(styles.input(variant), sx)}
         disableUnderline
-        endAdornment={endAdornment}
+        type={showPassword ? 'text' : 'password'}
         {...props}
       />
       {helperText && (

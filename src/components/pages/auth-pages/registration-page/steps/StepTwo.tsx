@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import { ChevronLeftIcon } from '@heroicons/react/24/outline';
-import { Box, IconButton, Typography } from '@mui/material';
+import { Box, IconButton, Stack, Typography } from '@mui/material';
 import { useFormik } from 'formik';
 
 import Button from '@/components/common/ui/button';
@@ -11,7 +11,7 @@ import {
   ButtonVariant,
 } from '@/components/common/ui/button/types';
 import Checkbox from '@/components/common/ui/forms/checkbox';
-import TextField from '@/components/common/ui/forms/text-field';
+import Input from '@/components/common/ui/input/Input';
 import { RegisterInitialValues } from '@/lib/api/auth/types/RegisterBody';
 
 import * as styles from '../RegistrationPage.styles';
@@ -31,66 +31,73 @@ const StepTwo: FC<StepTwoProps> = ({ formik, handleChangeStep }) => {
       <Typography sx={styles.subtitle}>
         Крок 2: Персональна інформація
       </Typography>
-      <TextField
-        type="text"
-        name="firstname"
-        label="Ім'я"
-        placeholder="Ім'я"
-        sx={styles.textField}
-        value={formik.values.firstname}
-        onChange={formik.handleChange}
-        onBlur={formik.handleBlur}
-        error={formik.touched.firstname && Boolean(formik.errors.firstname)}
-        helperText={formik.errors.firstname as string}
-      />
-      <TextField
-        type="text"
-        name="lastname"
-        label="Прізвище"
-        placeholder="Прізвище"
-        sx={styles.textField}
-        value={formik.values.lastname}
-        onChange={formik.handleChange}
-        onBlur={formik.handleBlur}
-        error={formik.touched.lastname && Boolean(formik.errors.lastname)}
-        helperText={formik.errors.lastname as string}
-      />
-      <TextField
-        type="text"
-        name="middlename"
-        label="По батькові"
-        placeholder="По батькові"
-        sx={styles.textField}
-        value={formik.values.middlename}
-        onChange={formik.handleChange}
-        onBlur={formik.handleBlur}
-        error={formik.touched.middlename && Boolean(formik.errors.middlename)}
-        helperText={formik.errors.middlename as string}
-      />
-      <TextField
-        type="text"
-        name="phone"
-        label="Телефон"
-        placeholder="+380 66 0000 000"
-        sx={styles.textField}
-        value={formik.values.phone}
-        onChange={formik.handleChange}
-        onBlur={formik.handleBlur}
-        error={formik.touched.phone && Boolean(formik.errors.phone)}
-        helperText={formik.errors.phone as string}
-      />
-      <TextField
-        type="text"
-        name="birthDate"
-        label="Дата народження"
-        placeholder="17/11/2004"
-        sx={styles.textField}
-        value={formik.values.birthDate}
-        onChange={formik.handleChange}
-        onBlur={formik.handleBlur}
-        error={formik.touched.birthDate && Boolean(formik.errors.birthDate)}
-        helperText={formik.errors.birthDate as string}
-      />
+      <Stack flexDirection="column" gap="10px">
+        <Input
+          type="text"
+          name="firstname"
+          label="Ім'я"
+          placeholder="Ім'я"
+          variant="black"
+          sx={styles.textField}
+          value={formik.values.firstname}
+          onChange={formik.handleChange}
+          onBlur={formik.handleBlur}
+          error={formik.touched.firstname && Boolean(formik.errors.firstname)}
+          helperText={formik.errors.firstname as string}
+        />
+        <Input
+          type="text"
+          name="lastname"
+          label="Прізвище"
+          placeholder="Прізвище"
+          variant="black"
+          sx={styles.textField}
+          value={formik.values.lastname}
+          onChange={formik.handleChange}
+          onBlur={formik.handleBlur}
+          error={formik.touched.lastname && Boolean(formik.errors.lastname)}
+          helperText={formik.errors.lastname as string}
+        />
+        <Input
+          type="text"
+          name="middlename"
+          label="По батькові"
+          placeholder="По батькові"
+          variant="black"
+          sx={styles.textField}
+          value={formik.values.middlename}
+          onChange={formik.handleChange}
+          onBlur={formik.handleBlur}
+          error={formik.touched.middlename && Boolean(formik.errors.middlename)}
+          helperText={formik.errors.middlename as string}
+        />
+        <Input
+          type="text"
+          name="phone"
+          label="Телефон"
+          placeholder="+380 66 0000 000"
+          variant="black"
+          sx={styles.textField}
+          value={formik.values.phone}
+          onChange={formik.handleChange}
+          onBlur={formik.handleBlur}
+          error={formik.touched.phone && Boolean(formik.errors.phone)}
+          helperText={formik.errors.phone as string}
+        />
+        <Input
+          type="text"
+          name="birthDate"
+          label="Дата народження"
+          placeholder="17/11/2004"
+          variant="black"
+          sx={styles.textField}
+          value={formik.values.birthDate}
+          onChange={formik.handleChange}
+          onBlur={formik.handleBlur}
+          error={formik.touched.birthDate && Boolean(formik.errors.birthDate)}
+          helperText={formik.errors.birthDate as string}
+        />
+      </Stack>
       <Checkbox
         label="Погоджуюсь на обробку персональних даних"
         onChange={formik.handleChange}

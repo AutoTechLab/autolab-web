@@ -191,6 +191,7 @@ export const helperText = (
   error: boolean,
 ): SxProps<Theme> => ({
   ml: '3px',
+  color: variant === 'white' ? 'gray.400' : 'gray.300',
   ...(error && {
     color: variant === 'white' ? 'error.500' : 'error.200',
   }),

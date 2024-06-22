@@ -1,7 +1,7 @@
 'use client';
 
 import { FC } from 'react';
-import { Box, Typography } from '@mui/material';
+import { Box, Stack, Typography } from '@mui/material';
 import axios from 'axios';
 import { useFormik } from 'formik';
 import Link from 'next/link';
@@ -15,8 +15,7 @@ import {
   ButtonSize,
   ButtonVariant,
 } from '@/components/common/ui/button/types';
-import TextField from '@/components/common/ui/forms/text-field';
-import { TextFieldColor } from '@/components/common/ui/forms/text-field/types';
+import Input from '@/components/common/ui/input/Input';
 import SideSection from '@/components/pages/auth-pages/components/side-section';
 import useToast from '@/hooks/use-toast';
 import AuthAPI from '@/lib/api/auth/AuthAPI';
@@ -51,29 +50,29 @@ const LoginPage: FC = () => {
     <Box sx={styles.wrapper}>
       <form onSubmit={formik.handleSubmit}>
         <Typography sx={styles.signInText}>Вхід</Typography>
-        <TextField
-          name="username"
-          label="Логін"
-          placeholder="Пошта / нікнейм / номер телефону"
-          color={TextFieldColor.BLACK}
-          inputProps={{ sx: styles.input }}
-          sx={styles.textField}
-          value={formik.values.username}
-          onChange={formik.handleChange}
-          onBlur={formik.handleBlur}
-        />
-        <TextField
-          password
-          name="password"
-          label="Пароль"
-          placeholder="Пароль"
-          color={TextFieldColor.BLACK}
-          sx={styles.textField}
-          value={formik.values.password}
-          inputProps={{ sx: styles.input }}
-          onChange={formik.handleChange}
-          onBlur={formik.handleBlur}
-        />
+        <Stack flexDirection="column" gap="24px" mb="18px">
+          <Input
+            name="username"
+            label="Логін"
+            placeholder="Пошта / нікнейм / номер телефону"
+            variant="black"
+            sx={styles.textField}
+            value={formik.values.username}
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+          />
+          <Input
+            password
+            name="password"
+            label="Пароль"
+            placeholder="Пароль"
+            variant="black"
+            sx={styles.textField}
+            value={formik.values.password}
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+          />
+        </Stack>
         <Link href="/login/recover">Забув пароль?</Link>
         <Button
           color={ButtonColor.PRIMARY}

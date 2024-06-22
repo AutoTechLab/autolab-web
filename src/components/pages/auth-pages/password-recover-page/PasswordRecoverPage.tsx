@@ -3,7 +3,7 @@
 import { FC, useState } from 'react';
 import { HandRaisedIcon } from '@heroicons/react/24/outline';
 import { Box, Stack, Typography } from '@mui/material';
-import axios, { AxiosError } from 'axios';
+import axios from 'axios';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 
@@ -16,8 +16,7 @@ import {
   ButtonSize,
   ButtonVariant,
 } from '@/components/common/ui/button/types';
-import TextField from '@/components/common/ui/forms/text-field';
-import { TextFieldColor } from '@/components/common/ui/forms/text-field/types';
+import Input from '@/components/common/ui/input/Input';
 import useToast from '@/hooks/use-toast';
 import AuthAPI from '@/lib/api/auth/AuthAPI';
 
@@ -59,13 +58,13 @@ const PasswordRecoverPage: FC = () => {
         <Typography sx={styles.explanation}>
           На вказану пошту буде надіслано лист для зміни паролю
         </Typography>
-        <TextField
+        <Input
           sx={styles.textField}
           fullWidth
           value={email}
           label="Пошта"
           placeholder="Введіть пошту"
-          color={TextFieldColor.BLACK}
+          variant="black"
           type="email"
           onChange={(e) => setEmail(e.target.value)}
         />

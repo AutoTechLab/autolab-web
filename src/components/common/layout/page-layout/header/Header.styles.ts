@@ -1,4 +1,4 @@
-import { SxProps, Theme } from '@mui/system';
+import { SxProps, Theme } from '@mui/material/styles';
 
 export const wrapper: SxProps<Theme> = {
   p: '0px 100px',

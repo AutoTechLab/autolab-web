@@ -49,9 +49,7 @@ export const stepWrapper: SxProps<Theme> = {
 
 export const textField: SxProps<Theme> = {
   width: '420px',
-  height: '69px',
-  borderRadius: '10px',
-  mb: '4px',
+  height: '44x',
 };
 
 export const title: SxProps<Theme> = {

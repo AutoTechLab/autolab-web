@@ -1,7 +1,5 @@
 import { SxProps, Theme } from '@mui/material/styles';
 
-import theme from '@/styles/theme';
-
 export const wrapper: SxProps<Theme> = {
   width: '1064px',
   height: '648px',
@@ -42,19 +40,10 @@ export const wrapper: SxProps<Theme> = {
 
 export const textField: SxProps<Theme> = {
   width: '420px',
-  height: '69px',
-  borderRadius: '10px',
-  mb: '4px',
+  height: '44px',
 };
 
-export const input: SxProps<Theme> = {
-  borderRadius: '10px',
-  border: 'none',
-  WebkitBoxShadow: `0 0 0 1000px ${theme.palette.dark[400]} inset`,
-  '&:focus': {
-    WebkitBoxShadow: `0 0 0 1000px ${theme.palette.dark[400]} inset`,
-  },
-};
+export const input: SxProps<Theme> = {};
 
 export const signInText: SxProps<Theme> = {
   typography: 'h4Bold',

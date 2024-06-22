@@ -11,8 +11,10 @@ import {
   Typography,
 } from '@mui/material';
 import { Input as InputMUI } from '@mui/material';
+import { SxProps, Theme } from '@mui/material/styles';
 
 import { InputVariant } from '@/components/common/ui/input/types';
+import mergeSx from '@/lib/utils/mergeSx';
 import theme from '@/styles/theme';
 
 import * as styles from './Input.styles';
@@ -24,6 +26,7 @@ interface InputProps extends InputPropsMUI {
   disabled?: boolean;
   error?: boolean;
   password?: boolean;
+  sx?: SxProps<Theme>;
 }
 
 const Input: FC<InputProps> = ({
@@ -33,6 +36,7 @@ const Input: FC<InputProps> = ({
   disabled = false,
   error = false,
   password = false,
+  sx = {},
   ...props
 }) => {
   const [showPassword, setShowPassword] = useState(!password);
@@ -76,7 +80,7 @@ const Input: FC<InputProps> = ({
       )}
       <InputMUI
         type={showPassword ? 'text' : 'password'}
-        sx={styles.input(variant)}
+        sx={mergeSx(styles.input(variant), sx)}
         disableUnderline
         endAdornment={endAdornment}
         {...props}

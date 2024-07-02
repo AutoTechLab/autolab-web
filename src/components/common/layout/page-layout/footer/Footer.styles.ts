@@ -2,19 +2,37 @@ import { SxProps, Theme } from '@mui/material/styles';
 
 export const wrapper: SxProps<Theme> = {
   display: 'flex',
-  alignItems: 'flex-start',
-  justifyContent: 'space-between',
+  flexDirection: {
+    desktop: 'row',
+    mobile: 'column',
+  },
+  alignItems: {
+    desktop: 'flex-start',
+    mobile: 'center',
+  },
+  justifyContent: {
+    desktop: 'space-between',
+    mobile: 'center',
+  },
   zIndex: 11,
 
-  padding: '38px 100px',
-  height: '310px',
+  padding: {
+    mobileMedium: '38px 100px',
+    mobile: '16px',
+  },
+  height: 'auto',
   backgroundColor: 'dark.300',
 };
 
 export const textLogo: SxProps<Theme> = {
   display: 'flex',
+  flexDirection: {
+    desktop: 'row',
+    mobile: 'column',
+  },
   gap: '8px',
   alignItems: 'center',
+  mb: '26px',
 };
 
 export const text: SxProps<Theme> = {
@@ -24,5 +42,9 @@ export const text: SxProps<Theme> = {
 
 export const columns: SxProps<Theme> = {
   display: 'flex',
-  gap: '80px',
+  gap: {
+    desktop: '80px',
+    mobileMedium: '40px',
+    mobile: '16px',
+  },
 };

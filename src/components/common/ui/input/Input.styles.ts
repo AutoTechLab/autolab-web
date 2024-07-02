@@ -4,7 +4,7 @@ import { InputVariant } from '@/components/common/ui/input/types';
 
 export const formControl = (variant: InputVariant): SxProps<Theme> => ({
   '.MuiInputBase-root': {
-    m: '10px 0 0 0',
+    m: 0,
     border: '2px solid',
     borderColor: 'gray.400',
 

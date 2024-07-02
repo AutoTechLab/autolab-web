@@ -1,5 +1,7 @@
+'use client';
 import { FC } from 'react';
 import { Avatar, Box, Typography } from '@mui/material';
+import Link from 'next/link';
 
 import Tag from '@/components/common/ui/tag';
 import useToast from '@/hooks/use-toast';
@@ -12,34 +14,41 @@ interface OrganisationCardProps {
   avatar: string;
   name: string;
   position: string;
-  text?: string;
+  description?: string;
 }
 
 const OrganisationCard: FC<OrganisationCardProps> = ({
   avatar,
   name,
   position,
-  text = '',
+  description = '',
 }) => {
   const toast = useToast();
   const handleDelete = () => {
     toast.success('Deleted', '', 3000);
   };
+
+  const href = 'organisation/1';
+
   return (
     <Box sx={styles.wrapper}>
-      <Box sx={styles.title}>
-        <Box sx={styles.info}>
-          <Avatar src={avatar} sx={styles.avatar} />
-          <Box>
-            <Typography typography="h6Bold" sx={{ mb: '8px' }}>
-              {name}
-            </Typography>
-            <Tag text={position} color="orange" />
+      <Link href={href}>
+        <Box sx={styles.title}>
+          <Box sx={styles.info}>
+            <Avatar src={avatar} sx={styles.avatar} />
+            <Box>
+              <Typography typography="h6Bold" sx={{ mb: '8px' }}>
+                {name}
+              </Typography>
+              <Tag text={position} color="orange" />
+            </Box>
           </Box>
+          <RoundButtonIcon onClick={handleDelete} />
         </Box>
-        <RoundButtonIcon onClick={handleDelete} />
-      </Box>
-      {text && <Typography sx={styles.description}>{text}</Typography>}
+        {description && (
+          <Typography sx={styles.description}>{description}</Typography>
+        )}
+      </Link>
     </Box>
   );
 };

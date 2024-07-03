@@ -8,7 +8,6 @@ import {
   Stack,
   Typography,
 } from '@mui/material';
-import { isAxiosError } from 'axios';
 
 import {
   EditTabName,
@@ -22,7 +21,6 @@ import RoundButtonIcon from '@/components/common/ui/round-button-icon';
 import SectionButton from '@/components/common/ui/section-button/SectionButton';
 import { useAuthContext } from '@/hooks/use-auth/auth-context/AuthContext';
 import useToast from '@/hooks/use-toast';
-import { UserBody } from '@/lib/api/user/types/UserBody';
 import UserAPI from '@/lib/api/user/UserAPI';
 
 import * as styles from './ProfileEditPopup.styles';
@@ -50,9 +48,8 @@ const ProfileEditPopup: FC = () => {
     formData.append('file', file as Blob);
     try {
       if (file) {
-        console.log(file);
         setAvatar(URL.createObjectURL(file));
-        const data = await UserAPI.changeAvatar(formData);
+        await UserAPI.changeAvatar(formData);
         toast.success('Аватар успішно змінено', '', 3000);
       }
     } catch (e) {

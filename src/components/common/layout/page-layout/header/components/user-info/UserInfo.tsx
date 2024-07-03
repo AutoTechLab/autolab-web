@@ -33,7 +33,7 @@ const UserInfo: FC<UserInfoProps> = ({ user, isLoading }) => {
               </Typography>
               <Typography sx={styles.organisation}>Organisation</Typography>
             </Box>
-            <Avatar src="/images/avatar.jpg" sx={{ width: 40, height: 40 }}>
+            <Avatar src={user.avatar} sx={{ width: 40, height: 40 }}>
               {user.lastname[0] + user.firstname[0]}
             </Avatar>
           </Link>

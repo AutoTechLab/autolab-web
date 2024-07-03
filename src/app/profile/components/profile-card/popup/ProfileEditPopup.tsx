@@ -8,6 +8,7 @@ import {
   Stack,
   Typography,
 } from '@mui/material';
+import { isAxiosError } from 'axios';
 
 import {
   EditTabName,
@@ -20,7 +21,9 @@ import {
 import RoundButtonIcon from '@/components/common/ui/round-button-icon';
 import SectionButton from '@/components/common/ui/section-button/SectionButton';
 import { useAuthContext } from '@/hooks/use-auth/auth-context/AuthContext';
+import useToast from '@/hooks/use-toast';
 import { UserBody } from '@/lib/api/user/types/UserBody';
+import UserAPI from '@/lib/api/user/UserAPI';
 
 import * as styles from './ProfileEditPopup.styles';
 
@@ -31,19 +34,30 @@ const ProfileEditPopup: FC = () => {
   const [activeSection, setActiveSection] =
     useState<EditTabName>('personalData');
   const { user } = useAuthContext();
-  const [avatar, setAvatar] = useState<string>(
-    !!user?.avatar ? '/images/avatar.jpg' : (user as UserBody).avatar,
-  );
+  const [avatar, setAvatar] = useState<string>(user!.avatar);
   const fileInputRef = useRef<HTMLInputElement>(null);
+  const toast = useToast();
 
   const handleChangeAvatar = async () => {
     fileInputRef.current?.click();
   };
 
-  const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleFileChange = async (
+    event: React.ChangeEvent<HTMLInputElement>,
+  ) => {
     const file = event.target.files?.[0];
-    if (file) {
-      setAvatar(URL.createObjectURL(file));
+    const formData = new FormData();
+    formData.append('file', file as Blob);
+    try {
+      if (file) {
+        console.log(file);
+        setAvatar(URL.createObjectURL(file));
+        const data = await UserAPI.changeAvatar(formData);
+        toast.success('Аватар успішно змінено', '', 3000);
+      }
+    } catch (e) {
+      console.log(e);
+      toast.error('Помилка зміни аватару', '', 3000);
     }
   };
 

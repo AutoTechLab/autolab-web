@@ -17,6 +17,15 @@ class UserAPI {
     });
     return data;
   }
+
+  async changeAvatar(body: FormData) {
+    const { data } = await instance.patch<UserBody>(
+      '/users/avatar',
+      body,
+      getAuthorizationHeader(),
+    );
+    return data;
+  }
 }
 
 export default new UserAPI();

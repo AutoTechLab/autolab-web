@@ -43,7 +43,7 @@ const ProfileCard: FC = () => {
       ) : (
         <ProfileCardContext.Provider value={{ open, handleClick }}>
           <Box sx={styles.info}>
-            <Avatar src="/images/avatar.jpg" sx={styles.avatar} />
+            <Avatar src={user?.avatar} sx={styles.avatar} />
             <Box>
               <Typography typography="h4Bold" sx={{ mb: '12px' }}>
                 {user?.lastname} {user?.firstname} {user?.middlename}

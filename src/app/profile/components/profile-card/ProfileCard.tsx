@@ -1,12 +1,12 @@
 'use client';
 
-import { FC, useState } from 'react';
+import { createContext, FC, useState } from 'react';
 import {
   CalendarIcon,
   EnvelopeIcon,
   PhoneIcon,
 } from '@heroicons/react/24/outline';
-import { Avatar, Box, Modal, Typography } from '@mui/material';
+import { Avatar, Box, Typography } from '@mui/material';
 
 import ProfileEditPopup from '@/app/profile/components/profile-card/popup/ProfileEditPopup';
 import ProfileCardSkeleton from '@/app/profile/components/profile-card/skeletons';
@@ -16,6 +16,15 @@ import getDate from '@/lib/utils/getDate';
 import getYears from '@/lib/utils/getYears';
 
 import * as styles from './ProfileCard.styles';
+
+export interface ProfileCardContextProps {
+  open: boolean;
+  handleClick: () => void;
+}
+
+export const ProfileCardContext = createContext<ProfileCardContextProps | null>(
+  null,
+);
 
 const ProfileCard: FC = () => {
   const { user, isLoading } = useAuthContext();
@@ -32,7 +41,7 @@ const ProfileCard: FC = () => {
       {isLoading ? (
         <ProfileCardSkeleton />
       ) : (
-        <>
+        <ProfileCardContext.Provider value={{ open, handleClick }}>
           <Box sx={styles.info}>
             <Avatar src="/images/avatar.jpg" sx={styles.avatar} />
             <Box>
@@ -61,8 +70,8 @@ const ProfileCard: FC = () => {
           <Button onClick={handleClick} sx={{ alignSelf: 'flex-end' }}>
             Редагувати
           </Button>
-          <ProfileEditPopup open={open} handleClick={handleClick} />
-        </>
+          <ProfileEditPopup />
+        </ProfileCardContext.Provider>
       )}
     </Box>
   );

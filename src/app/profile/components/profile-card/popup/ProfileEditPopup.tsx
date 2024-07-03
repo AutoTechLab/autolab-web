@@ -1,4 +1,4 @@
-import { FC, useRef, useState } from 'react';
+import { FC, useContext, useRef, useState } from 'react';
 import { PencilSquareIcon, XMarkIcon } from '@heroicons/react/24/outline';
 import {
   Avatar,
@@ -13,6 +13,10 @@ import {
   EditTabName,
   editTabs,
 } from '@/app/profile/components/profile-card/popup/constants';
+import {
+  ProfileCardContext,
+  ProfileCardContextProps,
+} from '@/app/profile/components/profile-card/ProfileCard';
 import RoundButtonIcon from '@/components/common/ui/round-button-icon';
 import SectionButton from '@/components/common/ui/section-button/SectionButton';
 import { useAuthContext } from '@/hooks/use-auth/auth-context/AuthContext';
@@ -20,12 +24,10 @@ import { UserBody } from '@/lib/api/user/types/UserBody';
 
 import * as styles from './ProfileEditPopup.styles';
 
-interface ProfileEditPopupProps {
-  open: boolean;
-  handleClick: () => void;
-}
-
-const ProfileEditPopup: FC<ProfileEditPopupProps> = ({ open, handleClick }) => {
+const ProfileEditPopup: FC = () => {
+  const { open, handleClick } = useContext(
+    ProfileCardContext,
+  ) as ProfileCardContextProps;
   const [activeSection, setActiveSection] =
     useState<EditTabName>('personalData');
   const { user } = useAuthContext();

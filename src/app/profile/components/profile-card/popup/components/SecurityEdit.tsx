@@ -27,8 +27,6 @@ const SecurityEdit: FC = () => {
     }
   };
 
-  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {};
-
   const handlePasswordChange = (event: ChangeEvent<HTMLInputElement>) => {
     setPasswords({ ...passwords, [event.target.name]: event.target.value });
     console.log(passwords);
@@ -37,18 +35,18 @@ const SecurityEdit: FC = () => {
   return (
     <Stack flexDirection="column" gap="16px">
       <Input
-        label="Нікнейм"
+        label="Телефон"
         variant="white"
-        value={data?.username}
-        name="username"
-        onChange={handleChange}
+        value={data?.phone}
+        name="phone"
+        disabled
       />
       <Input
         label="Пошта"
         variant="white"
         value={data?.email}
         name="email"
-        onChange={handleChange}
+        disabled
       />
       <Input
         label="Поточний пароль"

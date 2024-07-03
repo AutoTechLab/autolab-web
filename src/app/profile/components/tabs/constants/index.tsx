@@ -24,19 +24,19 @@ export const tabs = [
 ];
 
 export const mocks = [
-  {
-    avatar: '/images/avatar.jpg',
-    name: 'Автосервіс Гепард',
-    position: 'Власник',
-  },
-  {
-    avatar: '/images/avatar.jpg',
-    name: 'Автосервіс Чірік',
-    position: 'Співвласник',
-  },
-  {
-    avatar: '/images/avatar.jpg',
-    name: 'Автосервіс Лісовик',
-    position: 'Співробітник',
-  },
+  // {
+  //   avatar: '/images/avatar.jpg',
+  //   name: 'Автосервіс Гепард',
+  //   position: 'Власник',
+  // },
+  // {
+  //   avatar: '/images/avatar.jpg',
+  //   name: 'Автосервіс Чірік',
+  //   position: 'Співвласник',
+  // },
+  // {
+  //   avatar: '/images/avatar.jpg',
+  //   name: 'Автосервіс Лісовик',
+  //   position: 'Співробітник',
+  // },
 ];

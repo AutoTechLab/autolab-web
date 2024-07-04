@@ -1,6 +1,7 @@
 import { SxProps, Theme } from '@mui/material/styles';
 
 export const wrapper: SxProps<Theme> = {
+  width: '100%',
   a: {
     display: 'block',
     p: '12px 20px',

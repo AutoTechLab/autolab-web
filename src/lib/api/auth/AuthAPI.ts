@@ -1,6 +1,8 @@
+import { ChangePasswordBody } from '@/lib/api/auth/types/ChangePasswordBody';
 import { LoginBody } from '@/lib/api/auth/types/LoginBody';
 import { RegisterBody } from '@/lib/api/auth/types/RegisterBody';
 import { Token } from '@/lib/api/auth/types/Token';
+import { getAuthorizationHeader } from '@/lib/api/getAuthorizationHeader';
 import { instance } from '@/lib/api/instance';
 
 class AuthAPI {
@@ -35,8 +37,12 @@ class AuthAPI {
     return data;
   }
 
-  async changePassword(oldPassword: string, newPassword: string) {
-    await instance.patch('/auth/change/password', { oldPassword, newPassword });
+  async changePassword(values: ChangePasswordBody) {
+    await instance.patch(
+      '/auth/change/password',
+      values,
+      getAuthorizationHeader(),
+    );
   }
 }
 

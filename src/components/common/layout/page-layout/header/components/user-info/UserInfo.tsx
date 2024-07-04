@@ -26,14 +26,14 @@ const UserInfo: FC<UserInfoProps> = ({ user, isLoading }) => {
         </Box>
       ) : (
         user && (
-          <Link style={styles.link} href="/profile">
+          <Link style={styles.link} href="/profile?tab=organisations">
             <Box sx={styles.userInfo}>
               <Typography variant="h6" sx={styles.name}>
                 {user.lastname} {user.firstname}
               </Typography>
               <Typography sx={styles.organisation}>Organisation</Typography>
             </Box>
-            <Avatar src="/images/avatar.jpg" sx={{ width: 40, height: 40 }}>
+            <Avatar src={user.avatar} sx={{ width: 40, height: 40 }}>
               {user.lastname[0] + user.firstname[0]}
             </Avatar>
           </Link>

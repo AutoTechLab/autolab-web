@@ -1,11 +1,14 @@
-export interface UserBody {
+export interface UserBody extends UserInfo {
   id: string;
-  username: string;
   email: string;
   phone: string;
+  avatar: string;
+}
+
+export interface UserInfo {
+  username: string;
   firstname: string;
   lastname: string;
   middlename: string;
   birthDate: string;
-  avatar: string;
 }

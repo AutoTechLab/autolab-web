@@ -85,42 +85,42 @@ export const button = (
   borderRadius: '6px',
   textTransform: 'none',
   display: 'flex',
-  ...(variant === ButtonVariant.CONTAINED && {
+  ...(variant === 'contained' && {
     ...containedColors,
-    ...(size === ButtonSize.SMALL && {
+    ...(size === 'small' && {
       typography: 'body1Bold',
       p: '10px 20px',
       gap: '8px',
     }),
-    ...(size === ButtonSize.MEDIUM && {
+    ...(size === 'medium' && {
       p: '12px 28px',
       typography: 'h6Bold',
       gap: '12px',
     }),
-    ...(size === ButtonSize.LARGE && {
+    ...(size === 'large' && {
       p: '16px 32px',
       gap: '12px',
       typography: 'h6Bold',
     }),
   }),
-  ...(variant === ButtonVariant.OUTLINED && {
-    ...(color === ButtonColor.PRIMARY && {
+  ...(variant === 'outlined' && {
+    ...(color === 'primary' && {
       ...outlinedOrangeColors,
     }),
-    ...(color === ButtonColor.SECONDARY && {
+    ...(color === 'secondary' && {
       ...outlinedWhiteColors,
     }),
-    ...(size === ButtonSize.SMALL && {
+    ...(size === 'small' && {
       typography: 'body1Bold',
       p: '10px 20px',
       gap: '8px',
     }),
-    ...(size === ButtonSize.MEDIUM && {
+    ...(size === 'medium' && {
       p: '12px 28px',
       typography: 'h6Bold',
       gap: '12px',
     }),
-    ...(size === ButtonSize.LARGE && {
+    ...(size === 'large' && {
       p: '16px 32px',
       gap: '12px',
       typography: 'h6Bold',

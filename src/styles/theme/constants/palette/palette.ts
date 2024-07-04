@@ -56,6 +56,14 @@ const palette: PaletteOptions = {
     600: '#FF5B5B',
     700: '#FF9898',
   },
+  yellow: {
+    100: '#EF6C00',
+    500: '#F5A766',
+  },
+  blue: {
+    100: '#0288D1',
+    500: '#ACD6EE',
+  },
 };
 
 export default palette;

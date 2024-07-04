@@ -9,12 +9,6 @@ import { usePathname, useRouter } from 'next/navigation';
 
 import Logo from '@/components/common/icons/Logo';
 import Button from '@/components/common/ui/button';
-import {
-  ButtonColor,
-  ButtonIcon,
-  ButtonSize,
-  ButtonVariant,
-} from '@/components/common/ui/button/types';
 import Input from '@/components/common/ui/input/Input';
 import { initialValues } from '@/components/pages/auth-pages/password-change-page/constants';
 import { validationSchema } from '@/components/pages/auth-pages/password-change-page/validation';
@@ -95,10 +89,8 @@ const PasswordChangePage: FC = () => {
           <Box sx={{ display: 'flex', gap: '16px', mt: '32px' }}>
             <Button
               sx={{ width: '204px' }}
-              color={ButtonColor.SECONDARY}
-              size={ButtonSize.MEDIUM}
-              variant={ButtonVariant.OUTLINED}
-              icon={ButtonIcon.NONE}
+              color="secondary"
+              variant="outlined"
               onClick={() => router.replace('/login')}
             >
               Відмінити
@@ -106,10 +98,6 @@ const PasswordChangePage: FC = () => {
             <Button
               type="submit"
               name="button"
-              color={ButtonColor.PRIMARY}
-              size={ButtonSize.MEDIUM}
-              variant={ButtonVariant.CONTAINED}
-              icon={ButtonIcon.NONE}
               sx={{ width: '260px' }}
               disabled={!(formik.dirty && formik.isValid)}
             >

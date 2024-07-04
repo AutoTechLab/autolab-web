@@ -4,12 +4,6 @@ import Link from 'next/link';
 
 import Logo from '@/components/common/icons/Logo';
 import Button from '@/components/common/ui/button';
-import {
-  ButtonColor,
-  ButtonIcon,
-  ButtonSize,
-  ButtonVariant,
-} from '@/components/common/ui/button/types';
 
 import * as styles from './PasswordrecoverSuccess.styles';
 
@@ -27,14 +21,7 @@ const Page = () => {
         <Typography typography="h3Medium" sx={styles.check}>
           Пароль успішно змінено
         </Typography>
-        <Button
-          href="/profile"
-          color={ButtonColor.PRIMARY}
-          size={ButtonSize.MEDIUM}
-          variant={ButtonVariant.CONTAINED}
-          icon={ButtonIcon.NONE}
-          fullWidth
-        >
+        <Button href="/profile?tab=organisations" fullWidth>
           Перейти до профілю
         </Button>
       </Stack>

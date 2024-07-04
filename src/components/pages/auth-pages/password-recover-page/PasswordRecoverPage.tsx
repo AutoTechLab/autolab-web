@@ -10,12 +10,6 @@ import { useRouter } from 'next/navigation';
 import Logo from '@/components/common/icons/Logo';
 import ArrowLink from '@/components/common/ui/arrow-link';
 import Button from '@/components/common/ui/button';
-import {
-  ButtonColor,
-  ButtonIcon,
-  ButtonSize,
-  ButtonVariant,
-} from '@/components/common/ui/button/types';
 import Input from '@/components/common/ui/input/Input';
 import useToast from '@/hooks/use-toast';
 import AuthAPI from '@/lib/api/auth/AuthAPI';
@@ -68,14 +62,7 @@ const PasswordRecoverPage: FC = () => {
           type="email"
           onChange={(e) => setEmail(e.target.value)}
         />
-        <Button
-          color={ButtonColor.PRIMARY}
-          size={ButtonSize.MEDIUM}
-          variant={ButtonVariant.CONTAINED}
-          icon={ButtonIcon.NONE}
-          fullWidth
-          onClick={() => handleClick()}
-        >
+        <Button fullWidth onClick={() => handleClick()}>
           Надіслати
         </Button>
         <ArrowLink

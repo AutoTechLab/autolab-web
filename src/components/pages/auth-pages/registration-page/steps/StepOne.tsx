@@ -4,12 +4,6 @@ import { useFormik } from 'formik';
 
 import ArrowLink from '@/components/common/ui/arrow-link';
 import Button from '@/components/common/ui/button';
-import {
-  ButtonColor,
-  ButtonIcon,
-  ButtonSize,
-  ButtonVariant,
-} from '@/components/common/ui/button/types';
 import Input from '@/components/common/ui/input/Input';
 import { RegisterInitialValues } from '@/lib/api/auth/types/RegisterBody';
 
@@ -82,15 +76,7 @@ const StepOne: FC<StepOneProps> = ({ formik, handleChangeStep }) => {
           helperText={formik.errors.confirmPassword as string}
         />
       </Stack>
-      <Button
-        color={ButtonColor.PRIMARY}
-        size={ButtonSize.MEDIUM}
-        variant={ButtonVariant.CONTAINED}
-        icon={ButtonIcon.NONE}
-        sx={styles.button}
-        onClick={handleChangeStep}
-        fullWidth
-      >
+      <Button sx={styles.button} onClick={handleChangeStep} fullWidth>
         Далі
       </Button>
       <ArrowLink sx={styles.arrowLink} text="Повернутись на головну" href="/" />

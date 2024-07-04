@@ -9,12 +9,6 @@ import { useRouter } from 'next/navigation';
 
 import ArrowLink from '@/components/common/ui/arrow-link';
 import Button from '@/components/common/ui/button';
-import {
-  ButtonColor,
-  ButtonIcon,
-  ButtonSize,
-  ButtonVariant,
-} from '@/components/common/ui/button/types';
 import Input from '@/components/common/ui/input/Input';
 import SideSection from '@/components/pages/auth-pages/components/side-section';
 import useToast from '@/hooks/use-toast';
@@ -34,7 +28,7 @@ const LoginPage: FC = () => {
       try {
         const { accessToken } = await AuthAPI.login(values);
         storageUtil.setToken(accessToken);
-        router.replace('/profile');
+        router.replace('/profile?tab=organisations');
         return;
       } catch (e) {
         if (axios.isAxiosError(e)) {
@@ -75,10 +69,9 @@ const LoginPage: FC = () => {
         </Stack>
         <Link href="/login/recover">Забув пароль?</Link>
         <Button
-          color={ButtonColor.PRIMARY}
-          size={ButtonSize.MEDIUM}
-          variant={ButtonVariant.CONTAINED}
-          icon={ButtonIcon.NONE}
+          color="primary"
+          size="medium"
+          variant="contained"
           fullWidth
           type="submit"
         >

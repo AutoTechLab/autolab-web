@@ -6,17 +6,11 @@ import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 
 import Button from '@/components/common/ui/button';
-import {
-  ButtonColor,
-  ButtonIcon,
-  ButtonSize,
-  ButtonVariant,
-} from '@/components/common/ui/button/types';
-import useUser from '@/hooks/useUser';
+import { useAuthContext } from '@/hooks/use-auth/auth-context/AuthContext';
 import storageUtil from '@/lib/utils/storageUtil';
 
 const ProfilePage: FC = () => {
-  const { user, isLoading, isError, mutate } = useUser();
+  const { user, isLoading, isError, mutate } = useAuthContext();
   const router = useRouter();
 
   useEffect(() => {
@@ -45,15 +39,7 @@ const ProfilePage: FC = () => {
           />
           <Box>{user.username}</Box>
           <Box>{user.email}</Box>
-          <Button
-            size={ButtonSize.MEDIUM}
-            variant={ButtonVariant.CONTAINED}
-            color={ButtonColor.PRIMARY}
-            icon={ButtonIcon.NONE}
-            onClick={logout}
-          >
-            Вийти
-          </Button>
+          <Button onClick={logout}>Вийти</Button>
         </Box>
       ) : (
         <>{(isLoading || isError) && <Box>Завантаження...</Box>}</>

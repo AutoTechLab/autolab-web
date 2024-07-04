@@ -12,12 +12,6 @@ import { useSearchParams } from 'next/navigation';
 import Logo from '@/components/common/icons/Logo';
 import ArrowLink from '@/components/common/ui/arrow-link';
 import Button from '@/components/common/ui/button';
-import {
-  ButtonColor,
-  ButtonIcon,
-  ButtonSize,
-  ButtonVariant,
-} from '@/components/common/ui/button/types';
 import useToast from '@/hooks/use-toast/useToast';
 import AuthAPI from '@/lib/api/auth/AuthAPI';
 
@@ -64,14 +58,7 @@ const EmailConfirmPage: FC<EmailConfirmPageProps> = ({ text }) => {
             Лист підтверження діє 1 годину
           </Typography>
         </Box>
-        <Button
-          color={ButtonColor.PRIMARY}
-          size={ButtonSize.MEDIUM}
-          variant={ButtonVariant.CONTAINED}
-          icon={ButtonIcon.NONE}
-          fullWidth
-          onClick={resendEmail}
-        >
+        <Button fullWidth onClick={resendEmail}>
           Надіслати повторно
         </Button>
         <ArrowLink

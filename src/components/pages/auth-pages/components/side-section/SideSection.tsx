@@ -4,12 +4,6 @@ import Link from 'next/link';
 
 import Logo from '@/components/common/icons/Logo';
 import Button from '@/components/common/ui/button';
-import {
-  ButtonColor,
-  ButtonIcon,
-  ButtonSize,
-  ButtonVariant,
-} from '@/components/common/ui/button/types';
 import { LogoVariant } from '@/types/logo';
 
 import * as styles from './SideSection.styles';
@@ -33,12 +27,7 @@ const SideSection: FC<SideSectionProps> = ({ text, link }) => {
         style={{ padding: 0, alignSelf: 'center', textDecoration: 'none' }}
         href={link}
       >
-        <Button
-          size={ButtonSize.MEDIUM}
-          variant={ButtonVariant.OUTLINED}
-          color={ButtonColor.SECONDARY}
-          icon={ButtonIcon.NONE}
-        >
+        <Button variant="outlined" color="secondary">
           {linkText}
         </Button>
       </Link>

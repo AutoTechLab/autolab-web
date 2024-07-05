@@ -18,4 +18,12 @@ export const search: SxProps<Theme> = {
 export const input: SxProps<Theme> = {
   maxWidth: '730px',
   flexGrow: 1,
+  mb: '26px',
+};
+
+export const organisations: SxProps<Theme> = {
+  maxWidth: '994px',
+  display: 'grid',
+  gap: '16px',
+  mb: '64px',
 };

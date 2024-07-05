@@ -30,13 +30,7 @@ const NotFound: FC = () => {
         <br />
         Ви можете написати в підтримку, якщо ви впевнені, що виникла помилка
       </Typography>
-      <Button
-        onClick={() => router.back()}
-        size={ButtonSize.LARGE}
-        variant={ButtonVariant.CONTAINED}
-        color={ButtonColor.PRIMARY}
-        icon={ButtonIcon.NONE}
-      >
+      <Button onClick={() => router.back()} size="large">
         Повернутися назад
       </Button>
     </Box>

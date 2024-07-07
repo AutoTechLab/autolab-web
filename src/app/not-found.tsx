@@ -6,12 +6,6 @@ import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 
 import Button from '@/components/common/ui/button';
-import {
-  ButtonColor,
-  ButtonIcon,
-  ButtonSize,
-  ButtonVariant,
-} from '@/components/common/ui/button/types';
 
 import * as styles from '../components/pages/NotFound.styles';
 

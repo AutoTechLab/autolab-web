@@ -1,6 +1,7 @@
 import { FC, PropsWithChildren } from 'react';
-import { Box, Typography } from '@mui/material';
+import { Box } from '@mui/material';
 
+import OrganisationBar from '@/app/organisations/[id]/components/organisation-bar';
 import OrganisationDashboard from '@/app/organisations/[id]/components/organisation-dasboard/OrganisationDashboard';
 
 import * as styles from './Organisation.styles';

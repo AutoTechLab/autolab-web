@@ -5,3 +5,18 @@ export const layout: SxProps<Theme> = {
   display: 'flex',
   backgroundColor: 'gray.700',
 };
+
+export const wrapper: SxProps<Theme> = {
+  width: '100%',
+};
+
+export const search: SxProps<Theme> = {
+  width: '100%',
+  my: '16px',
+  display: 'inline-flex',
+  gap: '16px',
+};
+
+export const input: SxProps<Theme> = {
+  width: '100%',
+};

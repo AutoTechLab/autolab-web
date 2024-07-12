@@ -4,7 +4,8 @@ export const wrapper: SxProps<Theme> = {
   py: 0,
   px: {
     mobile: '16px',
-    tablet: '100px',
+    tablet: '32px',
+    desktop: '100px',
   },
   width: '100%',
   height: '64px',

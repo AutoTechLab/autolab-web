@@ -1,9 +1,11 @@
 import { SxProps, Theme } from '@mui/material/styles';
 
 export const wrapper: SxProps<Theme> = {
-  maxWidth: '387px',
+  maxWidth: {
+    mobile: '100%',
+    desktop: '400px',
+  },
   p: '16px',
-  mr: '20px',
   display: 'flex',
   flexDirection: 'column',
   gap: '16px',
@@ -14,5 +16,7 @@ export const wrapper: SxProps<Theme> = {
 
   img: {
     borderRadius: '4px',
+    width: '100%',
+    height: 'auto',
   },
 };

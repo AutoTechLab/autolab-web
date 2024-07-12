@@ -3,6 +3,7 @@ import { Box, Typography } from '@mui/material';
 import Image from 'next/image';
 
 import InfoCard from '@/app/organisations/[id]/components/info-card/InfoCard';
+import Button from '@/components/common/ui/button';
 
 import * as styles from './OrganisationDashboard.styles';
 
@@ -33,6 +34,10 @@ const OrganisationDashboard: FC<OrganisationDashboardProps> = ({
         <InfoCard name="Власник" value={organisation.owner} />
       </Box>
       <Typography typography="body2">{organisation.description}</Typography>
+      <Box display="flex" flexDirection="row" gap="16px">
+        <Button size="small">Редагувати</Button>
+        <Button size="small">Видалити</Button>
+      </Box>
     </Box>
   );
 };

@@ -37,3 +37,19 @@ export const input: SxProps<Theme> = {
     backgroundColor: 'white!important',
   },
 };
+
+export const items: SxProps<Theme> = {
+  pr: '5px',
+  pb: '5px',
+  maxHeight: {
+    mobile: '100%',
+    desktop: '57vh',
+  },
+  overflowY: 'auto',
+
+  '::-webkit-scrollbar': {
+    width: '0px',
+  },
+  scrollbarWidth: 'none',
+  msOverflowStyle: 'none',
+};

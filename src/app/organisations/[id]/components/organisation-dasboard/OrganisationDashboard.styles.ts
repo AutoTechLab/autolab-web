@@ -1,10 +1,12 @@
 import { SxProps, Theme } from '@mui/material/styles';
 
 export const wrapper: SxProps<Theme> = {
+  flex: '0 0 auto',
   maxWidth: {
     mobile: '100%',
     desktop: '400px',
   },
+  height: 'fit-content',
   p: '16px',
   display: 'flex',
   flexDirection: 'column',

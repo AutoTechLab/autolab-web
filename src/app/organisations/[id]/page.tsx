@@ -17,7 +17,7 @@ const OrganisationPage = () => {
         <Input isSearch placeholder="Пошук" sx={styles.input} />
         <IconButton />
       </Box>
-      <Stack flexDirection="column" gap="10px">
+      <Stack sx={styles.items} flexDirection="column" gap="10px">
         {mocks.map((mock) => (
           <Card key={mock.avatar} avatar={mock.avatar} name={mock.name}>
             <Position position={mock.position} />

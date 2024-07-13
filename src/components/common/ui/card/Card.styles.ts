@@ -1,5 +1,10 @@
 import { SxProps, Theme } from '@mui/material/styles';
 
+const defaultTextSettings = {
+  typography: 'body1',
+  color: 'black',
+};
+
 export const wrapper: SxProps<Theme> = {
   width: '100%',
   a: {
@@ -33,12 +38,28 @@ export const info: SxProps<Theme> = {
   columnGap: '20px',
 };
 
+export const heading: SxProps<Theme> = {
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'center',
+  alignItems: 'flex-start',
+  gap: '8px',
+};
+
 export const avatar: SxProps<Theme> = {
   width: '64px',
   height: '64px',
   border: '1px solid',
   borderColor: 'gray.500',
 };
+
+export const price: SxProps<Theme> = {
+  typography: 'body1Bold',
+  color: 'orange.100',
+};
+
+export const phone: SxProps<Theme> = defaultTextSettings;
+export const auto: SxProps<Theme> = defaultTextSettings;
 
 export const description: SxProps<Theme> = {
   mt: '14px',

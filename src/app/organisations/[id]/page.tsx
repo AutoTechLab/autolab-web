@@ -2,9 +2,10 @@ import { Box, Stack } from '@mui/material';
 
 import OrganisationBar from '@/app/organisations/[id]/components/organisation-bar';
 import { mocks } from '@/app/profile/components/tabs/constants';
+import Card from '@/components/common/ui/card';
+import Position from '@/components/common/ui/card/components/Position';
 import IconButton from '@/components/common/ui/icon-button/IconButton';
 import Input from '@/components/common/ui/input/Input';
-import OrganisationCard from '@/components/common/ui/organisation-card';
 
 import * as styles from './Organisation.styles';
 
@@ -17,13 +18,10 @@ const OrganisationPage = () => {
         <IconButton />
       </Box>
       <Stack flexDirection="column" gap="10px">
-        {mocks.map((mock, index) => (
-          <OrganisationCard
-            key={mock.avatar}
-            avatar={mock.avatar}
-            name={mock.name}
-            position={mock.position}
-          />
+        {mocks.map((mock) => (
+          <Card key={mock.avatar} avatar={mock.avatar} name={mock.name}>
+            <Position position={mock.position} />
+          </Card>
         ))}
       </Stack>
     </Box>

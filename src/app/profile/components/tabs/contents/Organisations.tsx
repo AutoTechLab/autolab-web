@@ -4,8 +4,9 @@ import { Box, Stack, Typography } from '@mui/material';
 import { mocks } from '@/app/profile/components/tabs/constants';
 import Gear from '@/components/common/icons/Gear';
 import Button from '@/components/common/ui/button';
+import Card from '@/components/common/ui/card';
+import Position from '@/components/common/ui/card/components/Position';
 
-import OrganisationCard from '../../../../../components/common/ui/organisation-card';
 import * as styles from '../Tabs.styles';
 
 const Organisations: FC = () => {
@@ -35,12 +36,13 @@ const Organisations: FC = () => {
   return (
     <Box sx={styles.organisations}>
       {mocks.map((organisation) => (
-        <OrganisationCard
+        <Card
           key={organisation.name}
           avatar={organisation.avatar}
           name={organisation.name}
-          position={organisation.position}
-        />
+        >
+          <Position position={organisation.position} />
+        </Card>
       ))}
       <Button
         sx={{ alignSelf: 'self-end', mt: '15px' }}

@@ -7,23 +7,35 @@ const defaultTextSettings = {
 
 export const wrapper: SxProps<Theme> = {
   width: '100%',
-  a: {
-    display: 'block',
-    p: '12px 20px',
-    borderRadius: '6px',
-    border: '1px solid',
-    borderColor: 'gray.500',
-    backgroundColor: 'gray.700',
-    boxShadow: '2px 2px 4px 0px rgba(0, 0, 0, 0.25)',
 
-    '&:hover': {
-      backgroundColor: 'gray.600',
-    },
+  display: 'block',
+  borderRadius: '6px',
+  border: '1px solid',
+  borderColor: 'gray.500',
+  backgroundColor: 'gray.700',
+  boxShadow: '2px 2px 4px 0px rgba(0, 0, 0, 0.25)',
 
-    '&:focus': {
-      outline: '2px solid',
-      outlineColor: 'gray.100',
-    },
+  '&:hover': {
+    backgroundColor: 'gray.600',
+  },
+
+  '&:focus': {
+    outline: '2px solid',
+    outlineColor: 'gray.100',
+  },
+};
+
+export const box: SxProps<Theme> = {
+  flex: '1 1 auto',
+  height: 'auto',
+  display: 'flex',
+  flexDirection: 'row',
+  justifyContent: 'space-between',
+};
+
+export const content: SxProps<Theme> = {
+  p: {
+    mobile: '12px 0 12px 20px',
   },
 };
 
@@ -68,4 +80,28 @@ export const description: SxProps<Theme> = {
   display: '-webkit-box',
   WebkitLineClamp: 3,
   WebkitBoxOrient: 'vertical',
+};
+
+export const button: SxProps<Theme> = {
+  alignSelf: 'stretch',
+  width: {
+    mobile: '28px',
+    tablet: '44px',
+  },
+  height: {
+    mobile: 'auto',
+    tablet: '44px',
+  },
+  borderRadius: {
+    tablet: '50%',
+    mobile: '0 6px 6px 0',
+  },
+  m: {
+    mobile: 0,
+    tablet: '22px 16px 0 0',
+  },
+  p: {
+    mobile: '4px',
+    tablet: 0,
+  },
 };

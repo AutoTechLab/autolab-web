@@ -27,19 +27,23 @@ const CardComponent: FC<CardProps> = ({
   return (
     <Box sx={styles.wrapper}>
       <Link href={href}>
-        <Box sx={styles.title}>
-          <Box sx={styles.info}>
-            {avatar && <Avatar src={avatar} sx={styles.avatar} />}
-            <Box sx={styles.heading}>
-              <Typography typography="h6Bold">{name}</Typography>
-              {children}
+        <Box sx={styles.box}>
+          <Box sx={styles.content}>
+            <Box sx={styles.title}>
+              <Box sx={styles.info}>
+                {avatar && <Avatar src={avatar} sx={styles.avatar} />}
+                <Box sx={styles.heading}>
+                  <Typography typography="h6Bold">{name}</Typography>
+                  {children}
+                </Box>
+              </Box>
             </Box>
+            {description && (
+              <Typography sx={styles.description}>{description}</Typography>
+            )}
           </Box>
-          <RoundButtonIcon onClick={handleDelete} />
+          <RoundButtonIcon sx={styles.button} onClick={handleDelete} />
         </Box>
-        {description && (
-          <Typography sx={styles.description}>{description}</Typography>
-        )}
       </Link>
     </Box>
   );

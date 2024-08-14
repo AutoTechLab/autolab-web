@@ -14,7 +14,6 @@ const AuthLayout: FC<AuthLayoutProps> = ({ children }) => {
         height: '100vh',
         display: 'grid',
         placeItems: 'center',
-        overflow: 'hidden',
       }}
     >
       {children}

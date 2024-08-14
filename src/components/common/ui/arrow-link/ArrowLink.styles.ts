@@ -2,6 +2,7 @@ import { SxProps, Theme } from '@mui/material/styles';
 
 export const wrapper: SxProps<Theme> = {
   a: {
+    margin: 0,
     display: 'flex',
     alignItems: 'center',
     color: 'white.main',
@@ -12,6 +13,11 @@ export const wrapper: SxProps<Theme> = {
     },
     '&:active': {
       color: 'gray.400',
+    },
+
+    svg: {
+      width: '24px',
+      height: '24px',
     },
   },
 };

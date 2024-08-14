@@ -15,7 +15,7 @@ const Logo: FC<LogoProps> = ({
   color = 'orange',
 }) => {
   const fill =
-    color !== 'black' ? theme.palette.orange[300] : theme.palette.dark[400];
+    color === 'black' ? theme.palette.dark[400] : theme.palette.orange[300];
 
   if (size === LogoVariant.MEDIUM) {
     return (

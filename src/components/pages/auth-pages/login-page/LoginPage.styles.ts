@@ -1,20 +1,40 @@
 import { SxProps, Theme } from '@mui/material/styles';
 
 export const wrapper: SxProps<Theme> = {
-  width: '1064px',
-  height: '648px',
+  width: {
+    desktop: '1064px',
+    mobile: '100%',
+  },
+  height: {
+    desktop: '648px',
+    mobile: '100%',
+  },
   backgroundColor: 'dark.400',
   display: 'flex',
-  flexDirection: 'row',
+  flexDirection: {
+    desktop: 'row',
+    mobile: 'column',
+  },
   justifyContent: 'space-between',
+  alignItems: 'center',
   overflow: 'hidden',
+
   form: {
-    paddingLeft: '74px',
+    maxWidth: '520px',
+    width: {
+      desktop: '70%',
+      mobile: '100%',
+    },
+    ml: {
+      desktop: '74px',
+      mobile: 0,
+    },
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
   },
+
   section: {
     display: 'flex',
     flexDirection: 'column',
@@ -27,6 +47,7 @@ export const wrapper: SxProps<Theme> = {
     width: '100%',
     pr: '80px',
   },
+
   a: {
     alignSelf: 'flex-start',
     color: 'orange.500',
@@ -36,17 +57,26 @@ export const wrapper: SxProps<Theme> = {
       textDecoration: 'underline',
     },
   },
-};
 
-export const textField: SxProps<Theme> = {
-  width: '420px',
-  height: '44px',
+  img: {
+    width: '100%',
+    height: 'auto',
+  },
 };
 
 export const input: SxProps<Theme> = {};
 
+export const image = {
+  width: '100%',
+  height: 'auto',
+  marginBottom: '20px',
+};
+
 export const signInText: SxProps<Theme> = {
-  typography: 'h4Bold',
+  typography: {
+    desktop: 'h4Bold',
+    mobile: 'h5Bold',
+  },
   color: 'white.main',
   mb: '24px',
 };

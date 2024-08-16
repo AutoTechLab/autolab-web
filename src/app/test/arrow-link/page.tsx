@@ -1,7 +1,7 @@
 import { Box } from '@mui/material';
 
 import ArrowLink from '@/components/common/ui/arrow-link';
-import { ArrowVariant } from '@/components/common/ui/arrow-link/types';
+import { IconPlace } from '@/components/common/ui/arrow-link/types';
 
 const Page = () => {
   return (
@@ -9,7 +9,7 @@ const Page = () => {
       <ArrowLink
         href={'/'}
         text={'Повернутись до авторизації'}
-        arrow={ArrowVariant.RIGHT}
+        arrow={IconPlace.RIGHT}
       />
     </Box>
   );

@@ -1,5 +1,1 @@
-export enum ArrowVariant {
-  RIGHT = 'right',
-  LEFT = 'left',
-  NONE = 'none',
-}
+export type IconPlace = 'right' | 'left' | 'none';

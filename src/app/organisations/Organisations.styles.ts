@@ -22,6 +22,7 @@ export const input: SxProps<Theme> = {
 };
 
 export const organisations: SxProps<Theme> = {
+  width: '100%',
   maxWidth: '994px',
   display: 'grid',
   gap: '16px',

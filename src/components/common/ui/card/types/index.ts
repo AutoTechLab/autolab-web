@@ -1,4 +1,5 @@
 import { ReactNode } from 'react';
+import { SxProps, Theme } from '@mui/material/styles';
 
 import { Auto } from '@/types/auto';
 
@@ -8,6 +9,7 @@ export interface CardProps {
   description?: string;
   href?: string;
   children?: ReactNode;
+  sx?: SxProps<Theme>;
 }
 
 export interface PositionProps {

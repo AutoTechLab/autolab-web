@@ -7,6 +7,7 @@ import Position from '@/components/common/ui/card/components/Position';
 import Price from '@/components/common/ui/card/components/Price';
 import RoundButtonIcon from '@/components/common/ui/round-button-icon';
 import useToast from '@/hooks/use-toast';
+import mergeSx from '@/lib/utils/mergeSx';
 
 import * as styles from './Card.styles';
 import type { CardProps } from './types';
@@ -17,6 +18,7 @@ const CardComponent: FC<CardProps> = ({
   description = '',
   href = '',
   children,
+  sx = {},
 }) => {
   const toast = useToast();
   const handleDelete = (event: React.MouseEvent<HTMLButtonElement>) => {
@@ -25,7 +27,7 @@ const CardComponent: FC<CardProps> = ({
   };
 
   return (
-    <Box sx={styles.wrapper}>
+    <Box sx={mergeSx(styles.wrapper, sx)}>
       <Link href={href}>
         <Box sx={styles.box}>
           <Box sx={styles.content}>

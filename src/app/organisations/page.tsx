@@ -1,8 +1,9 @@
 import { Box, Typography } from '@mui/material';
 
+import Card from '@/components/common/ui/card';
+import Position from '@/components/common/ui/card/components/Position';
 import IconButton from '@/components/common/ui/icon-button/IconButton';
 import Input from '@/components/common/ui/input/Input';
-import OrganisationCard from '@/components/common/ui/organisation-card';
 
 import * as styles from './Organisations.styles';
 
@@ -40,14 +41,14 @@ const Organisations = () => {
         <IconButton />
       </Box>
       <Box sx={styles.organisations}>
-        {mocks.map((mock, index) => (
-          <OrganisationCard
-            key={index}
-            name={mock.name}
-            avatar={mock.avatar}
-            position={mock.position}
-            description={mock.description}
-          />
+        {mocks.map((organisation) => (
+          <Card
+            key={organisation.name}
+            avatar={organisation.avatar}
+            name={organisation.name}
+          >
+            <Position position={organisation.position} />
+          </Card>
         ))}
       </Box>
     </Box>

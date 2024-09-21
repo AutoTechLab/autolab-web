@@ -1,5 +1,5 @@
+'use client';
 import React, { FC } from 'react';
-import { ArrowTopRightOnSquareIcon } from '@heroicons/react/24/outline';
 import { Button, ButtonProps, Typography } from '@mui/material';
 import { SxProps, Theme } from '@mui/material/styles';
 

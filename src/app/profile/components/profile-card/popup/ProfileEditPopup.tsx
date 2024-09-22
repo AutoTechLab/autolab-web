@@ -32,7 +32,7 @@ const ProfileEditPopup: FC = () => {
   const [activeSection, setActiveSection] =
     useState<EditTabName>('personalData');
   const { user } = useAuthContext();
-  const [avatar, setAvatar] = useState<string>(user!.avatar);
+  const [avatar, setAvatar] = useState<string>(user?.avatar || '');
   const fileInputRef = useRef<HTMLInputElement>(null);
   const toast = useToast();
 

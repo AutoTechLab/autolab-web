@@ -9,7 +9,7 @@ export const modal: SxProps<Theme> = {
 };
 
 export const window: SxProps<Theme> = {
-  zIndex: 11,
+  zIndex: 10,
   width: '500px',
   backgroundColor: 'white.main',
   px: '40px',

@@ -10,7 +10,7 @@ export const wrapper: SxProps<Theme> = {
     desktop: 'flex-start',
     mobile: 'center',
   },
-  zIndex: 11,
+  zIndex: 10,
 
   padding: {
     desktop: '38px 100px',

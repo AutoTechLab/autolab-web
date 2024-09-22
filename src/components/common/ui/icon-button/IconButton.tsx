@@ -18,6 +18,7 @@ interface IconButtonProps extends IconButtonPropsMUI {
   children?: ReactNode;
   size?: IconButtonSize;
   variant?: IconButtonVariant;
+  onClick?: () => void;
   sx?: SxProps<Theme>;
 }
 
@@ -25,12 +26,14 @@ const IconButton: FC<IconButtonProps> = ({
   children = <PlusIcon />,
   size = 'medium',
   variant = 'contained',
+  onClick = () => {},
   sx = {},
   ...props
 }) => {
   return (
     <IconButtonMUI
       disableRipple
+      onClick={onClick}
       sx={mergeSx(styles.button(size, variant), sx)}
       {...props}
     >

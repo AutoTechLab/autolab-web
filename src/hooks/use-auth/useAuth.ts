@@ -10,6 +10,8 @@ const useAuth = () => {
     mutate,
   } = useSWR('authorization', () => UserAPI.getUser(), {
     revalidateOnFocus: false,
+    refreshInterval: 0,
+    revalidateOnReconnect: false,
   });
 
   return {

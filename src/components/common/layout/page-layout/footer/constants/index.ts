@@ -8,8 +8,8 @@ export const links: Links = {
       href: '/',
     },
     {
-      title: 'Організація',
-      href: '/organization',
+      title: 'Організації',
+      href: '/organizations',
     },
     {
       title: 'Ціни',

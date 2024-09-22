@@ -27,7 +27,11 @@ const Button: FC<ButtonProps> = ({
   ...rest
 }) => {
   return (
-    <ButtonMUI sx={mergeSx(styles.button(variant, size, color), sx)} {...rest}>
+    <ButtonMUI
+      sx={mergeSx(styles.button(variant, size, color), sx)}
+      disableRipple
+      {...rest}
+    >
       {icon === 'left' && iconComponent}
       {children}
       {icon === 'right' && iconComponent}

@@ -14,7 +14,6 @@ import SideSection from '@/components/pages/auth-pages/components/side-section';
 import useToast from '@/hooks/use-toast';
 import AuthAPI from '@/lib/api/auth/AuthAPI';
 import { exceptionMapper } from '@/lib/utils/exception-mapper';
-import storageUtil from '@/lib/utils/storageUtil';
 
 import { initialValues } from './constants/initialValues';
 import * as styles from './LoginPage.styles';
@@ -26,8 +25,7 @@ const LoginPage: FC = () => {
     initialValues,
     onSubmit: async (values) => {
       try {
-        const { accessToken } = await AuthAPI.login(values);
-        storageUtil.setToken(accessToken);
+        await AuthAPI.login(values);
         router.replace('/profile?tab=organisations');
         return;
       } catch (e) {

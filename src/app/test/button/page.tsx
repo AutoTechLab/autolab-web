@@ -114,6 +114,12 @@ const ButtonPage = () => {
           <Button size="small" variant="outlined" color="primary">
             Button
           </Button>
+          <Button size="small" variant="text">
+            Button
+          </Button>{' '}
+          <Button disabled size="small" variant="text">
+            Button
+          </Button>
         </Box>
       </Box>
     </Box>

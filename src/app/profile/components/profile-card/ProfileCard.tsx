@@ -27,7 +27,7 @@ export const ProfileCardContext = createContext<ProfileCardContextProps | null>(
 );
 
 const ProfileCard: FC = () => {
-  const { user, isLoading } = useAuthContext();
+  const { user, isLoading, isError } = useAuthContext();
   const birthday = getDate(user?.birthDate as string);
   const years = getYears(user?.birthDate as string);
   const [open, setOpen] = useState(false);
@@ -38,7 +38,7 @@ const ProfileCard: FC = () => {
 
   return (
     <Box sx={styles.wrapper}>
-      {isLoading ? (
+      {isError || (!user && isLoading) ? (
         <ProfileCardSkeleton />
       ) : (
         <ProfileCardContext.Provider value={{ open, handleClick }}>

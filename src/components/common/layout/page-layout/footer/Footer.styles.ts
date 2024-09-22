@@ -10,14 +10,11 @@ export const wrapper: SxProps<Theme> = {
     desktop: 'flex-start',
     mobile: 'center',
   },
-  justifyContent: {
-    desktop: 'space-between',
-    mobile: 'center',
-  },
-  zIndex: 11,
+  zIndex: 10,
 
   padding: {
-    mobileMedium: '38px 100px',
+    desktop: '38px 100px',
+    mobileMedium: '38px 50px',
     mobile: '16px',
   },
   height: 'auto',
@@ -41,7 +38,13 @@ export const text: SxProps<Theme> = {
 };
 
 export const columns: SxProps<Theme> = {
+  width: '100%',
   display: 'flex',
+  justifyContent: {
+    desktop: 'flex-end',
+    mobileMedium: 'center',
+    mobile: 'space-between',
+  },
   gap: {
     desktop: '80px',
     mobileMedium: '40px',

@@ -1,7 +1,12 @@
 import { SxProps, Theme } from '@mui/material/styles';
 
 export const wrapper: SxProps<Theme> = {
-  p: '0px 100px',
+  py: 0,
+  px: {
+    mobile: '16px',
+    tablet: '32px',
+    desktop: '100px',
+  },
   width: '100%',
   height: '64px',
   boxShadow: 'rgba(0, 0, 0, 0.24) 0px 3px 8px',

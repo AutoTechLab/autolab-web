@@ -2,7 +2,6 @@ import { ChangePasswordBody } from '@/lib/api/auth/types/ChangePasswordBody';
 import { LoginBody } from '@/lib/api/auth/types/LoginBody';
 import { RegisterBody } from '@/lib/api/auth/types/RegisterBody';
 import { Token } from '@/lib/api/auth/types/Token';
-import { getAuthorizationHeader } from '@/lib/api/getAuthorizationHeader';
 import { instance } from '@/lib/api/instance';
 
 class AuthAPI {
@@ -12,8 +11,7 @@ class AuthAPI {
   }
 
   async login(body: LoginBody) {
-    const { data } = await instance.post<Token>('/auth/login', body);
-    return data;
+    await instance.post('/auth/login', body);
   }
 
   async approveEmail(token: string) {
@@ -38,11 +36,7 @@ class AuthAPI {
   }
 
   async changePassword(values: ChangePasswordBody) {
-    await instance.patch(
-      '/auth/change/password',
-      values,
-      getAuthorizationHeader(),
-    );
+    await instance.patch('/auth/change/password', values);
   }
 }
 

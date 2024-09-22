@@ -4,8 +4,8 @@ export const menuItems = [
     url: '/',
   },
   {
-    title: 'Організація',
-    url: '/organisation',
+    title: 'Організації',
+    url: '/organisations',
   },
   {
     title: 'Ціни',

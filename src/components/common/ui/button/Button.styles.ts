@@ -73,6 +73,27 @@ const outlinedWhiteColors: SxProps<Theme> = {
   },
 };
 
+const textColors: SxProps<Theme> = {
+  backgroundColor: 'transparent',
+  borderColor: 'transparent',
+  color: 'black.main',
+  '&:hover': {
+    backgroundColor: 'rgba(255, 84, 30, 0.15);',
+    borderColor: 'transparent',
+  },
+  '&:active': {
+    backgroundColor: 'rgba(255, 84, 30, 0.35)',
+    color: 'orange.100',
+  },
+  '&:focus': {
+    backgroundColor: 'rgba(255, 84, 30, 0.15)',
+    borderColor: 'orange.300',
+  },
+  '&.Mui-disabled': {
+    color: 'gray.500',
+  },
+};
+
 export const button = (
   variant: ButtonVariant,
   size: ButtonSize,
@@ -85,23 +106,25 @@ export const button = (
   borderRadius: '6px',
   textTransform: 'none',
   display: 'flex',
+
+  ...(size === 'small' && {
+    typography: 'body1Bold',
+    p: '10px 20px',
+    gap: '8px',
+  }),
+  ...(size === 'medium' && {
+    p: '12px 28px',
+    typography: 'h6Bold',
+    gap: '12px',
+  }),
+  ...(size === 'large' && {
+    p: '16px 32px',
+    gap: '12px',
+    typography: 'h6Bold',
+  }),
+
   ...(variant === 'contained' && {
     ...containedColors,
-    ...(size === 'small' && {
-      typography: 'body1Bold',
-      p: '10px 20px',
-      gap: '8px',
-    }),
-    ...(size === 'medium' && {
-      p: '12px 28px',
-      typography: 'h6Bold',
-      gap: '12px',
-    }),
-    ...(size === 'large' && {
-      p: '16px 32px',
-      gap: '12px',
-      typography: 'h6Bold',
-    }),
   }),
   ...(variant === 'outlined' && {
     ...(color === 'primary' && {
@@ -110,20 +133,11 @@ export const button = (
     ...(color === 'secondary' && {
       ...outlinedWhiteColors,
     }),
-    ...(size === 'small' && {
-      typography: 'body1Bold',
-      p: '10px 20px',
-      gap: '8px',
-    }),
-    ...(size === 'medium' && {
-      p: '12px 28px',
-      typography: 'h6Bold',
-      gap: '12px',
-    }),
-    ...(size === 'large' && {
-      p: '16px 32px',
-      gap: '12px',
-      typography: 'h6Bold',
-    }),
+  }),
+  ...(variant === 'text' && {
+    p: '10px 24px',
+    border: '1px solid',
+    typography: 'body1Medium',
+    ...textColors,
   }),
 });

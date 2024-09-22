@@ -7,7 +7,7 @@ import ProfileHeader from '@/app/profile/components/profile-header';
 import Tabs from './components/tabs';
 import * as styles from './ProfilePage.styles';
 
-const Profile = () => {
+const Profile = async () => {
   return (
     <Box sx={styles.wrapper}>
       <ProfileHeader />
